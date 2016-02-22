@@ -1,0 +1,307 @@
+//
+//  AppDelegate.m
+//  ChooseDay
+//
+//  Created by Rockeen on 16/1/16.
+//  Copyright © 2016年 DreamThreeMusketeers. All rights reserved.
+//
+
+#import "AppDelegate.h"
+#import "CalaViewController.h"
+#import "ConstellationViewController.h"
+#import "WeatherViewController.h"
+#import "MyViewController.h"
+#import "ZXYTabBarController.h"
+#import "ThreeNavigationController.h"
+#import "UIImage+RTTint.h"
+#import <TencentOpenAPI/TencentOAuth.h>
+#import "UMSocial.h"
+#import "UMSocialQQHandler.h"
+#import "UMSocialWechatHandler.h"
+
+@interface AppDelegate ()
+{
+
+    NSInteger _btnIndex;//记录点击的是哪个登录按钮
+    
+    //定位管理者
+    CLLocationManager *_locManager;
+    
+    
+    WeatherViewController *weatherVc;
+
+
+}
+@end
+
+@implementation AppDelegate
+
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Override point for customization after application launch.
+    
+    //设置窗口
+    self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    [self.window makeKeyAndVisible];
+    self.window.backgroundColor=[UIColor whiteColor];
+    
+    
+    ZXYTabBarController *tabBar=[[ZXYTabBarController alloc]init];
+    tabBar.selectLabColor=kMainColor;
+    tabBar.nomalLabColor=nomalColor;
+    
+    
+    //创建子视图控制器
+    
+    //日历视图控制器
+    CalaViewController *calendarVc=[[CalaViewController alloc]init];
+    ThreeNavigationController *calendarNc=[[ThreeNavigationController alloc]initWithRootViewController:calendarVc];
+    
+    
+    
+    calendarVc.tabBarItem.image=[[UIImage imageNamed:@"calendar"]
+                                 rt_tintedImageWithColor:nomalColor level:1];
+    calendarVc.tabBarItem.selectedImage=[[UIImage imageNamed:@"calendar"]
+                                         rt_tintedImageWithColor:kMainColor level:1];
+    calendarVc.title=@"日历";
+    
+    
+    //星座视图控制器
+    ConstellationViewController *constellationVc=[[ConstellationViewController alloc]init];
+    ThreeNavigationController *constellationNc=[[ThreeNavigationController alloc]initWithRootViewController:constellationVc];
+    
+    constellationVc.tabBarItem.image=[[UIImage imageNamed:@"luck"]
+                                      rt_tintedImageWithColor:nomalColor level:1];
+    constellationVc.tabBarItem.selectedImage=[[UIImage imageNamed:@"luck"]
+                                             rt_tintedImageWithColor:kMainColor level:1];
+    constellationVc.title=@"星座";
+    
+    
+    //天气视图控制器
+    weatherVc=[[WeatherViewController alloc]init];
+    ThreeNavigationController *weatherNc=[[ThreeNavigationController alloc]initWithRootViewController:weatherVc];
+    
+    weatherVc.tabBarItem.image=[[UIImage imageNamed:@"weather"]
+                                rt_tintedImageWithColor:nomalColor level:1];
+    weatherVc.tabBarItem.selectedImage=[[UIImage imageNamed:@"weather"]
+                                        rt_tintedImageWithColor:kMainColor level:1];
+    weatherVc.title=@"天气";
+    
+    
+    //我的视图控制器
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MyViewController" bundle:nil];
+    
+    MyViewController *myVc = [storyBoard instantiateInitialViewController];
+    
+//    MyViewController *myVc=[[MyViewController alloc]init];
+    ThreeNavigationController *myNc=[[ThreeNavigationController alloc]initWithRootViewController:myVc];
+    
+    myVc.tabBarItem.image=[[UIImage imageNamed:@"my"]
+                           rt_tintedImageWithColor:nomalColor level:1];
+    myVc.tabBarItem.selectedImage=[[UIImage imageNamed:@"my"]
+                                   rt_tintedImageWithColor:kMainColor level:1];
+    myVc.title=@"我的";
+    
+    //tabbar的主控制器
+    tabBar.viewControllers=@[calendarNc,constellationNc,weatherNc,myNc];
+    
+    self.window.rootViewController=tabBar;
+    
+    //接收通知
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(oauthFunc) name:@"weibologin" object:nil];
+    
+    //分享功能
+    [UMSocialData setAppKey:kUMAppkey];
+    
+    //打开调试log的开关
+    [UMSocialData openLog:YES];
+    
+    //    //设置分享到QQ空间的应用Id，和分享url 链接
+    [UMSocialQQHandler setQQWithAppId:kAppID appKey:kAPPKEY url:@"http://www.umeng.com/social"];
+    //    //设置支持没有客户端情况下使用SSO授权
+    [UMSocialQQHandler setSupportWebView:YES];
+    
+    //设置微信AppId，设置分享url，默认使用友盟的网址
+    [UMSocialWechatHandler setWXAppId:kWXAppID appSecret:kWXAppSecret url:@"http://www.umeng.com/social"];
+    
+    //初始化_locManager
+    [self initLocManager];
+
+    
+    return YES;
+}
+
+//第三方应用授权
+-(void)oauthFunc{
+
+    //设置开启调试模式
+    [WeiboSDK enableDebugMode:YES];
+    
+    //注册appKey
+    [WeiboSDK registerApp:kAppKey];
+    
+    if (!kAccessToken) {
+    
+        //初始化请求
+        WBAuthorizeRequest *request = [WBAuthorizeRequest request];
+        
+        //设置权限
+        request.scope = @"all";
+        
+        //设置授权回调页
+        request.redirectURI = kAppRedirectURL;
+        
+        //发送请求
+        [WeiboSDK sendRequest:request];
+        
+    }
+
+}
+
+//移除通知
+-(void)dealloc{
+
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+
+}
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    NSLog(@"url is%@",url);
+    
+    return [WeiboSDK handleOpenURL:url delegate:self] || [UMSocialSnsService handleOpenURL:url wxApiDelegate:nil];
+        
+}
+
+-(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{
+
+    return [WeiboSDK handleOpenURL:url delegate:self];
+
+}
+
+-(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+
+    NSLog(@"url is%@",url);
+
+    return [TencentOAuth HandleOpenURL:url];
+
+}
+
+//接收微博响应的信息
+-(void)didReceiveWeiboResponse:(WBBaseResponse *)response{
+    
+    //获取token
+    NSString *access_token = [(WBAuthorizeResponse *)response accessToken];
+    
+    //将token持久化保存
+    [[NSUserDefaults standardUserDefaults] setObject:access_token forKey:@"access_token"];
+    
+    //将用户id持久化保存
+    [[NSUserDefaults standardUserDefaults] setObject:[(WBAuthorizeResponse *)response userID] forKey:@"kUserID"];
+    
+    //将刷新口令持久化保存
+    [[NSUserDefaults standardUserDefaults] setObject:[(WBAuthorizeResponse *)response refreshToken] forKey:@"kRefreshToken"];
+    
+    //设置为nil----相当于重新请求了url
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"kOpenID"];
+
+    //发出更新通知
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"updateWeiboData" object:nil];
+    
+}
+
+//初始化_locManager
+- (void)initLocManager{
+    
+    //初始化_locManager对象
+    _locManager = [[CLLocationManager alloc]init];
+    
+    //设置代理
+    _locManager.delegate = self;
+    
+    //1.判断当前系统定位服务是否开启
+    if (![CLLocationManager locationServicesEnabled]) {
+        NSLog(@"系统定位服务未开启");
+        return;
+    }
+    
+    //2.判断当前应用是否获取定位授权
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
+        //更改授权状态
+        [_locManager requestWhenInUseAuthorization];
+        
+    }
+    else if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied){
+        NSLog(@"禁止修改授权状态");
+        
+    }
+    
+    //4.设置管理者属性
+    
+    //设置定位精度
+    /*
+     extern const CLLocationAccuracy kCLLocationAccuracyBestForNavigation //导航时最精确位置__OSX_AVAILABLE_STARTING(__MAC_10_7,__IPHONE_4_0);
+     extern const CLLocationAccuracy kCLLocationAccuracyBest; //最精确位置
+     extern const CLLocationAccuracy kCLLocationAccuracyNearestTenMeters; //精确到十米范围
+     extern const CLLocationAccuracy kCLLocationAccuracyHundredMeters;
+     extern const CLLocationAccuracy kCLLocationAccuracyKilometer;
+     extern const CLLocationAccuracy kCLLocationAccuracyThreeKilometers;
+     */
+    _locManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+    
+    //设置定位刷新距离 当移动距离大于100米时将重新定位
+    _locManager.distanceFilter = 100;
+    
+    //开启区域追踪
+    //初始化中心坐标 确定经纬度 纬度：北-正，南-负 经度：东-正，西-负
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(37, 112);
+    
+    //初始化区域范围
+    CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:coordinate radius:1000 identifier:@"hehe"];
+    [_locManager startMonitoringForRegion:region];
+    
+    //开启定位
+    [_locManager startUpdatingLocation];
+    
+}
+
+//当用户定位信息发生改变时调用
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    //    NSLog(@"count is:%ld",locations.count);
+    
+    //1.从数组中获取到CLLocation对象 （数组中可能会存在多个对象，取出第一个最精确的对象）
+    CLLocation *loc = locations[0];
+    
+    //取出经纬度
+    CLLocationCoordinate2D coordinate = loc.coordinate;
+    
+    //    NSLog(@"精度：%f,纬度：%f",coordinate.longitude,coordinate.latitude);
+    
+    weatherVc.coordinate = coordinate;
+    
+}
+
+
+- (void)applicationWillResignActive:(UIApplication *)application {
+    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+@end
