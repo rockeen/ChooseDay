@@ -63,6 +63,13 @@ static NSString *footer = @"footer";
     
 }
 
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [_collectionView reloadData];
+}
+
 //接收_textFieldText值改变的通知
 - (void)receiveTextValueChange{
     
@@ -253,7 +260,7 @@ static NSString *footer = @"footer";
         
         _block(name);
         
-        [self.navigationController popViewControllerAnimated:YES];
+        [self.navigationController popViewControllerAnimated:NO];
     }
 
     

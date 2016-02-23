@@ -98,10 +98,53 @@
     [self createOutCollectV];
     
     
-    
+    //接收删除通知
+    [self reciveDeleteNot];
     
     
 }
+//接收删除通知
+- (void)reciveDeleteNot{
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(deleteAct:) name:@"deleteNoti" object:nil];
+}
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+
+
+//响应通知的方法
+- (void)deleteAct:(NSNotification *)noti{
+    
+    //取出定位城市
+    OutModel *outModel = _dataList[0];
+    
+    //删除所有历史城市
+    [_dataList removeAllObjects];
+    //添加定位的城市
+    [_dataList addObject:outModel];
+    
+    //添加新的历史城市
+    [self loadHistoryWeather];
+    
+    
+    
+    
+    [_outCollectionView reloadData];
+    
+    NSArray *arr = kHistoryData;
+    if (arr.count == 0) {
+        _pageC.numberOfPages = 1;
+    }
+    
+    
+    _pageC.currentPage = 0;
+
+
+    
+    
+}
+
+
 
 
 //反地理编码
@@ -346,7 +389,7 @@
     GUNMMCityMangerVc *cityManger = [[GUNMMCityMangerVc alloc]init];
     
     
-    
+    cityManger.city = _cityVc;
     cityManger.hidesBottomBarWhenPushed = YES;
     
     [self.navigationController pushViewController:cityManger animated:NO];
@@ -355,44 +398,14 @@
     [_cityVc getBlock:^(NSString *cityName) {
         
         
+        //清空用来标记历史城市的数组
+        [_cityName removeAllObjects];
         
-        if (_cityName.count == 0) {
-            
-            NSArray *arr = kHistoryData;
-            
-            [_cityName insertObjects:kHistoryData atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, arr.count)]];
-        }
         
-        //下面这些代码的功能  后来用 GUNMMCityVC 里的 点击方法实现了
-        //用来标记是否在原数组中查找到这个名字  如果查找到 则 不将这个名字写入_cityName 不更新数据loadCurrentDay
-        //        int a = 1;
-        //
-        //        for (NSString *str in _cityName) {
-        //            if ([str isEqualToString:cityName]) {
-        //                //如果查到
-        //                a = 0;
-        //
-        //                break;
-        //            }
-        //        }
-        //
-        //        if (a) {
-        //如果没查到
-        //            _city = cityName;
-        //
-        //
-        //            NSLog(@"是新的");
-        //            [_cityName addObject:_city];
-        //
-        //
-        //
-        //            [self loadCurrentDay];
-        //
-        //
-        //            //持久化保存
-        //            [[NSUserDefaults standardUserDefaults] setObject:_cityName forKey:@"historyData"];
-        //
-        //        }
+        NSArray *arr = kHistoryData;
+        
+        [_cityName insertObjects:kHistoryData atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, arr.count)]];
+        
         
         
         _city = cityName;
@@ -411,7 +424,6 @@
     }];
     
 }
-
 
 
 - (void)didReceiveMemoryWarning {

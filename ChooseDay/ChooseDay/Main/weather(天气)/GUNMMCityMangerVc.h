@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GUNMMCityVC.h"
 
 @interface GUNMMCityMangerVc : UIViewController
+
+
+@property(nonatomic,retain)GUNMMCityVC *city;
 
 @end

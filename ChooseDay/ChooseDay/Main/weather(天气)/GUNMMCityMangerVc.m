@@ -7,8 +7,15 @@
 //
 
 #import "GUNMMCityMangerVc.h"
+#import "GUNMMNavCityVC.h"
 
-@interface GUNMMCityMangerVc ()
+@interface GUNMMCityMangerVc ()<UITableViewDataSource,UITableViewDelegate>
+{
+    NSArray *_dataList;
+    
+    
+    UITableView *nowCityTableView;
+}
 
 @end
 
@@ -18,8 +25,105 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.view.backgroundColor = [UIColor redColor];
+    
+    self.title = @"城市";
+    
+    
+    //添加现有城市的表视图
+    [self addNowCityTableView];
+    
 }
+
+
+- (void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
+    [nowCityTableView reloadData];
+    
+}
+
+
+//添加现有城市的表视图
+- (void)addNowCityTableView{
+    
+    //1.创建表视图
+    nowCityTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH - 64) style:UITableViewStylePlain];
+    
+    //2.设置数据源和代理
+    nowCityTableView.delegate = self;
+    nowCityTableView.dataSource = self;
+    
+    //3.添加到view
+    [self.view addSubview:nowCityTableView];
+    
+    
+    //添加尾视图
+    nowCityTableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenW, 80)];
+    
+    //添加城市按钮入口
+    UIButton *addCityBtn = [[UIButton alloc]initWithFrame:CGRectMake(4, 4, kScreenW/2-4, 80)];
+    
+    [addCityBtn setBackgroundImage:[UIImage imageNamed:@"add_des_more.png"] forState:UIControlStateNormal];
+    
+    
+    [addCityBtn addTarget:self action:@selector(addAct) forControlEvents:UIControlEventTouchUpInside];
+    
+    [nowCityTableView.tableFooterView addSubview:addCityBtn];
+}
+
+//添加城市的按钮点击事件
+- (void)addAct{
+    
+    [self.navigationController pushViewController:_city animated:YES];
+}
+
+
+#pragma mark----UITableView
+
+//返回单元格数
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    _dataList = kHistoryData;
+    
+    return _dataList.count;
+}
+
+//返回单元格
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //1.静态标示符
+    static NSString *identifier = @"cell";
+    
+    //2.查看复用池
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    
+    //3.判断复用池中是否有单元格
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    
+    
+    cell.textLabel.text = _dataList[indexPath.row];
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    
+    
+    return cell;
+}
+
+
+//单元格点击事件
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    GUNMMNavCityVC *deleVC = [[GUNMMNavCityVC alloc]init];
+    
+    deleVC.cName = _dataList[indexPath.row];
+    
+    [self.navigationController pushViewController:deleVC animated:YES];
+    
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
