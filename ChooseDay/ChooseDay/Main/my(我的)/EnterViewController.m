@@ -11,6 +11,10 @@
 #import "AppDelegate.h"
 #import "MyViewController.h"
 #import "UIImageView+WebCache.h"
+#import "MBProgressHUD.h"
+#import "MBProgressHUD+Add.h"
+
+#import <MaxLeap/MaxLeap.h>
 
 #import <TencentOpenAPI/TencentOAuth.h>
 
@@ -20,10 +24,14 @@
 
     UITextField *pwdText;
     
+    UITextField *nameText;
+
+    
     //腾讯
     TencentOAuth *_tencentOAuth;
     
     MyViewController *_myVC;
+    
 
 }
 @end
@@ -35,6 +43,9 @@
     // Do any additional setup after loading the view.
 
     self.title = @"登录";
+    
+    
+    self.view.backgroundColor=[UIColor whiteColor];
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
@@ -113,7 +124,7 @@
 -(void)createTextFiled{
 
     //用户名
-    UITextField *nameText = [[UITextField alloc]initWithFrame:CGRectMake(30, 30, kScreenW-60, 30)];
+    nameText = [[UITextField alloc]initWithFrame:CGRectMake(30, 30, kScreenW-60, 30)];
     
     nameText.placeholder = @"请输入ChooseDay账户用户名";
     
@@ -251,13 +262,61 @@
 -(void)btnAct:(UIButton *)btn{
 
 
+    NSString *username =nameText.text;
+    NSString *password =pwdText.text;
+    if (username.length == 0) {
+        [nameText becomeFirstResponder];
+        [MBProgressHUD showError:@"请输入用户名" toView:self.view];
+        return;
+    }
+    if (password.length == 0) {
+        [pwdText becomeFirstResponder];
+        [MBProgressHUD showError:@"请输入密码" toView:self.view];
+        return;
+    }
+    
+    [MLUser logInWithUsernameInBackground:username password:password block:^(MLUser *user, NSError *error) {
+        if (user) {
+//            NSLog(@"user: %@, isNew: %d", user, user.isNew);
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"MLUserDidLoginNotification" object:self];
+            
+            
+            NSDictionary *loginDic=@{@"username":nameText.text,@"password":pwdText.text};
+    
+            //登陆成功用户名缓存
+            _userDefault = [NSUserDefaults standardUserDefaults];
+
+            [_userDefault setObject:nameText.text forKey:kUserName];
+
+            
+            
+            
+            
+            //跳转回
+             [self.navigationController popViewControllerAnimated:YES];
+            
+        } else {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Login Failed" message:[NSString stringWithFormat:@"Code: %ld\n%@", (long)error.code, error.localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alertView show];
+        }
+    }];
+
+    
+    
+    
+    
+
+    
+    
+    
+    
 
 }
 
 //获取个人信息
 -(void)getUserInfoResponse:(APIResponse *)response{
     
-    NSLog(@"11111111%@",response.jsonResponse);
+//    NSLog(@"11111111%@",response.jsonResponse);
     
 //    _block(response.jsonResponse);
 
@@ -278,6 +337,8 @@
     //持久化expirationDate
     [[NSUserDefaults standardUserDefaults] setObject:[_tencentOAuth expirationDate] forKey:@"kExpirationDate"];
     
+    
+    
 }
 
 
@@ -286,7 +347,7 @@
  */
 - (void)tencentDidLogin{
 
-    NSLog(@"tencentLogin success!");
+//    NSLog(@"tencentLogin success!");
     
     [_tencentOAuth getUserInfo];
     

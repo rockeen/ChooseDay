@@ -12,6 +12,8 @@
 #import <TencentOpenAPI/TencentOAuth.h>
 #import "EnterViewController.h"
 #import "UMSocial.h"
+#import <MaxLeap/MaxLeap.h>
+
 
 @interface InstallViewController ()<UITableViewDataSource,UITableViewDelegate,UMSocialUIDelegate>
 {
@@ -212,10 +214,26 @@
 
 }
 
+
+
+// 判断是否登录状态
+- (BOOL)isLoggedIn {
+    return [MLUser currentUser] &&  ! [MLAnonymousUtils isLinkedWithUser:[MLUser currentUser]];
+}
+
+- (MLUser *)currentUser {
+    if ([self isLoggedIn]) {
+        return [MLUser currentUser];
+    } else {
+        return nil;
+    }
+}
+
+
 -(void)ExitBtnAct:(UIButton *)btn{
 
     //判断是否有账号登录
-    if (kQQOpenID || kAccessToken) {
+    if (kQQOpenID || kAccessToken||[self isLoggedIn]) {
         
         //创建提示框
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"已成功退出登录" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
@@ -228,6 +246,12 @@
         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"kOpenID"];
         
         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"access_token"];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kUserName];
+
+        //退出自有账号账号的登陆
+        [MLUser logOut];
+        
         
         //发送通知，退出登录
         [[NSNotificationCenter defaultCenter]postNotificationName:@"exitLogin" object:nil];

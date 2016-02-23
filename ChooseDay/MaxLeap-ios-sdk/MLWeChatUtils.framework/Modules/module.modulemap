@@ -1,0 +1,6 @@
+framework module MLWeChatUtils {
+  umbrella header "MLWeChatUtils.h"
+
+  export *
+  module * { export * }
+}

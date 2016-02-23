@@ -18,6 +18,8 @@
 #import "UMSocial.h"
 #import "UMSocialQQHandler.h"
 #import "UMSocialWechatHandler.h"
+#import <MaxLeap/MaxLeap.h>
+
 
 @interface AppDelegate ()
 {
@@ -126,6 +128,35 @@
     
     //初始化_locManager
     [self initLocManager];
+    
+    
+    
+    
+    
+    //链接服务器
+    [MaxLeap setApplicationId:@"56ca625760b2b393412e7d29" clientKey:@"YkNIQUVPM3JMTUdLT2wzaUdPVzJ3Zw" site:MLSiteCN];
+    
+//    [MaxLeap setApplicationId:@"your_application_id" clientKey:@"your_client_key" site:MLSiteCN];
+    
+    MLObject *obj = [MLObject objectWithoutDataWithClassName:@"Test" objectId:@"561c83c0226"];
+    [obj fetchIfNeededInBackgroundWithBlock:^(MLObject * _Nullable object, NSError * _Nullable error) {
+        if (error.code == kMLErrorInvalidObjectId) {
+            NSLog(@"已经能够正确连接上您的云端应用");
+        } else {
+            NSLog(@"应用访问凭证不正确，请检查。");
+        }
+    }];
+    
+    
+    return YES;
+
+    
+    
+    
+    
+    
+    
+    
 
     
     return YES;

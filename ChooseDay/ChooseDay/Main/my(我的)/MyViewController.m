@@ -16,6 +16,8 @@
 #import "UIImageView+WebCache.h"
 #import "InfoViewController.h"
 #import "ZXYGtasksViewController.h"
+#import <MaxLeap/MaxLeap.h>
+
 
 
 @interface MyViewController ()
@@ -53,7 +55,47 @@
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateQQData) name:@"exitLogin" object:nil];
     
+    
+//    [self loginfor];
+    
 }
+
+
+//接收登陆回调
+- (void)loginfor{
+
+    
+
+    if ([self isLoggedIn]) {
+        
+        self.userName.text=[[NSUserDefaults standardUserDefaults]objectForKey:kUserName];
+        
+//        NSLog(@"%@",self.userName.text);
+
+    }else {
+        
+        self.userName.text = @"登录";
+        
+        self.userImg.image = [UIImage imageNamed:@"myImage"];
+        
+    }
+
+
+}
+
+
+//- (void)viewWillAppear:(BOOL)animated{
+//
+//
+//
+//    [self loginfor];
+//
+//
+//
+//
+//
+//}
+//
 
 //更新数据
 -(void)updateQQData{
@@ -162,6 +204,20 @@
 
 }
 
+
+
+// 判断是否登录状态
+- (BOOL)isLoggedIn {
+    return [MLUser currentUser] &&  ! [MLAnonymousUtils isLinkedWithUser:[MLUser currentUser]];
+}
+
+- (MLUser *)currentUser {
+    if ([self isLoggedIn]) {
+        return [MLUser currentUser];
+    } else {
+        return nil;
+    }
+}
 //cell的点击方法
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
@@ -172,8 +228,10 @@
     //根据cell不同的tag值推出显示不同的页面
     if (cell.tag == 100) {
         
+        
+        
         //判断是否授权
-        if (kQQOpenID || kAccessToken) {
+        if (kQQOpenID || kAccessToken ||[self isLoggedIn]) {
             
             //个人信息页面
             InfoViewController *infoVC = [[InfoViewController alloc]init];
@@ -248,7 +306,7 @@
     
 //    NSLog(@"------to--is %@",kAccessToken);
     
-    if (kQQOpenID || kAccessToken) {
+    if (kQQOpenID || kAccessToken|| [self isLoggedIn]) {
         
         [rightBtn setTitle:@"切换账号" forState:UIControlStateNormal];
         
@@ -292,6 +350,8 @@
     [self updateQQData];
     
     [self updateData];
+    
+    [self  loginfor];
 
     //添加切换账号
     [self createNavigationBarItem];
@@ -302,6 +362,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+
+
 
 /*
 #pragma mark - Navigation

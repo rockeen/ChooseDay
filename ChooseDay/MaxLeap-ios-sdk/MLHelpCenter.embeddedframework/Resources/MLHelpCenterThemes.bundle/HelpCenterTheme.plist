@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Image bundle name</key>
+	<string>MLHelpCenterImages.bundle</string>
+	<key>Navigation Bar</key>
+	<dict>
+		<key>Title font name</key>
+		<string>HelveticaNeue</string>
+		<key>Title font size</key>
+		<string>16</string>
+		<key>Title color</key>
+		<string>FFFFFF</string>
+		<key>Title shadow color (iOS 6)</key>
+		<string></string>
+		<key>Title shadow offset (iOS 6)</key>
+		<string></string>
+		<key>Background color</key>
+		<string>64A7EB</string>
+		<key>Background image (iOS 6)</key>
+		<string></string>
+		<key>Background image landscape (iOS 6)</key>
+		<string></string>
+		<key>Bar shadow image name (iOS 6)</key>
+		<string></string>
+		<key>Bar button font name</key>
+		<string>HelveticaNeue-Light</string>
+		<key>Bar button font size</key>
+		<string>14</string>
+		<key>Bar button text color</key>
+		<string>FFFFFF</string>
+		<key>Contact us button image</key>
+		<string></string>
+		<key>Contact us button image highlighted</key>
+		<string></string>
+	</dict>
+	<key>FAQ section list view</key>
+	<dict>
+		<key>Title image</key>
+		<string></string>
+	</dict>
+	<key>FAQ item list view</key>
+	<dict>
+		<key>Title image</key>
+		<string></string>
+	</dict>
+	<key>FAQ item content view</key>
+	<dict>
+		<key>Title image</key>
+		<string></string>
+	</dict>
+	<key>New conversation view</key>
+	<dict>
+		<key>Title image</key>
+		<string></string>
+	</dict>
+	<key>Conversation view</key>
+	<dict>
+		<key>Title image</key>
+		<string></string>
+		<key>Message text font name</key>
+		<string>HelveticaNeue</string>
+		<key>Message text font size</key>
+		<string>12</string>
+		<key>Message text color left</key>
+		<string>4A4A4A</string>
+		<key>Message text color right</key>
+		<string>FFFFFF</string>
+		<key>Date text font name</key>
+		<string>HelveticaNeue-Thin</string>
+		<key>Date text font size</key>
+		<string>9</string>
+		<key>Date text color</key>
+		<string>979797</string>
+	</dict>
+</dict>
+</plist>

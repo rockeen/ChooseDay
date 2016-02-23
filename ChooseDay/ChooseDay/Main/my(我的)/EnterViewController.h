@@ -15,6 +15,10 @@
 //@property (nonatomic,copy)MyBlock block;
 
 
+
+@property (nonatomic, strong) NSUserDefaults *userDefault;
+
+
 //复写init方法
 //-(instancetype)initWithBlock:(MyBlock)block;
 

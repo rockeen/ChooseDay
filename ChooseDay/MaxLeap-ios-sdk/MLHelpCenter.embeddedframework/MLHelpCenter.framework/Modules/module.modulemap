@@ -1,0 +1,6 @@
+framework module MLHelpCenter {
+  umbrella header "MLHelpCenter.h"
+
+  export *
+  module * { export * }
+}

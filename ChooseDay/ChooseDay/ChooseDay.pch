@@ -26,6 +26,9 @@
 #define kHistoryData [[NSUserDefaults standardUserDefaults] valueForKey:@"historyData"]
 
 
+#define kUserName @"username"
+
+
 //友盟
 #define kUMAppkey @"569d0ff2e0f55a6d6c0006b7"
 

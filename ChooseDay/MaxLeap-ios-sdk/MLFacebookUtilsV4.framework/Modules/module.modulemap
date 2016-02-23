@@ -1,0 +1,6 @@
+framework module MLFacebookUtilsV4 {
+    umbrella header "MLFacebookUtils.h"
+    
+    export *
+    module * { export * }
+}
