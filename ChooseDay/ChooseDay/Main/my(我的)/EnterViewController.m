@@ -281,20 +281,17 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:@"MLUserDidLoginNotification" object:self];
             
             
-            NSDictionary *loginDic=@{@"username":nameText.text,@"password":pwdText.text};
+//            NSDictionary *loginDic=@{@"username":nameText.text,@"password":pwdText.text};
     
             //登陆成功用户名缓存
             _userDefault = [NSUserDefaults standardUserDefaults];
 
             [_userDefault setObject:nameText.text forKey:kUserName];
 
-            
-            
-            
-            
+    
             //跳转回
              [self.navigationController popViewControllerAnimated:YES];
-            
+       
         } else {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Login Failed" message:[NSString stringWithFormat:@"Code: %ld\n%@", (long)error.code, error.localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alertView show];

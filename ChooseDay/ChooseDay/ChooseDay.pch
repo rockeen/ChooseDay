@@ -26,7 +26,8 @@
 #define kHistoryData [[NSUserDefaults standardUserDefaults] valueForKey:@"historyData"]
 
 
-#define kUserName @"username"
+#define kUserName @"userName"
+#define kUserImgName [[NSUserDefaults standardUserDefaults] valueForKey:@"imgName"]
 
 
 //友盟

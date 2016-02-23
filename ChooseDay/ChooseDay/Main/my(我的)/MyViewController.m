@@ -22,6 +22,9 @@
 
 @interface MyViewController ()
 
+@property (nonatomic, strong) NSMutableArray *lists;
+
+
 @end
 
 @implementation MyViewController
@@ -64,11 +67,47 @@
 //接收登陆回调
 - (void)loginfor{
 
-    
-
     if ([self isLoggedIn]) {
         
         self.userName.text=[[NSUserDefaults standardUserDefaults]objectForKey:kUserName];
+        
+        NSLog(@"%@",self.userName.text);
+        
+        MLQuery *query = [MLQuery queryWithClassName:@"Photo"];
+        
+        [query whereKey:@"Name" equalTo:self.userName.text];
+        
+        if (query) {
+            
+            [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+                
+                NSLog(@"obj %@",objects);
+                
+                self.lists = [NSMutableArray array];
+                
+                [self.lists addObjectsFromArray:objects];
+                
+                NSLog(@"count %ld",self.lists.count);
+                
+                MLObject *list = self.lists[0];
+                
+                
+                
+                MLFile *userImgFile = list[@"image"];
+                
+                [userImgFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                    
+                    if (!error) {
+                        
+                        self.userImg.image = [UIImage imageWithData:data];
+                        
+                    }
+                    
+                }];
+                
+            }];
+            
+        }
         
 //        NSLog(@"%@",self.userName.text);
 
@@ -82,20 +121,6 @@
 
 
 }
-
-
-//- (void)viewWillAppear:(BOOL)animated{
-//
-//
-//
-//    [self loginfor];
-//
-//
-//
-//
-//
-//}
-//
 
 //更新数据
 -(void)updateQQData{
@@ -351,7 +376,7 @@
     
     [self updateData];
     
-    [self  loginfor];
+    [self loginfor];
 
     //添加切换账号
     [self createNavigationBarItem];
