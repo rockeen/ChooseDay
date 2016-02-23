@@ -22,7 +22,6 @@
 		5E1D96D21C7ABE0F00587349 /* 西安.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5E1D96CC1C7ABE0F00587349 /* 西安.jpg */; };
 		5E1D96D31C7ABE0F00587349 /* 青岛.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5E1D96CD1C7ABE0F00587349 /* 青岛.jpg */; };
 		5E1D96DB1C7ABEAF00587349 /* GUNMMCityMangerVc.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D96D51C7ABEAF00587349 /* GUNMMCityMangerVc.m */; };
-		5E1D96DC1C7ABEAF00587349 /* GUNMMCityMangerVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E1D96D61C7ABEAF00587349 /* GUNMMCityMangerVc.xib */; };
 		5E1D96DD1C7ABEAF00587349 /* GUNMMCityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D96D81C7ABEAF00587349 /* GUNMMCityVC.m */; };
 		5E1D96DE1C7ABEAF00587349 /* CityCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D96DA1C7ABEAF00587349 /* CityCollectionViewCell.m */; };
 		5E1D96E51C7ABF3600587349 /* OutCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D96E41C7ABF3600587349 /* OutCollectionView.m */; };
@@ -147,6 +146,9 @@
 		5EDFDB7E1C4F9D3A00777C0A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EDFDB7D1C4F9D3A00777C0A /* CoreGraphics.framework */; };
 		5EDFDB801C4F9D4500777C0A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EDFDB7F1C4F9D4500777C0A /* libz.tbd */; };
 		5EDFDB821C4F9D5300777C0A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EDFDB811C4F9D5300777C0A /* libsqlite3.tbd */; };
+		CD943EF41C7C46FD00A9DD69 /* GUNMMNavCityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CD943EF21C7C46FD00A9DD69 /* GUNMMNavCityVC.m */; };
+		CD943EF51C7C46FD00A9DD69 /* GUNMMNavCityVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD943EF31C7C46FD00A9DD69 /* GUNMMNavCityVC.xib */; };
+		CD943EF81C7C600200A9DD69 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = CD943EF71C7C600200A9DD69 /* NSArray+Log.m */; };
 		D68B4E391C4B58F600D8C8F9 /* UIImage+RTTint.m in Sources */ = {isa = PBXBuildFile; fileRef = D68B4E381C4B58F600D8C8F9 /* UIImage+RTTint.m */; };
 		D68B4E3E1C4B5D9900D8C8F9 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = D68B4E3D1C4B5D9900D8C8F9 /* UIViewExt.m */; };
 		D6BFBE6D1C49ECCA007C68C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BFBE6C1C49ECCA007C68C7 /* main.m */; };
@@ -191,22 +193,22 @@
 		D6BFBF5D1C4A2022007C68C7 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BFBF5C1C4A2022007C68C7 /* MyViewController.m */; };
 		D6BFBF631C4A2D2E007C68C7 /* ThreeNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BFBF621C4A2D2E007C68C7 /* ThreeNavigationController.m */; };
 		D6F10C3E1C7BF67E00CA72A5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C3D1C7BF67E00CA72A5 /* MobileCoreServices.framework */; };
-		D6F10C4F1C7BF6F500CA72A5 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = D6F10C401C7BF6F500CA72A5 /* LICENSE.txt */; settings = {ASSET_TAGS = (); }; };
-		D6F10C501C7BF6F500CA72A5 /* MaxLeap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C411C7BF6F500CA72A5 /* MaxLeap.framework */; settings = {ASSET_TAGS = (); }; };
-		D6F10C511C7BF6F500CA72A5 /* MaxLeapExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C421C7BF6F500CA72A5 /* MaxLeapExt.framework */; settings = {ASSET_TAGS = (); }; };
-		D6F10C521C7BF6F500CA72A5 /* MaxLeapPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C431C7BF6F500CA72A5 /* MaxLeapPay.framework */; settings = {ASSET_TAGS = (); }; };
-		D6F10C531C7BF6F500CA72A5 /* MLFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C441C7BF6F500CA72A5 /* MLFacebookUtils.framework */; settings = {ASSET_TAGS = (); }; };
-		D6F10C541C7BF6F500CA72A5 /* MLFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C451C7BF6F500CA72A5 /* MLFacebookUtilsV4.framework */; settings = {ASSET_TAGS = (); }; };
-		D6F10C551C7BF6F500CA72A5 /* MLHelpCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C471C7BF6F500CA72A5 /* MLHelpCenter.framework */; settings = {ASSET_TAGS = (); }; };
-		D6F10C561C7BF6F500CA72A5 /* MLHelpCenterImages.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6F10C491C7BF6F500CA72A5 /* MLHelpCenterImages.bundle */; settings = {ASSET_TAGS = (); }; };
-		D6F10C571C7BF6F500CA72A5 /* MLHelpCenterLocalizable.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6F10C4A1C7BF6F500CA72A5 /* MLHelpCenterLocalizable.bundle */; settings = {ASSET_TAGS = (); }; };
-		D6F10C581C7BF6F500CA72A5 /* MLHelpCenterThemes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6F10C4B1C7BF6F500CA72A5 /* MLHelpCenterThemes.bundle */; settings = {ASSET_TAGS = (); }; };
-		D6F10C591C7BF6F500CA72A5 /* MLTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C4C1C7BF6F500CA72A5 /* MLTwitterUtils.framework */; settings = {ASSET_TAGS = (); }; };
-		D6F10C5A1C7BF6F500CA72A5 /* MLWeChatUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C4D1C7BF6F500CA72A5 /* MLWeChatUtils.framework */; settings = {ASSET_TAGS = (); }; };
-		D6F10C5B1C7BF6F500CA72A5 /* MLWeiboUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C4E1C7BF6F500CA72A5 /* MLWeiboUtils.framework */; settings = {ASSET_TAGS = (); }; };
-		D6F10C621C7BFDDD00CA72A5 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F10C5E1C7BFDDD00CA72A5 /* MBProgressHUD+Add.m */; settings = {ASSET_TAGS = (); }; };
-		D6F10C631C7BFDDD00CA72A5 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6F10C5F1C7BFDDD00CA72A5 /* MBProgressHUD.bundle */; settings = {ASSET_TAGS = (); }; };
-		D6F10C641C7BFDDD00CA72A5 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F10C611C7BFDDD00CA72A5 /* MBProgressHUD.m */; settings = {ASSET_TAGS = (); }; };
+		D6F10C4F1C7BF6F500CA72A5 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = D6F10C401C7BF6F500CA72A5 /* LICENSE.txt */; };
+		D6F10C501C7BF6F500CA72A5 /* MaxLeap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C411C7BF6F500CA72A5 /* MaxLeap.framework */; };
+		D6F10C511C7BF6F500CA72A5 /* MaxLeapExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C421C7BF6F500CA72A5 /* MaxLeapExt.framework */; };
+		D6F10C521C7BF6F500CA72A5 /* MaxLeapPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C431C7BF6F500CA72A5 /* MaxLeapPay.framework */; };
+		D6F10C531C7BF6F500CA72A5 /* MLFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C441C7BF6F500CA72A5 /* MLFacebookUtils.framework */; };
+		D6F10C541C7BF6F500CA72A5 /* MLFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C451C7BF6F500CA72A5 /* MLFacebookUtilsV4.framework */; };
+		D6F10C551C7BF6F500CA72A5 /* MLHelpCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C471C7BF6F500CA72A5 /* MLHelpCenter.framework */; };
+		D6F10C561C7BF6F500CA72A5 /* MLHelpCenterImages.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6F10C491C7BF6F500CA72A5 /* MLHelpCenterImages.bundle */; };
+		D6F10C571C7BF6F500CA72A5 /* MLHelpCenterLocalizable.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6F10C4A1C7BF6F500CA72A5 /* MLHelpCenterLocalizable.bundle */; };
+		D6F10C581C7BF6F500CA72A5 /* MLHelpCenterThemes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6F10C4B1C7BF6F500CA72A5 /* MLHelpCenterThemes.bundle */; };
+		D6F10C591C7BF6F500CA72A5 /* MLTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C4C1C7BF6F500CA72A5 /* MLTwitterUtils.framework */; };
+		D6F10C5A1C7BF6F500CA72A5 /* MLWeChatUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C4D1C7BF6F500CA72A5 /* MLWeChatUtils.framework */; };
+		D6F10C5B1C7BF6F500CA72A5 /* MLWeiboUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C4E1C7BF6F500CA72A5 /* MLWeiboUtils.framework */; };
+		D6F10C621C7BFDDD00CA72A5 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F10C5E1C7BFDDD00CA72A5 /* MBProgressHUD+Add.m */; };
+		D6F10C631C7BFDDD00CA72A5 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6F10C5F1C7BFDDD00CA72A5 /* MBProgressHUD.bundle */; };
+		D6F10C641C7BFDDD00CA72A5 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F10C611C7BFDDD00CA72A5 /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -242,7 +244,6 @@
 		5E1D96CD1C7ABE0F00587349 /* 青岛.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "青岛.jpg"; sourceTree = "<group>"; };
 		5E1D96D41C7ABEAF00587349 /* GUNMMCityMangerVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUNMMCityMangerVc.h; sourceTree = "<group>"; };
 		5E1D96D51C7ABEAF00587349 /* GUNMMCityMangerVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUNMMCityMangerVc.m; sourceTree = "<group>"; };
-		5E1D96D61C7ABEAF00587349 /* GUNMMCityMangerVc.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GUNMMCityMangerVc.xib; sourceTree = "<group>"; };
 		5E1D96D71C7ABEAF00587349 /* GUNMMCityVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUNMMCityVC.h; sourceTree = "<group>"; };
 		5E1D96D81C7ABEAF00587349 /* GUNMMCityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUNMMCityVC.m; sourceTree = "<group>"; };
 		5E1D96D91C7ABEAF00587349 /* CityCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityCollectionViewCell.h; sourceTree = "<group>"; };
@@ -485,6 +486,11 @@
 		7085B8AE0144C0D69FF84E7E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7E4EB7F30D91DDCD5D28BF36 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		869BB69912E21681EFDA50BA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		CD943EF11C7C46FD00A9DD69 /* GUNMMNavCityVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUNMMNavCityVC.h; sourceTree = "<group>"; };
+		CD943EF21C7C46FD00A9DD69 /* GUNMMNavCityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUNMMNavCityVC.m; sourceTree = "<group>"; };
+		CD943EF31C7C46FD00A9DD69 /* GUNMMNavCityVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GUNMMNavCityVC.xib; sourceTree = "<group>"; };
+		CD943EF61C7C600200A9DD69 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
+		CD943EF71C7C600200A9DD69 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
 		D68B4E371C4B58F600D8C8F9 /* UIImage+RTTint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RTTint.h"; sourceTree = "<group>"; };
 		D68B4E381C4B58F600D8C8F9 /* UIImage+RTTint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RTTint.m"; sourceTree = "<group>"; };
 		D68B4E3A1C4B5CB700D8C8F9 /* ChooseDay.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseDay.pch; sourceTree = "<group>"; };
@@ -1281,6 +1287,8 @@
 		D6BFBE5F1C49ECCA007C68C7 = {
 			isa = PBXGroup;
 			children = (
+				CD943EF61C7C600200A9DD69 /* NSArray+Log.h */,
+				CD943EF71C7C600200A9DD69 /* NSArray+Log.m */,
 				D6F10C3F1C7BF6F500CA72A5 /* MaxLeap-ios-sdk */,
 				5EC0F4ED1C7553F200673A59 /* 分享SDK */,
 				5EC0F4EC1C7553A900673A59 /* 登录SDK */,
@@ -1554,7 +1562,9 @@
 				D6BFBF591C4A2016007C68C7 /* WeatherViewController.m */,
 				5E1D96D41C7ABEAF00587349 /* GUNMMCityMangerVc.h */,
 				5E1D96D51C7ABEAF00587349 /* GUNMMCityMangerVc.m */,
-				5E1D96D61C7ABEAF00587349 /* GUNMMCityMangerVc.xib */,
+				CD943EF11C7C46FD00A9DD69 /* GUNMMNavCityVC.h */,
+				CD943EF21C7C46FD00A9DD69 /* GUNMMNavCityVC.m */,
+				CD943EF31C7C46FD00A9DD69 /* GUNMMNavCityVC.xib */,
 				5E1D96D71C7ABEAF00587349 /* GUNMMCityVC.h */,
 				5E1D96D81C7ABEAF00587349 /* GUNMMCityVC.m */,
 				5E1D96D91C7ABEAF00587349 /* CityCollectionViewCell.h */,
@@ -1728,6 +1738,7 @@
 				5E1D96BB1C7ABDA000587349 /* city.plist in Resources */,
 				5E42A18E1C7AAA1600F7BCE8 /* AlmanacView.xib in Resources */,
 				D6BFBE7B1C49ECCA007C68C7 /* LaunchScreen.storyboard in Resources */,
+				CD943EF51C7C46FD00A9DD69 /* GUNMMNavCityVC.xib in Resources */,
 				D6BFBE781C49ECCA007C68C7 /* Assets.xcassets in Resources */,
 				5EC0F57C1C756B8600673A59 /* UMSocialLocalizable.strings in Resources */,
 				D6BFBF221C49EF0C007C68C7 /* MJRefresh.bundle in Resources */,
@@ -1760,7 +1771,6 @@
 				D6F10C561C7BF6F500CA72A5 /* MLHelpCenterImages.bundle in Resources */,
 				5E1D96C51C7ABDE000587349 /* 穿衣.png in Resources */,
 				5EDFDB6C1C4F9C3F00777C0A /* WeiboSDK.bundle in Resources */,
-				5E1D96DC1C7ABEAF00587349 /* GUNMMCityMangerVc.xib in Resources */,
 				5E1D96D31C7ABE0F00587349 /* 青岛.jpg in Resources */,
 				5EC0F5851C756B8600673A59 /* UMSShareListController.xib in Resources */,
 			);
@@ -1835,6 +1845,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD943EF81C7C600200A9DD69 /* NSArray+Log.m in Sources */,
 				5E85DC871C76C0BB00E30F62 /* UIImage+WebP.m in Sources */,
 				5E42A0FE1C7A947000F7BCE8 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				5E85DC7F1C76C0BA00E30F62 /* SDWebImageDecoder.m in Sources */,
@@ -1931,6 +1942,7 @@
 				5EDF76D41C4D37B3001B9239 /* InstallViewController.m in Sources */,
 				D6BFBF261C49EF0C007C68C7 /* UIView+MJExtension.m in Sources */,
 				5E85DC841C76C0BB00E30F62 /* UIButton+WebCache.m in Sources */,
+				CD943EF41C7C46FD00A9DD69 /* GUNMMNavCityVC.m in Sources */,
 				D6BFBF3D1C49EF3D007C68C7 /* MJExtensionConst.m in Sources */,
 				D6BFBF441C49EF3D007C68C7 /* NSObject+MJKeyValue.m in Sources */,
 				5E85DC7C1C76C0BA00E30F62 /* NSData+ImageContentType.m in Sources */,
