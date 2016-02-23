@@ -7,13 +7,20 @@
 //
 
 #import "RegisterViewController.h"
+#import <MaxLeap/MaxLeap.h>
 
-@interface RegisterViewController ()<UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface RegisterViewController ()<UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIAlertViewDelegate>
 {
+    
+    UITextField *nameText;
+    
+    UITextField *pwdText;
     
     UIImageView *_imgV;
     
     UIButton *_imgBtn;
+    
+    UIImage *img;
 }
 
 @end
@@ -30,17 +37,19 @@
     
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
     
+    //创建注册textField
     [self createRegisterTextField];
     
+    //创建注册按钮
     [self createRegisterBtn];
     
 }
 
 //创建注册textField
 -(void)createRegisterTextField{
-
+    
     //用户名
-    UITextField *nameText = [[UITextField alloc]initWithFrame:CGRectMake(30, 30, kScreenW-60, 30)];
+    nameText = [[UITextField alloc]initWithFrame:CGRectMake(30, 30, kScreenW-60, 30)];
     
     nameText.placeholder = @"用户名 2-20位字符";
     
@@ -66,7 +75,7 @@
     [self.view addSubview:nameText];
     
     //密码
-    UITextField *pwdText = [[UITextField alloc]initWithFrame:CGRectMake(nameText.frame.origin.x, nameText.bottom+20, nameText.width, nameText.height)];
+    pwdText = [[UITextField alloc]initWithFrame:CGRectMake(nameText.frame.origin.x, nameText.bottom+20, nameText.width, nameText.height)];
     
     pwdText.placeholder = @"密码 6-20位字符";
     
@@ -141,13 +150,74 @@
 //注册btn的点击方法
 -(void)btnAct:(UIButton *)btn{
     
+    MLUser *user = [MLUser user];
     
+    user.username = nameText.text;
     
+    user.password = pwdText.text;
+    
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        
+        if (!error) {
+            
+            //上传图片
+            NSData *imgData = UIImagePNGRepresentation(img);
+            
+            NSString *imgName = [NSString stringWithFormat:@"%@.png",nameText.text];
+            
+            MLFile *imgFile = [MLFile fileWithName:imgName data:imgData];
+            
+            MLObject *userPhoto = [MLObject objectWithClassName:@"Photo"];
+            
+            userPhoto[@"Name"] = nameText.text;
+            
+            userPhoto[@"image"] = imgFile;
+            
+            [userPhoto saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                
+                if (succeeded) {
+                    
+                    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"注册成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                    
+                    alert.alertViewStyle = UIAlertViewStyleDefault;
+                    
+                    alert.delegate = self;
+                    
+                    [alert show];
+       
+                }
+                
+            }];
+            
+        }else {
+            
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"用户名已存在！请重新注册！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            
+            alert.alertViewStyle = UIAlertViewStyleDefault;
+            
+            [alert show];
+            
+            nameText.text = nil;
+            
+            pwdText.text = nil;
+            
+            _imgV.image = nil;
+        
+        }
+        
+    }];
+    
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+
+    [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 //上传图片的点击方法
 -(void)imgBtnAct:(UIButton *)btn{
-
+    
     UIAlertController *imgAlertController = [UIAlertController alertControllerWithTitle:@"上传头像" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
@@ -173,12 +243,12 @@
     [imgAlertController addAction:openCameraAction];
     
     [self presentViewController:imgAlertController animated:YES completion:nil];
-
+    
 }
 
 //打开相册
 -(void)openPhotos{
-
+    
     UIImagePickerController *pickerC = [[UIImagePickerController alloc]init];
     
     //类型
@@ -196,7 +266,7 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     
     //获取点击的图片
-    UIImage *img = [info objectForKey:UIImagePickerControllerOriginalImage];
+    img = [info objectForKey:UIImagePickerControllerOriginalImage];
     
     _imgV.image = img;
     
@@ -211,7 +281,7 @@
 
 //打开相机
 -(void)openCamera{
-
+    
     UIImagePickerController *pickerC = [[UIImagePickerController alloc]init];
     
     pickerC.delegate = self;
@@ -232,7 +302,7 @@
         return;
         
     }else if (!isFrontCamera) {
-    
+        
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"没有前置摄像头" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         
         alert.alertViewStyle = UIAlertViewStyleDefault;
@@ -240,9 +310,9 @@
         [alert show];
         
         return;
-    
+        
     }else if (!isPostCamera) {
-    
+        
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"没有后置摄像头" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         
         alert.alertViewStyle = UIAlertViewStyleDefault;
@@ -250,7 +320,7 @@
         [alert show];
         
         return;
-    
+        
     }
     
     //设置类型是相机
@@ -262,7 +332,7 @@
     [_imgBtn setTitle:@"更改头像" forState:UIControlStateNormal];
     
     [_imgBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-
+    
 }
 
 //return后收起键盘
@@ -288,13 +358,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
