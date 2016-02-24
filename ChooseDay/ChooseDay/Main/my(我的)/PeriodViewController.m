@@ -112,6 +112,8 @@
     
         [_dayPickerView remove];
         
+        [_pickerView remove];
+        
         _dayPickerView = [[MDPickerView alloc]initWithFrame:CGRectMake(0, kScreenH-256, kScreenW, 256) WithDataList:_realityArr];
         
         _dayPickerView.delegate = self;

@@ -20,6 +20,8 @@
     
     self.title = @"个人信息";
     
+    self.view.backgroundColor=[UIColor whiteColor];
+    
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];

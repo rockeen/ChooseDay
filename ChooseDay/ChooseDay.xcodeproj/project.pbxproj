@@ -489,8 +489,8 @@
 		CD943EF11C7C46FD00A9DD69 /* GUNMMNavCityVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUNMMNavCityVC.h; sourceTree = "<group>"; };
 		CD943EF21C7C46FD00A9DD69 /* GUNMMNavCityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUNMMNavCityVC.m; sourceTree = "<group>"; };
 		CD943EF31C7C46FD00A9DD69 /* GUNMMNavCityVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GUNMMNavCityVC.xib; sourceTree = "<group>"; };
-		CD943EF61C7C600200A9DD69 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
-		CD943EF71C7C600200A9DD69 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
+		CD943EF61C7C600200A9DD69 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+Log.h"; path = "../../NSArray+Log.h"; sourceTree = "<group>"; };
+		CD943EF71C7C600200A9DD69 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Log.m"; path = "../../NSArray+Log.m"; sourceTree = "<group>"; };
 		D68B4E371C4B58F600D8C8F9 /* UIImage+RTTint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RTTint.h"; sourceTree = "<group>"; };
 		D68B4E381C4B58F600D8C8F9 /* UIImage+RTTint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RTTint.m"; sourceTree = "<group>"; };
 		D68B4E3A1C4B5CB700D8C8F9 /* ChooseDay.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseDay.pch; sourceTree = "<group>"; };
@@ -1287,8 +1287,6 @@
 		D6BFBE5F1C49ECCA007C68C7 = {
 			isa = PBXGroup;
 			children = (
-				CD943EF61C7C600200A9DD69 /* NSArray+Log.h */,
-				CD943EF71C7C600200A9DD69 /* NSArray+Log.m */,
 				D6F10C3F1C7BF6F500CA72A5 /* MaxLeap-ios-sdk */,
 				5EC0F4ED1C7553F200673A59 /* 分享SDK */,
 				5EC0F4EC1C7553A900673A59 /* 登录SDK */,
@@ -1368,6 +1366,8 @@
 		D6BFBE9F1C49EDC3007C68C7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				CD943EF61C7C600200A9DD69 /* NSArray+Log.h */,
+				CD943EF71C7C600200A9DD69 /* NSArray+Log.m */,
 				D6F10C5C1C7BFDDD00CA72A5 /* MBProgressHUD */,
 				5E1D97171C7AE1F400587349 /* GUNMMAFN.h */,
 				5E1D97181C7AE1F400587349 /* GUNMMAFN.m */,

@@ -8,6 +8,8 @@
 
 #import "RegisterViewController.h"
 #import <MaxLeap/MaxLeap.h>
+#import "MBProgressHUD+Add.h"
+#import "MBProgressHUD.h"
 
 @interface RegisterViewController ()<UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIAlertViewDelegate>
 {
@@ -85,6 +87,9 @@
     
     pwdText.layer.cornerRadius = 5.f;
     
+    //密文
+    pwdText.secureTextEntry = YES;
+    
     pwdText.clearButtonMode = UITextFieldViewModeAlways;
     
     //设置输入光标不靠左
@@ -150,69 +155,95 @@
 //注册btn的点击方法
 -(void)btnAct:(UIButton *)btn{
     
-    MLUser *user = [MLUser user];
     
-    user.username = nameText.text;
-    
-    user.password = pwdText.text;
-    
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+    if (nameText.text.length == 0 || pwdText.text.length == 0) {
         
-        if (!error) {
+        [MBProgressHUD showError:@"用户名或密码不能为空" toView:self.view];
+        
+    }else if (nameText.text.length < 2 || pwdText.text.length < 6){
+    
+        [MBProgressHUD showError:@"用户名或密码长度不够" toView:self.view];
+    
+    }else {
+
+        MLUser *user = [MLUser user];
+        
+        user.username = nameText.text;
+        
+        user.password = pwdText.text;
+        
+        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
             
-            //上传图片
-            NSData *imgData = UIImagePNGRepresentation(img);
-            
-            NSString *imgName = [NSString stringWithFormat:@"%@.png",nameText.text];
-            
-            MLFile *imgFile = [MLFile fileWithName:imgName data:imgData];
-            
-            MLObject *userPhoto = [MLObject objectWithClassName:@"Photo"];
-            
-            userPhoto[@"Name"] = nameText.text;
-            
-            userPhoto[@"image"] = imgFile;
-            
-            [userPhoto saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            if (!error) {
                 
-                if (succeeded) {
-                    
-                    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"注册成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-                    
-                    alert.alertViewStyle = UIAlertViewStyleDefault;
-                    
-                    alert.delegate = self;
-                    
-                    [alert show];
-       
-                }
+                //上传图片
+                NSData *imgData = UIImagePNGRepresentation(img);
                 
-            }];
+                NSString *imgName = [NSString stringWithFormat:@"%@.png",nameText.text];
+                
+                MLFile *imgFile = [MLFile fileWithName:imgName data:imgData];
+                
+                MLObject *userPhoto = [MLObject objectWithClassName:@"Photo"];
+                
+                userPhoto[@"Name"] = nameText.text;
+                
+                userPhoto[@"image"] = imgFile;
+                
+                [userPhoto saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                    
+                    if (succeeded) {
+                        
+                        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"注册成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                        
+                        alert.alertViewStyle = UIAlertViewStyleDefault;
+                        
+    //                    alert.delegate = self;
+                        
+                        alert.tag = 10;
+                        
+                        [alert show];
+           
+                    }
+                    
+                }];
+                
+            }else {
+                
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"用户名已存在！请重新注册！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                
+                alert.alertViewStyle = UIAlertViewStyleDefault;
+                
+                alert.tag = 11;
+                
+                [alert show];
+                
+                nameText.text = nil;
+                
+                pwdText.text = nil;
+                
+                _imgV.image = nil;
             
-        }else {
+            }
             
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"用户名已存在！请重新注册！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            
-            alert.alertViewStyle = UIAlertViewStyleDefault;
-            
-            [alert show];
-            
-            nameText.text = nil;
-            
-            pwdText.text = nil;
-            
-            _imgV.image = nil;
+        }];
         
-        }
-        
-    }];
+    }
     
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 
-    [self.navigationController popViewControllerAnimated:YES];
+    if (alertView.tag == 10) {
+        
+        [self.navigationController popViewControllerAnimated:YES];
 
+    }else {
+    
+        [self.view endEditing:YES];
+        
+    }
+    
+    
 }
 
 //上传图片的点击方法
