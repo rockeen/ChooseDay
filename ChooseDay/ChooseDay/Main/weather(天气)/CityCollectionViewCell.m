@@ -53,7 +53,7 @@
     
     
     if (a) {
-        _label.textColor = [UIColor whiteColor];
+        _label.textColor = [UIColor colorWithRed:230/255.0 green:230/255.0 blue:250/255.0 alpha:0.5];
     }
     
     
