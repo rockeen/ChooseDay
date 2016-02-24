@@ -29,6 +29,17 @@
     self.title = @"城市";
     
     
+    self.view.backgroundColor=[UIColor whiteColor];
+    
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    self.navigationItem.backBarButtonItem = item;
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
+    
+    
     //添加现有城市的表视图
     [self addNowCityTableView];
     
@@ -131,12 +142,22 @@
     //3.判断复用池中是否有单元格
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 44, 44)];
+        [cell.contentView addSubview:label];
+        
+        label.textColor = [UIColor yellowColor];
+        label.text = @"●";
+//        label.tag = 1000;
+        
     }
     
     cell.backgroundColor = [UIColor clearColor];
-    cell.textLabel.text = [NSString stringWithFormat:@"》 %@",_dataList[indexPath.row]];
-    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    cell.textLabel.text = [NSString stringWithFormat:@"    %@",_dataList[indexPath.row]];
+    cell.textLabel.textAlignment = NSTextAlignmentLeft;
     cell.textLabel.textColor = [UIColor whiteColor];
+    
+    
     
     
     return cell;

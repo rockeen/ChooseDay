@@ -22,15 +22,12 @@
         
         _label.textAlignment = NSTextAlignmentCenter;
         
-        _label.backgroundColor = [UIColor grayColor];
+        _label.backgroundColor = kBgColor;
         
-        _label.layer.cornerRadius = 15;
+        _label.layer.cornerRadius = 10;
         _label.layer.masksToBounds = YES;
         
         
-        _label.layer.borderColor = kMainColor.CGColor;
-
-        _label.layer.borderWidth = 2;
         
         [self addSubview:_label];
     }
@@ -53,7 +50,9 @@
     
     
     if (a) {
-        _label.textColor = [UIColor colorWithRed:230/255.0 green:230/255.0 blue:250/255.0 alpha:0.5];
+        _label.textColor = [UIColor whiteColor];
+        _label.backgroundColor = kMainColor;
+        
     }
     
     

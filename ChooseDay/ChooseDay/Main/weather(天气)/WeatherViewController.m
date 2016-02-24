@@ -67,13 +67,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    //隐藏navigationController下面的黑线
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackIndicatorTransitionMaskImage:[[UIImage alloc] init]];
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+    
     
     
     //设置导航栏不透明
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     
-    self.
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithTitle:@"天气" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    self.navigationItem.backBarButtonItem = item;
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
+    
     
     _dataList = [NSMutableArray array];
     
@@ -148,6 +158,7 @@
     
     
     _pageC.currentPage = 0;
+    [_outCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
 
 
     
