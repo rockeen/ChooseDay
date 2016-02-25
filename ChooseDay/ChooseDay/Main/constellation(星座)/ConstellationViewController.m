@@ -7,7 +7,7 @@
 //
 
 #import "ConstellationViewController.h"
-
+ 
 @interface ConstellationViewController ()
 
 @end
@@ -17,6 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithTitle:@"星座" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    self.navigationItem.backBarButtonItem = item;
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -75,7 +75,7 @@ static NSString *footer = @"footer";
     
     _textField = [[UITextField alloc]initWithFrame:CGRectMake(20, 10, kScreenW-40, 30)];
     
-    _textField.backgroundColor = [UIColor whiteColor];
+    _textField.backgroundColor = kBgColor;
     _textField.placeholder = @"请输入城市名";
     _textField.layer.cornerRadius = 10;
     _textField.layer.masksToBounds = YES;
@@ -150,7 +150,7 @@ static NSString *footer = @"footer";
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
     
-    
+    _collectionView.backgroundColor = [UIColor whiteColor];
     
     //添加到view
     
@@ -298,6 +298,7 @@ static NSString *footer = @"footer";
     CityCollectionViewCell *celll = (CityCollectionViewCell *)cell;
     
     celll.label.textColor = [UIColor blackColor];
+    celll.label.backgroundColor = kBgColor;
 }
 
 //block

@@ -35,6 +35,8 @@
     
     self.title = @"设置";
     
+    self.view.backgroundColor=[UIColor whiteColor];
+    
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
