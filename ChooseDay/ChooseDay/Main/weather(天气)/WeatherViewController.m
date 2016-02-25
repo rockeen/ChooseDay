@@ -73,22 +73,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-<<<<<<< HEAD
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    
-    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
-    
-    self.navigationItem.backBarButtonItem = item;
-    
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
-=======
+
     //隐藏navigationController下面的黑线
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setBackIndicatorTransitionMaskImage:[[UIImage alloc] init]];
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
     
     
->>>>>>> 78197564713614b5b1c98f8d79f1c4abc0128e9f
     
     //设置导航栏不透明
     self.edgesForExtendedLayout = UIRectEdgeNone;
