@@ -36,8 +36,11 @@
     
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
     
+
+    self.view.backgroundColor=[UIColor whiteColor];
     
-    self.view.backgroundColor=[UIColor whiteColor];    
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+
     
     //添加现有城市的表视图
     [self addNowCityTableView];

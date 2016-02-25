@@ -48,6 +48,12 @@
     //用来标记  kHistoryData
     NSInteger _assign;
     
+    //用来标记是否定位成功
+    NSInteger _addressSuc;
+    
+    //用来标记是否是删除城市
+    NSInteger _deleCi;
+    
     //加载中显示的view
     UIView *_loadView;
     
@@ -66,7 +72,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
@@ -77,7 +83,12 @@
     
     //隐藏navigationController下面的黑线
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    
+
+    //隐藏navigationController下面的黑线
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackIndicatorTransitionMaskImage:[[UIImage alloc] init]];
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+
     //设置导航栏不透明
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
@@ -88,10 +99,11 @@
     
     _geoCoder = [[CLGeocoder alloc]init];
     
-    _city = @"济南";
     
     _assign = 1;
+    _addressSuc = 0;
     
+    _deleCi = 0;
     
     
     NSLog(@"精度：%f,纬度：%f",_coordinate.longitude,_coordinate.latitude);
@@ -130,31 +142,44 @@
 
 //响应通知的方法
 - (void)deleteAct:(NSNotification *)noti{
+    _deleCi = 1;
     
-    //取出定位城市
-    OutModel *outModel = _dataList[0];
+    if (_addressSuc) {
+        //取出定位城市
+        OutModel *outModel = _dataList[0];
+        
+        //删除所有历史城市
+        [_dataList removeAllObjects];
+        //添加定位的城市
+        [_dataList addObject:outModel];
+    }
+    else{
+        //删除所有历史城市
+        [_dataList removeAllObjects];
+
+        
+    }
     
-    //删除所有历史城市
-    [_dataList removeAllObjects];
-    //添加定位的城市
-    [_dataList addObject:outModel];
+    
     
     //添加新的历史城市
     [self loadHistoryWeather];
     
     
-    
-    
     [_outCollectionView reloadData];
     
+    
     NSArray *arr = kHistoryData;
-    if (arr.count == 0) {
+    
+    NSLog(@"arr %@",arr);
+    if (arr.count == 0 && _addressSuc) {
         _pageC.numberOfPages = 1;
+        [_outCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
     }
     
     
     _pageC.currentPage = 0;
-    [_outCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
+
 
 
     
@@ -173,6 +198,7 @@
     [_geoCoder reverseGeocodeLocation:loc completionHandler:^(NSArray *placemarks, NSError *error) {
         
         if (error) {
+            _addressSuc = 0;
             NSLog(@"输入的地址在火星");
             return;
         }
@@ -205,6 +231,8 @@
             
             
             _city = city;
+            
+            _addressSuc = 1;
             
             //加载当前需要天气数据
             [self loadCurrentDay];
@@ -298,6 +326,10 @@
 
 //加载历史天气
 - (void)loadHistoryWeather{
+    
+//    _city = @"";
+    
+    
     for (NSString *city in kHistoryData) {
         _city = city;
         
@@ -359,6 +391,12 @@
         [_outCollectionView reloadData];
         
         
+        
+        //因为删除时候原来写的滑动方法在数据没加载完就执行了有bug所以写的这个
+        if (_deleCi) {
+            [_outCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
+            _deleCi = 0;
+        }
         
         
         //        [_cityVc dismissViewControllerAnimated:YES completion:nil];
@@ -460,20 +498,24 @@
         [_cityName addObject:_city];
         
         
-        
+        //持久化保存
+        [[NSUserDefaults standardUserDefaults] setObject:_cityName forKey:@"historyData"];
+
         //没有定位时候走这个方法
         if (_assign) {
             _assign = 0;
+            NSLog(@"_*****%@",_cityName);
             
             [self loadHistoryWeather];
 
         }
+        else{
+            [self loadCurrentDay];
+
+        }
         
-        [self loadCurrentDay];
         
-        
-        //持久化保存
-        [[NSUserDefaults standardUserDefaults] setObject:_cityName forKey:@"historyData"];
+       
         
     }];
     
