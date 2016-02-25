@@ -63,6 +63,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    self.navigationItem.backBarButtonItem = item;
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
+    
     //设置导航栏不透明
     self.edgesForExtendedLayout = UIRectEdgeNone;
     

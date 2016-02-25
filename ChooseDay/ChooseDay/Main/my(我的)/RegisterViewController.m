@@ -18,12 +18,19 @@
     
     UITextField *pwdText;
     
+    UITextField *sexText;
+    
+    UITextField *addText;
+    
     UIImageView *_imgV;
     
     UIButton *_imgBtn;
     
     UIImage *img;
 }
+
+@property (nonatomic, strong) NSMutableArray *lists;
+
 
 @end
 
@@ -105,8 +112,61 @@
     
     [self.view addSubview:pwdText];
     
+    //性别
+    sexText = [[UITextField alloc]initWithFrame:CGRectMake(nameText.origin.x, pwdText.bottom+20, pwdText.width, pwdText.height)];
+    
+    sexText.placeholder = @"性别：(男 | 女 | 未知)";
+    
+    sexText.layer.borderWidth = .5;
+    
+    sexText.layer.borderColor = [[UIColor grayColor]CGColor];
+    
+    sexText.layer.cornerRadius = 5.f;
+    
+    sexText.clearButtonMode = UITextFieldViewModeAlways;
+    
+    //设置输入光标不靠左
+    UIView *sexView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 10, sexText.height)];
+    
+    sexView.backgroundColor = [UIColor clearColor];
+    
+    sexText.leftView = sexView;
+    
+    sexText.leftViewMode = UITextFieldViewModeAlways;
+    
+    sexText.delegate = self;
+    
+    [self.view addSubview:sexText];
+
+    
+    //地址信息
+    addText = [[UITextField alloc]initWithFrame:CGRectMake(nameText.origin.x, sexText.bottom+20, sexText.width, sexText.height)];
+    
+    addText.placeholder = @"例如：山东省济南市";
+    
+    addText.layer.borderWidth = .5;
+    
+    addText.layer.borderColor = [[UIColor grayColor]CGColor];
+    
+    addText.layer.cornerRadius = 5.f;
+    
+    addText.clearButtonMode = UITextFieldViewModeAlways;
+    
+    //设置输入光标不靠左
+    UIView *addView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 10, addText.height)];
+    
+    addView.backgroundColor = [UIColor clearColor];
+    
+    addText.leftView = addView;
+    
+    addText.leftViewMode = UITextFieldViewModeAlways;
+    
+    addText.delegate = self;
+    
+    [self.view addSubview:addText];
+    
     //上传图片
-    _imgV = [[UIImageView alloc]initWithFrame:CGRectMake(pwdText.origin.x, pwdText.bottom+20, pwdText.width, pwdText.width)];
+    _imgV = [[UIImageView alloc]initWithFrame:CGRectMake((kScreenW-pwdText.width/2)/2, addText.bottom+20, pwdText.width/2, pwdText.width/2)];
     
     _imgV.layer.borderWidth = 1;
     
@@ -155,7 +215,6 @@
 //注册btn的点击方法
 -(void)btnAct:(UIButton *)btn{
     
-    
     if (nameText.text.length == 0 || pwdText.text.length == 0) {
         
         [MBProgressHUD showError:@"用户名或密码不能为空" toView:self.view];
@@ -165,47 +224,22 @@
         [MBProgressHUD showError:@"用户名或密码长度不够" toView:self.view];
     
     }else {
-
+    
         MLUser *user = [MLUser user];
-        
+
         user.username = nameText.text;
         
         user.password = pwdText.text;
+        
+        user[@"sex"] = sexText.text;
+        
+        user[@"address"] = addText.text;
         
         [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
             
             if (!error) {
                 
-                //上传图片
-                NSData *imgData = UIImagePNGRepresentation(img);
-                
-                NSString *imgName = [NSString stringWithFormat:@"%@.png",nameText.text];
-                
-                MLFile *imgFile = [MLFile fileWithName:imgName data:imgData];
-                
-                MLObject *userPhoto = [MLObject objectWithClassName:@"Photo"];
-                
-                userPhoto[@"Name"] = nameText.text;
-                
-                userPhoto[@"image"] = imgFile;
-                
-                [userPhoto saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-                    
-                    if (succeeded) {
-                        
-                        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"注册成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-                        
-                        alert.alertViewStyle = UIAlertViewStyleDefault;
-                        
-    //                    alert.delegate = self;
-                        
-                        alert.tag = 10;
-                        
-                        [alert show];
-           
-                    }
-                    
-                }];
+                [self createMBProgress];
                 
             }else {
                 
@@ -229,6 +263,76 @@
         
     }
     
+}
+
+//上传图片
+-(void)loadImgData{
+
+    //上传图片
+    NSData *imgData = UIImagePNGRepresentation(img);
+    
+    NSString *imgName = [NSString stringWithFormat:@"%@.png",nameText.text];
+    
+    MLFile *imgFile = [MLFile fileWithName:imgName data:imgData];
+    
+    MLObject *userPhoto = [MLObject objectWithClassName:@"Photo"];
+    
+    userPhoto[@"Name"] = nameText.text;
+    
+    userPhoto[@"image"] = imgFile;
+    
+    [userPhoto saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        
+        
+    }];
+
+}
+
+//创建正在加载提示
+-(void)createMBProgress{
+
+    MBProgressHUD *HUD = [[MBProgressHUD alloc]initWithView:self.view];
+    
+    [self.view addSubview:HUD];
+    
+    HUD.labelText = @"正在加载";
+    
+    HUD.mode = MBProgressHUDModeAnnularDeterminate;
+    
+    [HUD showAnimated:YES whileExecutingBlock:^{
+        
+        float progress = 0.0f;
+        
+        while (progress < 1.0f) {
+            
+            progress += 0.01f;
+            
+            HUD.progress = progress;
+            
+            usleep(30000);
+            
+        }
+        
+        [self loadImgData];
+        
+    }completionBlock:^{
+        
+        [HUD removeFromSuperview];
+        
+//        HUD = nil;
+        
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"注册成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        
+        alert.alertViewStyle = UIAlertViewStyleDefault;
+        
+        //                    alert.delegate = self;
+        
+        alert.tag = 10;
+        
+        [alert show];
+        
+    }];
+
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{

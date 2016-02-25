@@ -964,6 +964,14 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		5E8108BE1C7C8AFF00EAE82A /* MaxLeapSDK */ = {
+			isa = PBXGroup;
+			children = (
+				D6F10C3F1C7BF6F500CA72A5 /* MaxLeap-ios-sdk */,
+			);
+			name = MaxLeapSDK;
+			sourceTree = "<group>";
+		};
 		5E85DC401C76101A00E30F62 /* Renren */ = {
 			isa = PBXGroup;
 			children = (
@@ -1287,7 +1295,7 @@
 		D6BFBE5F1C49ECCA007C68C7 = {
 			isa = PBXGroup;
 			children = (
-				D6F10C3F1C7BF6F500CA72A5 /* MaxLeap-ios-sdk */,
+				5E8108BE1C7C8AFF00EAE82A /* MaxLeapSDK */,
 				5EC0F4ED1C7553F200673A59 /* 分享SDK */,
 				5EC0F4EC1C7553A900673A59 /* 登录SDK */,
 				D6BFBE6A1C49ECCA007C68C7 /* ChooseDay */,
