@@ -17,6 +17,8 @@
 
 
 #import "MJExtension.h"
+#import "AFNetworking.h"
+
 
 
 
@@ -49,6 +51,8 @@
     //加载中显示的view
     UIView *_loadView;
     
+    UILabel *loadLabel;
+    
     
     
     //编码管理者
@@ -63,8 +67,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    //隐藏navigationController下面的黑线
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackIndicatorTransitionMaskImage:[[UIImage alloc] init]];
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+    
+    
+    
     //设置导航栏不透明
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithTitle:@"天气" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    self.navigationItem.backBarButtonItem = item;
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
+    
     
     _dataList = [NSMutableArray array];
     
@@ -81,12 +100,13 @@
     
     NSLog(@"精度：%f,纬度：%f",_coordinate.longitude,_coordinate.latitude);
     
-    
-    //反地理编码
-    [self reverseCode];
-    
+
     //创建加载中显示的view
     [self createLoadingView];
+    
+    //判断是否联网
+    [self almanacData];
+
     
     //创建添加城市的左侧按钮
     [self addLeftBtn];
@@ -138,6 +158,7 @@
     
     
     _pageC.currentPage = 0;
+    [_outCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
 
 
     
@@ -208,7 +229,9 @@
     
     _loadView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH-64-49)];
     
-    _loadView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.5];
+//    _loadView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.5];
+    _loadView.backgroundColor = [UIColor whiteColor];
+
     
     
     [self.view addSubview:_loadView];
@@ -232,7 +255,7 @@
     
     
     //添加label
-    UILabel *loadLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, kScreenW, 20)];
+    loadLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, kScreenW, 20)];
     
     loadLabel.top = activity.bottom+10;
     
@@ -240,7 +263,7 @@
     
     loadLabel.font = [UIFont systemFontOfSize:14];
     
-    loadLabel.textColor = [UIColor whiteColor];
+    loadLabel.textColor = [UIColor grayColor];
     
     loadLabel.textAlignment = NSTextAlignmentCenter;
     
@@ -248,7 +271,34 @@
     
     
     
+    
 }
+
+//加载数据
+- (void)almanacData{
+    
+    
+    AFNetworkReachabilityManager *reManager = [AFNetworkReachabilityManager sharedManager];
+    
+    // 提示：要监控网络连接状态，必须要先调用单例的startMonitoring方法
+    [reManager startMonitoring];
+    
+    
+    [reManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        if (status) {
+            //反地理编码
+            [self reverseCode];
+        
+        }
+        else{
+            loadLabel.text = @"无法连接到互联网，没请检查网络连接";
+        }
+    }];
+    
+    
+}
+
 
 //加载历史天气
 - (void)loadHistoryWeather{
@@ -414,6 +464,14 @@
         [_cityName addObject:_city];
         
         
+        
+        //没有定位时候走这个方法
+        if (_assign) {
+            _assign = 0;
+            
+            [self loadHistoryWeather];
+
+        }
         
         [self loadCurrentDay];
         
