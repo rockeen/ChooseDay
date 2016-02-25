@@ -70,9 +70,9 @@
     //判断是否登录成功
     if ([self isLoggedIn]) {
         
-        self.userName.text=[[NSUserDefaults standardUserDefaults]objectForKey:kUserName];
+        self.userName.text = kUserName;
         
-//        NSLog(@"%@",self.userName.text);
+//        NSLog(@"-------%@",self.userName.text);
         
         //获取MaxLeap中的设置的Photo类
         MLQuery *query = [MLQuery queryWithClassName:@"Photo"];
@@ -85,7 +85,7 @@
             //查询数据
             [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
                 
-                NSLog(@"obj %@",objects);
+//                NSLog(@"obj %@",objects);
                 
                 self.lists = [NSMutableArray array];
                 
@@ -399,6 +399,10 @@
     [self updateData];
     
     [self loginfor];
+    
+//    NSLog(@"%@",kUserName);
+    
+//    NSLog(@"xxxxx%@",self.userName.text);
 
     //添加切换账号
     [self createNavigationBarItem];

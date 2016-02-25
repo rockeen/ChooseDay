@@ -21,9 +21,13 @@
     NSArray *_intervalArr;
     NSArray *_realityArr;
     
-    MLUser *_user;
+    MLObject *_user;
+    
+    NSString *_password;
 
 }
+
+@property (nonatomic, strong) NSMutableArray *lists;
 
 @end
 
@@ -50,7 +54,50 @@
     //加载数据
     [self loadData];
     
-    _user = [MLUser user];
+    _user = [MLObject objectWithClassName:@"Information"];
+    
+    if (![kUserName isEqualToString:@"userName"]) {
+        
+        //设置显示用户设置的日期
+        [self searchDate];
+        
+    }
+    
+}
+
+//查询用户设置的日期
+-(void)searchDate{
+    
+    MLQuery *query = [MLQuery queryWithClassName:@"Information"];
+        
+    [query whereKey:@"name" equalTo:kUserName];
+    
+    if (query) {
+        
+        [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+            
+            self.lists = [NSMutableArray array];
+            
+            [self.lists addObjectsFromArray:objects];
+            
+            if (self.lists.count == 0) {
+                
+                
+            }else {
+            
+                MLObject *list = self.lists[0];
+                
+                _dateLabel.text = list[@"date"];
+                
+                _intervalLabel.text = list[@"interval"];
+                
+                _realityLabel.text = list[@"reality"];
+                
+            }
+            
+        }];
+        
+    }
     
 }
 
@@ -141,6 +188,20 @@
 -(void)toobarDonBtnHaveClick:(ZHPickView *)pickView resultString:(NSString *)resultString{
 
     _dateLabel.text = [resultString substringToIndex:10];
+    
+    if (![kUserName isEqualToString:@"userName"]) {
+        
+        _user[@"name"] = kUserName;
+        
+        _user[@"date"] = _dateLabel.text;
+        
+        [_user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            
+            NSLog(@"error %@",error);
+            
+        }];
+
+    }
 
 }
 
@@ -150,9 +211,37 @@
         
         _intervalLabel.text = resultString;
         
+        if (![kUserName isEqualToString:@"userName"]) {
+            
+            _user[@"name"] = kUserName;
+            
+            _user[@"interval"] = _intervalLabel.text;
+            
+            [_user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                
+                NSLog(@"error %@",error);
+                
+            }];
+            
+        }
+        
     }else {
 
         _realityLabel.text = resultString;
+        
+        if (![kUserName isEqualToString:@"userName"]) {
+            
+            _user[@"name"] = kUserName;
+            
+            _user[@"reality"] = _realityLabel.text;
+            
+            [_user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                
+                NSLog(@"error %@",error);
+                
+            }];
+
+        }
         
     }
 

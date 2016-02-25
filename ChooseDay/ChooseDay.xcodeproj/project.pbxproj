@@ -209,7 +209,7 @@
 		D6F10C621C7BFDDD00CA72A5 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F10C5E1C7BFDDD00CA72A5 /* MBProgressHUD+Add.m */; };
 		D6F10C631C7BFDDD00CA72A5 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6F10C5F1C7BFDDD00CA72A5 /* MBProgressHUD.bundle */; };
 		D6F10C641C7BFDDD00CA72A5 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F10C611C7BFDDD00CA72A5 /* MBProgressHUD.m */; };
-		E79BEB2B1C7D96CE0047FA59 /* LLRotateView.m in Sources */ = {isa = PBXBuildFile; fileRef = E79BEB2A1C7D96CE0047FA59 /* LLRotateView.m */; settings = {ASSET_TAGS = (); }; };
+		E79BEB2B1C7D96CE0047FA59 /* LLRotateView.m in Sources */ = {isa = PBXBuildFile; fileRef = E79BEB2A1C7D96CE0047FA59 /* LLRotateView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1162,7 +1162,7 @@
 		5EDF76D81C4D387F001B9239 /* Enter(登录) */ = {
 			isa = PBXGroup;
 			children = (
-				5EDF76F41C4E340C001B9239 /* View */,
+				5EDF76F41C4E340C001B9239 /* View(注册) */,
 				5E867D641C4CF81D001AE678 /* EnterViewController.h */,
 				5E867D651C4CF81D001AE678 /* EnterViewController.m */,
 			);
@@ -1230,13 +1230,13 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		5EDF76F41C4E340C001B9239 /* View */ = {
+		5EDF76F41C4E340C001B9239 /* View(注册) */ = {
 			isa = PBXGroup;
 			children = (
 				5EDF76F51C4E342A001B9239 /* RegisterViewController.h */,
 				5EDF76F61C4E342A001B9239 /* RegisterViewController.m */,
 			);
-			name = View;
+			name = "View(注册)";
 			sourceTree = "<group>";
 		};
 		5EDFDB5E1C4F9C3F00777C0A /* libWeiboSDK */ = {

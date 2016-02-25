@@ -26,7 +26,7 @@
 #define kHistoryData [[NSUserDefaults standardUserDefaults] valueForKey:@"historyData"]
 
 
-#define kUserName @"userName"
+#define kUserName [[NSUserDefaults standardUserDefaults] valueForKey:@"username"]
 #define kUserImgName [[NSUserDefaults standardUserDefaults] valueForKey:@"imgName"]
 
 

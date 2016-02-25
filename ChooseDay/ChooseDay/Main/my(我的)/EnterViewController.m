@@ -299,7 +299,7 @@
             //登陆成功用户名缓存
             _userDefault = [NSUserDefaults standardUserDefaults];
 
-            [_userDefault setObject:nameText.text forKey:kUserName];
+            [_userDefault setObject:nameText.text forKey:@"username"];
 
     
             //跳转回
