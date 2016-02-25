@@ -263,20 +263,33 @@
 
 
     NSString *username =nameText.text;
+    
     NSString *password =pwdText.text;
+    
     if (username.length == 0) {
+        
         [nameText becomeFirstResponder];
+        
         [MBProgressHUD showError:@"请输入用户名" toView:self.view];
+        
         return;
+        
     }
+    
     if (password.length == 0) {
+        
         [pwdText becomeFirstResponder];
+        
         [MBProgressHUD showError:@"请输入密码" toView:self.view];
+        
         return;
+        
     }
     
     [MLUser logInWithUsernameInBackground:username password:password block:^(MLUser *user, NSError *error) {
         if (user) {
+            
+            NSLog(@"user %@",user);
 //            NSLog(@"user: %@, isNew: %d", user, user.isNew);
             [[NSNotificationCenter defaultCenter] postNotificationName:@"MLUserDidLoginNotification" object:self];
             
@@ -293,9 +306,13 @@
              [self.navigationController popViewControllerAnimated:YES];
        
         } else {
+            
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Login Failed" message:[NSString stringWithFormat:@"Code: %ld\n%@", (long)error.code, error.localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            
             [alertView show];
+            
         }
+        
     }];
 
 }
@@ -324,10 +341,7 @@
     //持久化expirationDate
     [[NSUserDefaults standardUserDefaults] setObject:[_tencentOAuth expirationDate] forKey:@"kExpirationDate"];
     
-    
-    
 }
-
 
 /**
  * 登录成功后的回调

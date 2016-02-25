@@ -9,8 +9,9 @@
 #import "PeriodViewController.h"
 #import "ZHPickView.h"
 #import "MDPickerView.h"
+#import <MaxLeap/MaxLeap.h>
 
-@interface PeriodViewController ()<UITableViewDelegate,ZHPickViewDelegate,MDPickerViewDelegate>
+@interface PeriodViewController ()<UITableViewDelegate,ZHPickViewDelegate,MDPickerViewDelegate,UIAlertViewDelegate>
 {
 
     ZHPickView *_pickerView;
@@ -19,6 +20,8 @@
     
     NSArray *_intervalArr;
     NSArray *_realityArr;
+    
+    MLUser *_user;
 
 }
 
@@ -47,6 +50,8 @@
     //加载数据
     [self loadData];
     
+    _user = [MLUser user];
+    
 }
 
 - (IBAction)finishBtnAct:(id)sender {
@@ -57,6 +62,13 @@
     
     [alert show];
     
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+
+    //发送推送通知
+    [self createLocalNotification];
+
 }
 
 //加载数据
@@ -123,7 +135,7 @@
         [_dayPickerView show];
 
     }
-
+    
 }
 
 -(void)toobarDonBtnHaveClick:(ZHPickView *)pickView resultString:(NSString *)resultString{
@@ -143,6 +155,111 @@
         _realityLabel.text = resultString;
         
     }
+
+}
+
+//发送本地推送
+-(void)createLocalNotification{
+
+    //创建本地推送对象
+    UILocalNotification *notification = [[UILocalNotification alloc]init];
+    
+    //设置属性
+    //设置提示内容
+    notification.alertBody = @"今天你可能会有亲戚来看你！";
+    
+    //设置发出的时间
+    //截取用户设置的推送时间
+    //截取天数
+    NSRange dayRange = {8,2};
+    
+    NSString *date = [_dateLabel.text substringWithRange:dayRange];
+    
+    //截取月数
+    NSRange monthRange = {5,2};
+    
+    NSString *month = [_dateLabel.text substringWithRange:monthRange];
+    
+    NSInteger monthCount = [month integerValue];
+    
+    //截取年份
+    NSRange yearRange = {0,4};
+    
+    NSInteger year = [[_dateLabel.text substringWithRange:yearRange] integerValue];
+    
+    //截取月经周期的天数
+    NSString *interval = [_intervalLabel.text substringToIndex:2];
+    
+    //截取行经天数
+    NSString *reality = [_realityLabel.text substringToIndex:1];
+    
+    //计算推送天数
+    NSInteger integer = [date integerValue] + [interval integerValue] + [reality integerValue];
+    
+    //初始化每月的天数
+    NSInteger day = 0;
+    
+    //初始化一月有31天的月份数组
+    NSArray *array1 = @[@"01",@"03",@"05",@"07",@"08",@"10",@"12"];
+    
+    //判断当前月份是否在31天的月份数组
+    if ([array1 containsObject:month]) {
+        
+        //如果在，当前月份就是31天
+        day = 31;
+        
+    }else {
+    
+        //如果不在，当前月份就是30天
+        day = 30;
+    
+    }
+    
+    //判断需要推送的天数是否大于当前月份的天数
+    if (integer % day == 0) {
+        
+        monthCount ++;
+        
+    }else {
+    
+        monthCount =+2;
+    
+    }
+    
+    //判断当前月份是否大于12
+    if (monthCount % 12 == 1) {
+        
+        //如果大于，年份加1
+        year++;
+        
+    }
+    
+    //将计算出来的推送天数转化成秒
+    NSInteger sec = integer * 24 * 60 * 60;
+    
+    //设置推送时间
+    notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:sec];
+    
+    //设置时区
+    notification.timeZone = [NSTimeZone defaultTimeZone];
+    
+    //设置锁屏状态下的提示文字
+    notification.alertAction =  @"今天你可能会有亲戚来看你！";
+
+    //设置是否显示锁屏状态下的提示文字
+    notification.hasAction = YES;
+    
+    //设置title
+    notification.alertTitle = @"ChooseDay友情提示：";
+    
+    //设置推送声音
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    
+    //设置应用程序图标上显示的角标
+    notification.applicationIconBadgeNumber = 1;
+    
+    //将通知添加到本地系统
+    [[UIApplication sharedApplication]scheduleLocalNotification:notification];
 
 }
 

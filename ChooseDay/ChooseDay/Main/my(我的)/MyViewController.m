@@ -67,43 +67,67 @@
 //接收登陆回调
 - (void)loginfor{
 
+    //判断是否登录成功
     if ([self isLoggedIn]) {
         
         self.userName.text=[[NSUserDefaults standardUserDefaults]objectForKey:kUserName];
         
-        NSLog(@"%@",self.userName.text);
+//        NSLog(@"%@",self.userName.text);
         
+        //获取MaxLeap中的设置的Photo类
         MLQuery *query = [MLQuery queryWithClassName:@"Photo"];
         
+        //查找Name列中的用户名
         [query whereKey:@"Name" equalTo:self.userName.text];
         
         if (query) {
             
+            //查询数据
             [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
                 
                 NSLog(@"obj %@",objects);
                 
                 self.lists = [NSMutableArray array];
                 
+                //Objects是只读，用一个可变数组接收
                 [self.lists addObjectsFromArray:objects];
                 
-                NSLog(@"count %ld",self.lists.count);
+//                NSLog(@"count %ld",self.lists.count);
                 
-                MLObject *list = self.lists[0];
-                
-                
-                
-                MLFile *userImgFile = list[@"image"];
-                
-                [userImgFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                //判断是否有头像
+                if (self.lists.count == 0) {
                     
-                    if (!error) {
-                        
-                        self.userImg.image = [UIImage imageWithData:data];
-                        
-                    }
+                    self.userImg.image = [UIImage imageNamed:@"myImage"];
                     
-                }];
+                }else{
+                
+                    MLObject *list = self.lists[0];
+                    
+                    MLFile *userImgFile = list[@"image"];
+                    
+                    //获取图片数据
+                    [userImgFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                        
+                        if (!error) {
+                            
+                            UIImage *img = [UIImage imageWithData:data];
+                            
+                            //判断是否存在头像
+                            if (img) {
+                                
+                                self.userImg.image = img;
+                                
+                            }else {
+                            
+                                self.userImg.image = [UIImage imageNamed:@"myImage"];
+                            
+                            }
+                            
+                        }
+                        
+                    }];
+                    
+                }
                 
             }];
             
@@ -118,7 +142,6 @@
         self.userImg.image = [UIImage imageNamed:@"myImage"];
         
     }
-
 
 }
 
@@ -155,6 +178,7 @@
     
     [manager GET:url parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
         nil;
+        
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSString *userName = [responseObject objectForKey:@"nickname"];
@@ -207,14 +231,13 @@
     //管理者
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
 
-    
     [manager GET:url parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
         nil;
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSString *userName = [responseObject objectForKey:@"name"];
         
-        NSLog(@"name is %@",userName);
+//        NSLog(@"name is %@",userName);
         
         NSString *userImg = [responseObject objectForKey:@"profile_image_url"];
         
@@ -229,8 +252,6 @@
 
 }
 
-
-
 // 判断是否登录状态
 - (BOOL)isLoggedIn {
     return [MLUser currentUser] &&  ! [MLAnonymousUtils isLinkedWithUser:[MLUser currentUser]];
@@ -243,6 +264,7 @@
         return nil;
     }
 }
+
 //cell的点击方法
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 

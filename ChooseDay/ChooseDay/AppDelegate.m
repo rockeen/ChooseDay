@@ -147,19 +147,20 @@
         }
     }];
     
+    //注册本地通知
+    //判断当前设备的系统版本是否是大于8.0的
+    if ([UIDevice currentDevice].systemVersion.floatValue > 8.0) {
+        
+        //创建通知
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert categories:nil];
+        
+        //注册通知
+        [application registerUserNotificationSettings:settings];
+        
+    }
     
     return YES;
 
-    
-    
-    
-    
-    
-    
-    
-
-    
-    return YES;
 }
 
 //第三方应用授权
@@ -312,6 +313,46 @@
     
 }
 
+//本地通知注册成功后调用的方法
+-(void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings{
+
+    NSLog(@"本地通知注册成功");
+    
+    
+
+}
+
+//本地注册失败过后调用的方法
+-(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
+
+    NSLog(@"error %@",error);
+
+}
+
+//本地通知回调函数，当应用程序在前台时调用
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
+
+    //更新显示的消息个数
+    NSInteger badge = [UIApplication sharedApplication].applicationIconBadgeNumber;
+    
+    badge --;
+    
+    badge = badge >= 0 ? badge : 0;
+    
+    [UIApplication sharedApplication].applicationIconBadgeNumber = badge;
+    
+    //移除推送通知
+    [self removeNotifition];
+
+}
+
+//移除推送通知
+-(void)removeNotifition{
+    
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -325,6 +366,19 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
+    //更新显示的消息个数
+    NSInteger badge = [UIApplication sharedApplication].applicationIconBadgeNumber;
+    
+    badge --;
+    
+    badge = badge >= 0 ? badge : 0;
+    
+    [UIApplication sharedApplication].applicationIconBadgeNumber = badge;
+    
+    //移除推送通知
+    [self removeNotifition];
+    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
