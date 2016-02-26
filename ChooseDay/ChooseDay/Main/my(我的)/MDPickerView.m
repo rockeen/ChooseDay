@@ -126,9 +126,15 @@
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
 
-    _resultString = _dataList[row];
+    if (row < _dataList.count) {
+        
+        _resultString = _dataList[row];
+        
+        return _dataList[row];
+        
+    }
     
-    return _dataList[row];
+    return nil;
     
 }
 

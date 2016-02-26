@@ -248,7 +248,6 @@
         //退出自有账号账号的登陆
         [MLUser logOut];
         
-        
         //发送通知，退出登录
         [[NSNotificationCenter defaultCenter]postNotificationName:@"exitLogin" object:nil];
         

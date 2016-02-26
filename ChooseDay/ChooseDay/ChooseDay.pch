@@ -11,6 +11,8 @@
 
 #import "UIViewExt.h"
 
+#import "Masonry.h"
+
 
 #define nomalColor [UIColor colorWithRed:128/255.0 green:128/255.0 blue:128/255.0 alpha:1]//默认颜色
 
@@ -21,11 +23,10 @@
 #define kScreenW [UIScreen mainScreen].bounds.size.width
 #define kScreenH [UIScreen mainScreen].bounds.size.height
 
-#import "Masonry.h"
-
+//历史城市
 #define kHistoryData [[NSUserDefaults standardUserDefaults] valueForKey:@"historyData"]
 
-
+//ChooseDay账号
 #define kUserName [[NSUserDefaults standardUserDefaults] valueForKey:@"username"]
 #define kUserImgName [[NSUserDefaults standardUserDefaults] valueForKey:@"imgName"]
 
