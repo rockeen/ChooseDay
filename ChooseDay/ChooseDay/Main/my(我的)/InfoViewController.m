@@ -127,8 +127,20 @@
         
         NSString *city = [result  objectForKey:@"city"];
         
-        addLabel.text = [NSString stringWithFormat:@"%@%@省%@市",country,province,city];
+        if (country != nil) {
+            
+            addLabel.text = [NSString stringWithFormat:@"%@%@省%@市",country,province,city];
+            
+        }else if (province != nil) {
         
+            addLabel.text = [NSString stringWithFormat:@"%@省%@市",province,city];
+        
+        }else {
+        
+            addLabel.text = [NSString stringWithFormat:@"%@市",city];
+        
+        }
+    
     }];
 
 }
@@ -144,7 +156,7 @@
     
     addLabel.text = [MLUser currentUser][@"address"];
     
-    NSLog(@"jjjjk%@",addLabel.text);
+//    NSLog(@"jjjjk%@",addLabel.text);
     
     //获取MaxLeap中的设置的Photo类
     MLQuery *queryPhoto = [MLQuery queryWithClassName:@"Photo"];
@@ -222,6 +234,8 @@
     imgV.layer.borderColor = [[UIColor grayColor]CGColor];
     
     imgV.layer.cornerRadius = 50;
+    
+    imgV.clipsToBounds = YES;
     
     imgV.image = [UIImage imageNamed:@"myImage"];
     

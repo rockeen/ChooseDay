@@ -20,7 +20,12 @@
     
     AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
     
-
+    NSMutableSet *contentTypes = [[NSMutableSet alloc]initWithSet:manger.responseSerializer.acceptableContentTypes];
+    
+    [contentTypes addObject:@"text/html"];
+    
+    manger.responseSerializer.acceptableContentTypes = contentTypes;
+    
     [manger GET:urlstr parameters:paramets progress:^(NSProgress * _Nonnull downloadProgress) {
         nil;
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

@@ -176,42 +176,44 @@
     
     NSDictionary *parameters = @{@"access_token":kQQAccessToken,@"oauth_consumer_key":kAppID,@"openid":kQQOpenID};
     
-//    [GUNMMAFN getDataWithParameters:parameters withUrl:url withBlock:^(id result) {
-//        
-//        NSLog(@"hbja%@",result);
-//        
-//        NSString *userName = [result objectForKey:@"nickname"];
-//        
-//        NSString *userImg = [result objectForKey:@"figureurl_qq_2"];
-//        
-//        self.userName.text = userName;
-//        
-//        [self.userImg setImageWithURL:[NSURL URLWithString:userImg]];
-//        
-//    }];
-    
-    //管理者
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    [manager GET:url parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
-        nil;
+    [GUNMMAFN getDataWithParameters:parameters withUrl:url withBlock:^(id result) {
         
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"hbja%@",result);
         
-        NSString *userName = [responseObject objectForKey:@"nickname"];
+        NSString *userName = [result objectForKey:@"nickname"];
         
-        NSString *userImg = [responseObject objectForKey:@"figureurl_qq_2"];
+        NSString *userImg = [result objectForKey:@"figureurl_qq_2"];
         
         self.userName.text = userName;
         
         [self.userImg setImageWithURL:[NSURL URLWithString:userImg]];
         
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        NSLog(@"____%@",error);
-        
     }];
-
+    
+//    //管理者
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    
+//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    
+//    [manager GET:url parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+//        nil;
+//        
+//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        
+//        NSString *userName = [responseObject objectForKey:@"nickname"];
+//        
+//        NSString *userImg = [responseObject objectForKey:@"figureurl_qq_2"];
+//        
+//        self.userName.text = userName;
+//        
+//        [self.userImg setImageWithURL:[NSURL URLWithString:userImg]];
+//        
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        
+//        NSLog(@"____%@",error);
+//        
+//    }];
+//
 }
 
 //更新微博数据
