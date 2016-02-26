@@ -7,6 +7,7 @@
 //
 
 #import "ConstellationViewController.h"
+#import "GUNMMAFN.h"
  
 @interface ConstellationViewController ()
 
@@ -24,6 +25,9 @@
     self.navigationItem.backBarButtonItem = item;
     
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
