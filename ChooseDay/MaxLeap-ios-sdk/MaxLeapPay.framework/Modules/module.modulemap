@@ -1,6 +1,0 @@
-framework module MaxLeapPay {
-  umbrella header "MaxLeapPay.h"
-
-  export *
-  module * { export * }
-}

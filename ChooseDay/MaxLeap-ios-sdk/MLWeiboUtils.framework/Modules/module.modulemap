@@ -1,6 +1,0 @@
-framework module MLWeiboUtils {
-  umbrella header "MLWeiboUtils.h"
-
-  export *
-  module * { export * }
-}

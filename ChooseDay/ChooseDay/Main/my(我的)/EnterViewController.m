@@ -71,6 +71,7 @@
         
         //初始化
         [self initTencent];
+        
     }
     
 //    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(QQLogout) name:@"exitQQ" object:nil];
@@ -320,7 +321,7 @@
 //获取个人信息
 -(void)getUserInfoResponse:(APIResponse *)response{
     
-//    NSLog(@"11111111%@",response.jsonResponse);
+    NSLog(@"11111111%@",response.jsonResponse);
     
 //    _block(response.jsonResponse);
 

@@ -129,10 +129,6 @@
     //初始化_locManager
     [self initLocManager];
     
-    
-    
-    
-    
     //链接服务器
     [MaxLeap setApplicationId:@"56ca625760b2b393412e7d29" clientKey:@"YkNIQUVPM3JMTUdLT2wzaUdPVzJ3Zw" site:MLSiteCN];
     

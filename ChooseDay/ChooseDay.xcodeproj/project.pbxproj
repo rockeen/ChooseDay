@@ -195,17 +195,6 @@
 		D6F10C3E1C7BF67E00CA72A5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C3D1C7BF67E00CA72A5 /* MobileCoreServices.framework */; };
 		D6F10C4F1C7BF6F500CA72A5 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = D6F10C401C7BF6F500CA72A5 /* LICENSE.txt */; };
 		D6F10C501C7BF6F500CA72A5 /* MaxLeap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C411C7BF6F500CA72A5 /* MaxLeap.framework */; };
-		D6F10C511C7BF6F500CA72A5 /* MaxLeapExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C421C7BF6F500CA72A5 /* MaxLeapExt.framework */; };
-		D6F10C521C7BF6F500CA72A5 /* MaxLeapPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C431C7BF6F500CA72A5 /* MaxLeapPay.framework */; };
-		D6F10C531C7BF6F500CA72A5 /* MLFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C441C7BF6F500CA72A5 /* MLFacebookUtils.framework */; };
-		D6F10C541C7BF6F500CA72A5 /* MLFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C451C7BF6F500CA72A5 /* MLFacebookUtilsV4.framework */; };
-		D6F10C551C7BF6F500CA72A5 /* MLHelpCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C471C7BF6F500CA72A5 /* MLHelpCenter.framework */; };
-		D6F10C561C7BF6F500CA72A5 /* MLHelpCenterImages.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6F10C491C7BF6F500CA72A5 /* MLHelpCenterImages.bundle */; };
-		D6F10C571C7BF6F500CA72A5 /* MLHelpCenterLocalizable.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6F10C4A1C7BF6F500CA72A5 /* MLHelpCenterLocalizable.bundle */; };
-		D6F10C581C7BF6F500CA72A5 /* MLHelpCenterThemes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6F10C4B1C7BF6F500CA72A5 /* MLHelpCenterThemes.bundle */; };
-		D6F10C591C7BF6F500CA72A5 /* MLTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C4C1C7BF6F500CA72A5 /* MLTwitterUtils.framework */; };
-		D6F10C5A1C7BF6F500CA72A5 /* MLWeChatUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C4D1C7BF6F500CA72A5 /* MLWeChatUtils.framework */; };
-		D6F10C5B1C7BF6F500CA72A5 /* MLWeiboUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F10C4E1C7BF6F500CA72A5 /* MLWeiboUtils.framework */; };
 		D6F10C621C7BFDDD00CA72A5 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F10C5E1C7BFDDD00CA72A5 /* MBProgressHUD+Add.m */; };
 		D6F10C631C7BFDDD00CA72A5 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6F10C5F1C7BFDDD00CA72A5 /* MBProgressHUD.bundle */; };
 		D6F10C641C7BFDDD00CA72A5 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F10C611C7BFDDD00CA72A5 /* MBProgressHUD.m */; };
@@ -584,17 +573,6 @@
 		D6F10C3D1C7BF67E00CA72A5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D6F10C401C7BF6F500CA72A5 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		D6F10C411C7BF6F500CA72A5 /* MaxLeap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MaxLeap.framework; sourceTree = "<group>"; };
-		D6F10C421C7BF6F500CA72A5 /* MaxLeapExt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MaxLeapExt.framework; sourceTree = "<group>"; };
-		D6F10C431C7BF6F500CA72A5 /* MaxLeapPay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MaxLeapPay.framework; sourceTree = "<group>"; };
-		D6F10C441C7BF6F500CA72A5 /* MLFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MLFacebookUtils.framework; sourceTree = "<group>"; };
-		D6F10C451C7BF6F500CA72A5 /* MLFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MLFacebookUtilsV4.framework; sourceTree = "<group>"; };
-		D6F10C471C7BF6F500CA72A5 /* MLHelpCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MLHelpCenter.framework; sourceTree = "<group>"; };
-		D6F10C491C7BF6F500CA72A5 /* MLHelpCenterImages.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MLHelpCenterImages.bundle; sourceTree = "<group>"; };
-		D6F10C4A1C7BF6F500CA72A5 /* MLHelpCenterLocalizable.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MLHelpCenterLocalizable.bundle; sourceTree = "<group>"; };
-		D6F10C4B1C7BF6F500CA72A5 /* MLHelpCenterThemes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MLHelpCenterThemes.bundle; sourceTree = "<group>"; };
-		D6F10C4C1C7BF6F500CA72A5 /* MLTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MLTwitterUtils.framework; sourceTree = "<group>"; };
-		D6F10C4D1C7BF6F500CA72A5 /* MLWeChatUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MLWeChatUtils.framework; sourceTree = "<group>"; };
-		D6F10C4E1C7BF6F500CA72A5 /* MLWeiboUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MLWeiboUtils.framework; sourceTree = "<group>"; };
 		D6F10C5D1C7BFDDD00CA72A5 /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
 		D6F10C5E1C7BFDDD00CA72A5 /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
 		D6F10C5F1C7BFDDD00CA72A5 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
@@ -612,10 +590,8 @@
 				5EDFDB821C4F9D5300777C0A /* libsqlite3.tbd in Frameworks */,
 				5EDFDB801C4F9D4500777C0A /* libz.tbd in Frameworks */,
 				5EDFDB761C4F9D0F00777C0A /* CoreTelephony.framework in Frameworks */,
-				D6F10C531C7BF6F500CA72A5 /* MLFacebookUtils.framework in Frameworks */,
 				D6F10C3E1C7BF67E00CA72A5 /* MobileCoreServices.framework in Frameworks */,
 				5EDFDB721C4F9CF700777C0A /* SystemConfiguration.framework in Frameworks */,
-				D6F10C551C7BF6F500CA72A5 /* MLHelpCenter.framework in Frameworks */,
 				D6F10C501C7BF6F500CA72A5 /* MaxLeap.framework in Frameworks */,
 				5E1D96B91C7ABD5600587349 /* CoreLocation.framework in Frameworks */,
 				5E983D041C50F9C200F61EC1 /* libiconv.tbd in Frameworks */,
@@ -625,15 +601,10 @@
 				5EC0F5871C756B8600673A59 /* libSocialWechat.a in Frameworks */,
 				5EDFDB7E1C4F9D3A00777C0A /* CoreGraphics.framework in Frameworks */,
 				5EDFDB7C1C4F9D2F00777C0A /* Foundation.framework in Frameworks */,
-				D6F10C541C7BF6F500CA72A5 /* MLFacebookUtilsV4.framework in Frameworks */,
-				D6F10C591C7BF6F500CA72A5 /* MLTwitterUtils.framework in Frameworks */,
-				D6F10C5B1C7BF6F500CA72A5 /* MLWeiboUtils.framework in Frameworks */,
 				5E983D001C50F70200F61EC1 /* TencentOpenAPI.framework in Frameworks */,
 				5EDFDB7A1C4F9D2700777C0A /* UIKit.framework in Frameworks */,
-				D6F10C5A1C7BF6F500CA72A5 /* MLWeChatUtils.framework in Frameworks */,
 				5EC0F57D1C756B8600673A59 /* libUMSocial_Sdk_4.2.3.a in Frameworks */,
 				5EDFDB781C4F9D1B00777C0A /* CoreText.framework in Frameworks */,
-				D6F10C521C7BF6F500CA72A5 /* MaxLeapPay.framework in Frameworks */,
 				5EC0F5881C756B8600673A59 /* libWeChatSDK.a in Frameworks */,
 				5EDFDB741C4F9D0200777C0A /* Security.framework in Frameworks */,
 				5E85DC441C76101A00E30F62 /* libSocialRenren.a in Frameworks */,
@@ -642,7 +613,6 @@
 				5EDFDB6B1C4F9C3F00777C0A /* libWeiboSDK.a in Frameworks */,
 				0C0E0A187751ABFE6AD0CAB4 /* libPods.a in Frameworks */,
 				5EC0F5791C756B8600673A59 /* libSocialQQ.a in Frameworks */,
-				D6F10C511C7BF6F500CA72A5 /* MaxLeapExt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1591,35 +1561,8 @@
 			children = (
 				D6F10C401C7BF6F500CA72A5 /* LICENSE.txt */,
 				D6F10C411C7BF6F500CA72A5 /* MaxLeap.framework */,
-				D6F10C421C7BF6F500CA72A5 /* MaxLeapExt.framework */,
-				D6F10C431C7BF6F500CA72A5 /* MaxLeapPay.framework */,
-				D6F10C441C7BF6F500CA72A5 /* MLFacebookUtils.framework */,
-				D6F10C451C7BF6F500CA72A5 /* MLFacebookUtilsV4.framework */,
-				D6F10C461C7BF6F500CA72A5 /* MLHelpCenter.embeddedframework */,
-				D6F10C4C1C7BF6F500CA72A5 /* MLTwitterUtils.framework */,
-				D6F10C4D1C7BF6F500CA72A5 /* MLWeChatUtils.framework */,
-				D6F10C4E1C7BF6F500CA72A5 /* MLWeiboUtils.framework */,
 			);
 			path = "MaxLeap-ios-sdk";
-			sourceTree = "<group>";
-		};
-		D6F10C461C7BF6F500CA72A5 /* MLHelpCenter.embeddedframework */ = {
-			isa = PBXGroup;
-			children = (
-				D6F10C471C7BF6F500CA72A5 /* MLHelpCenter.framework */,
-				D6F10C481C7BF6F500CA72A5 /* Resources */,
-			);
-			path = MLHelpCenter.embeddedframework;
-			sourceTree = "<group>";
-		};
-		D6F10C481C7BF6F500CA72A5 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				D6F10C491C7BF6F500CA72A5 /* MLHelpCenterImages.bundle */,
-				D6F10C4A1C7BF6F500CA72A5 /* MLHelpCenterLocalizable.bundle */,
-				D6F10C4B1C7BF6F500CA72A5 /* MLHelpCenterThemes.bundle */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		D6F10C5C1C7BFDDD00CA72A5 /* MBProgressHUD */ = {
@@ -1782,14 +1725,11 @@
 				5E7349B61C4C7AD800F810C2 /* MyViewController.storyboard in Resources */,
 				5E1D96CF1C7ABE0F00587349 /* 上海.jpg in Resources */,
 				5EC0F57B1C756B8600673A59 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
-				D6F10C571C7BF6F500CA72A5 /* MLHelpCenterLocalizable.bundle in Resources */,
 				5EC0F5861C756B8600673A59 /* UMSocialSDKResourcesNew.bundle in Resources */,
 				5EC0F5521C75680D00673A59 /* UMS_social_demo.png in Resources */,
 				5EDAA6911C7840EF006CD05D /* PeriodViewController.storyboard in Resources */,
 				5E1D96C61C7ABDE000587349 /* 运动.png in Resources */,
-				D6F10C581C7BF6F500CA72A5 /* MLHelpCenterThemes.bundle in Resources */,
 				5EC0F5801C756B8600673A59 /* UMSCommentInputControlleriPad.xib in Resources */,
-				D6F10C561C7BF6F500CA72A5 /* MLHelpCenterImages.bundle in Resources */,
 				5E1D96C51C7ABDE000587349 /* 穿衣.png in Resources */,
 				5EDFDB6C1C4F9C3F00777C0A /* WeiboSDK.bundle in Resources */,
 				5E1D96D31C7ABE0F00587349 /* 青岛.jpg in Resources */,
@@ -2160,7 +2100,7 @@
 					"$(PROJECT_DIR)/Wechat",
 					"$(PROJECT_DIR)/Renren",
 				);
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "  -ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.rockeen.ChooseDay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -2199,7 +2139,7 @@
 					"$(PROJECT_DIR)/Wechat",
 					"$(PROJECT_DIR)/Renren",
 				);
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "  -ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.rockeen.ChooseDay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

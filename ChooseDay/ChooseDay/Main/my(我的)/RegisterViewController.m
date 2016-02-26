@@ -142,7 +142,7 @@
     //地址信息
     addText = [[UITextField alloc]initWithFrame:CGRectMake(nameText.origin.x, sexText.bottom+20, sexText.width, sexText.height)];
     
-    addText.placeholder = @"例如：山东省济南市";
+    addText.placeholder = @"例如：中国山东省济南市";
     
     addText.layer.borderWidth = .5;
     

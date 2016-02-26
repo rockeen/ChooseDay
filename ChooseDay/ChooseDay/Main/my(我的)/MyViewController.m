@@ -17,7 +17,7 @@
 #import "InfoViewController.h"
 #import "ZXYGtasksViewController.h"
 #import <MaxLeap/MaxLeap.h>
-
+#import "GUNMMAFN.h"
 
 
 @interface MyViewController ()
@@ -148,6 +148,8 @@
 //更新数据
 -(void)updateQQData{
 
+//    NSLog(@"hbjvbjae%@",kQQOpenID);
+    
     if (kQQOpenID) {
         
         //加载QQ数据
@@ -170,11 +172,26 @@
 
     NSString *url = @"https://graph.qq.com/user/get_user_info";
     
+//    NSString *url = @"http://openapi.tencentyun.com/v3/user/get_info";
+    
     NSDictionary *parameters = @{@"access_token":kQQAccessToken,@"oauth_consumer_key":kAppID,@"openid":kQQOpenID};
+    
+//    [GUNMMAFN getDataWithParameters:parameters withUrl:url withBlock:^(id result) {
+//        
+//        NSLog(@"hbja%@",result);
+//        
+//        NSString *userName = [result objectForKey:@"nickname"];
+//        
+//        NSString *userImg = [result objectForKey:@"figureurl_qq_2"];
+//        
+//        self.userName.text = userName;
+//        
+//        [self.userImg setImageWithURL:[NSURL URLWithString:userImg]];
+//        
+//    }];
     
     //管理者
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
     
     [manager GET:url parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
         nil;
@@ -192,6 +209,7 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
         NSLog(@"____%@",error);
+        
     }];
 
 }
@@ -274,8 +292,6 @@
     
     //根据cell不同的tag值推出显示不同的页面
     if (cell.tag == 100) {
-        
-        
         
         //判断是否授权
         if (kQQOpenID || kAccessToken ||[self isLoggedIn]) {
@@ -394,11 +410,11 @@
 
     [super viewDidAppear:animated];
     
+    [self loginfor];
+    
     [self updateQQData];
     
     [self updateData];
-    
-    [self loginfor];
     
 //    NSLog(@"%@",kUserName);
     

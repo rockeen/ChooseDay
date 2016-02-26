@@ -249,7 +249,7 @@
         
         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"access_token"];
         
-        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kUserName];
+        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"username"];
 
         //退出自有账号账号的登陆
         [MLUser logOut];

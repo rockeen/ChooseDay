@@ -1,6 +1,0 @@
-framework module MLTwitterUtils {
-  umbrella header "MLTwitterUtils.h"
-
-  export *
-  module * { export * }
-}

@@ -56,7 +56,7 @@
     
     _user = [MLObject objectWithClassName:@"Information"];
     
-    if (![kUserName isEqualToString:@"userName"]) {
+    if (kUserName) {
         
         //设置显示用户设置的日期
         [self searchDate];
@@ -189,7 +189,7 @@
 
     _dateLabel.text = [resultString substringToIndex:10];
     
-    if (![kUserName isEqualToString:@"userName"]) {
+    if (kUserName) {
         
         _user[@"name"] = kUserName;
         
@@ -211,7 +211,7 @@
         
         _intervalLabel.text = resultString;
         
-        if (![kUserName isEqualToString:@"userName"]) {
+        if (kUserName) {
             
             _user[@"name"] = kUserName;
             
@@ -229,7 +229,7 @@
 
         _realityLabel.text = resultString;
         
-        if (![kUserName isEqualToString:@"userName"]) {
+        if (kUserName) {
             
             _user[@"name"] = kUserName;
             

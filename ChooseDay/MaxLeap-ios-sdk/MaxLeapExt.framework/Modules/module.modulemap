@@ -1,6 +1,0 @@
-framework module MaxLeapExt {
-  umbrella header "MaxLeapExt.h"
-
-  export *
-  module * { export * }
-}
