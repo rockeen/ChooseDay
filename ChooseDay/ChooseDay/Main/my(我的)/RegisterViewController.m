@@ -42,6 +42,8 @@
     
     self.title = @"注册账号";
     
+    self.view.backgroundColor = kBgColor;
+    
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
@@ -254,6 +256,10 @@
                 nameText.text = nil;
                 
                 pwdText.text = nil;
+                
+                sexText.text = nil;
+                
+                addText.text = nil;
                 
                 _imgV.image = nil;
             

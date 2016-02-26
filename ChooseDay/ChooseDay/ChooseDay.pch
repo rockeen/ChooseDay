@@ -16,7 +16,7 @@
 
 #define kMainColor [UIColor colorWithRed:250/255.0 green:128/255.0 blue:114/255.0 alpha:1]//navi主颜色
 
-#define kBgColor   [UIColor colorWithRed:0.93 green:0.92 blue:0.95 alpha:1];//背景颜色
+#define kBgColor   [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1];//背景颜色
 
 #define kScreenW [UIScreen mainScreen].bounds.size.width
 #define kScreenH [UIScreen mainScreen].bounds.size.height

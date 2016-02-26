@@ -35,7 +35,7 @@
     
     self.title = @"设置";
     
-    self.view.backgroundColor=[UIColor whiteColor];
+    self.view.backgroundColor = kBgColor;
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
@@ -118,8 +118,6 @@
     
     _tableView.dataSource = self;
     
-    _tableView.layer.borderWidth = .5;
-    
     _tableView.showsVerticalScrollIndicator = NO;
     
     [self.view addSubview:_tableView];
@@ -155,11 +153,7 @@
     cell.textLabel.text = _dataList[indexPath.row];
     
     cell.tag = 100+indexPath.row;
-    
-    cell.layer.borderWidth = .5;
-    
-    cell.layer.borderColor = [[UIColor grayColor]CGColor];
-    
+        
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;

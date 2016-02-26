@@ -45,7 +45,7 @@
     self.title = @"登录";
     
     
-    self.view.backgroundColor=[UIColor whiteColor];
+    self.view.backgroundColor = kBgColor;
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
@@ -200,7 +200,7 @@
 //创建微博登录btn
 -(void)createWeiBoEnterBtn{
 
-    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(20, kScreenH-64-150, kScreenW-40, 40)];
+    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(20, kScreenH-64-200, kScreenW-40, 40)];
     
     btn.backgroundColor = kMainColor;
     
@@ -333,6 +333,8 @@
     
     //设置为nil---相当于重新请求数据
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"access_token"];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"username"];
     
     //持久化openId
     [[NSUserDefaults standardUserDefaults] setObject:[_tencentOAuth openId] forKey:@"kOpenID"];

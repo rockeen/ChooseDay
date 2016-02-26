@@ -63,7 +63,6 @@
     
 }
 
-
 //接收登陆回调
 - (void)loginfor{
 
@@ -132,6 +131,8 @@
             }];
             
         }
+        
+        [self.tableView reloadData];
         
 //        NSLog(@"%@",self.userName.text);
 
@@ -291,7 +292,6 @@
     //获取cell
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    
     //根据cell不同的tag值推出显示不同的页面
     if (cell.tag == 100) {
         
@@ -306,18 +306,6 @@
         }else {
         
             //登录
-//            EnterViewController *enterVC = [[EnterViewController alloc]initWithBlock:^(id result) {
-//                
-//                self.userName.text = [NSString stringWithFormat:@"%@",[result objectForKey:@"nickname"]];
-//                
-//                NSString *imgName = [result objectForKey:@"figureurl_qq_2"];
-//                
-//                [self.userImg setImageWithURL:[NSURL URLWithString:imgName]];
-//                
-//                [self.tableView reloadData];
-//                
-//            }];
-            
             EnterViewController *enterVC = [[EnterViewController alloc]init];
             
             [self.navigationController pushViewController:enterVC animated:YES];
@@ -328,6 +316,8 @@
     
         //待办事项
         ZXYGtasksViewController *matterVC = [[ZXYGtasksViewController alloc]init];
+        
+        matterVC.navigationController.navigationBar.hidden = YES;
         
         [self.navigationController pushViewController:matterVC animated:YES];
     
@@ -398,7 +388,6 @@
     
     [self.navigationController pushViewController:enterVC animated:YES];
     
-
 }
 
 //销毁通知
@@ -412,12 +401,23 @@
 
     [super viewDidAppear:animated];
     
-    [self loginfor];
+    //判断登录的账号类型
+    if (kUserName) {
+        
+        //如果是ChooseDay账号登录
+        [self loginfor];
+        
+    }else if (kQQOpenID) {
     
-    [self updateQQData];
+        //如果是QQ账号登录
+        [self updateQQData];
     
-    [self updateData];
+    }else {
     
+        //如果是微博账号登录
+        [self updateData];
+    
+    }
 //    NSLog(@"%@",kUserName);
     
 //    NSLog(@"xxxxx%@",self.userName.text);

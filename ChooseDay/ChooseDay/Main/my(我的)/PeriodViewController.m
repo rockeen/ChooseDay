@@ -39,6 +39,8 @@
     
     self.title = @"生理期";
     
+    self.view.backgroundColor = kBgColor;
+    
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];

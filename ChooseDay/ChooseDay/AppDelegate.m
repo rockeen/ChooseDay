@@ -231,6 +231,8 @@
     
     //设置为nil----相当于重新请求了url
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"kOpenID"];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"username"];
 
     //发出更新通知
     [[NSNotificationCenter defaultCenter]postNotificationName:@"updateWeiboData" object:nil];
