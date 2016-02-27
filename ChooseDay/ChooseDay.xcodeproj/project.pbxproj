@@ -198,6 +198,7 @@
 		D6F10C621C7BFDDD00CA72A5 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F10C5E1C7BFDDD00CA72A5 /* MBProgressHUD+Add.m */; };
 		D6F10C631C7BFDDD00CA72A5 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6F10C5F1C7BFDDD00CA72A5 /* MBProgressHUD.bundle */; };
 		D6F10C641C7BFDDD00CA72A5 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F10C611C7BFDDD00CA72A5 /* MBProgressHUD.m */; };
+		E78B5A491C7FFA95004248A4 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E78B5A471C7FFA95004248A4 /* StartViewController.m */; settings = {ASSET_TAGS = (); }; };
 		E79BEB2B1C7D96CE0047FA59 /* LLRotateView.m in Sources */ = {isa = PBXBuildFile; fileRef = E79BEB2A1C7D96CE0047FA59 /* LLRotateView.m */; };
 /* End PBXBuildFile section */
 
@@ -578,6 +579,8 @@
 		D6F10C5F1C7BFDDD00CA72A5 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		D6F10C601C7BFDDD00CA72A5 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		D6F10C611C7BFDDD00CA72A5 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		E78B5A461C7FFA95004248A4 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		E78B5A471C7FFA95004248A4 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		E79BEB291C7D96CE0047FA59 /* LLRotateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLRotateView.h; sourceTree = "<group>"; };
 		E79BEB2A1C7D96CE0047FA59 /* LLRotateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLRotateView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1336,6 +1339,7 @@
 		D6BFBE9E1C49EDC3007C68C7 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				E78B5A451C7FFA37004248A4 /* StartUI */,
 				D6BFBE6E1C49ECCA007C68C7 /* AppDelegate.h */,
 				D6BFBE6F1C49ECCA007C68C7 /* AppDelegate.m */,
 				D6BFBF611C4A2D2E007C68C7 /* ThreeNavigationController.h */,
@@ -1575,6 +1579,15 @@
 				D6F10C611C7BFDDD00CA72A5 /* MBProgressHUD.m */,
 			);
 			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		E78B5A451C7FFA37004248A4 /* StartUI */ = {
+			isa = PBXGroup;
+			children = (
+				E78B5A461C7FFA95004248A4 /* StartViewController.h */,
+				E78B5A471C7FFA95004248A4 /* StartViewController.m */,
+			);
+			name = StartUI;
 			sourceTree = "<group>";
 		};
 		E79BEB1F1C7D42E10047FA59 /* RotateView */ = {
@@ -1873,6 +1886,7 @@
 				5E42A1AC1C7AAAE700F7BCE8 /* WHUCalendarCell.m in Sources */,
 				5E42A17E1C7AA1DB00F7BCE8 /* AFURLSessionManager.m in Sources */,
 				5E42A1AB1C7AAAE700F7BCE8 /* WHUCalendarCal.m in Sources */,
+				E78B5A491C7FFA95004248A4 /* StartViewController.m in Sources */,
 				5E1D97071C7AE17300587349 /* WindModel.m in Sources */,
 				5E867D661C4CF81D001AE678 /* EnterViewController.m in Sources */,
 				D68B4E391C4B58F600D8C8F9 /* UIImage+RTTint.m in Sources */,

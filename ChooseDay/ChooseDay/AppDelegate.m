@@ -19,7 +19,7 @@
 #import "UMSocialQQHandler.h"
 #import "UMSocialWechatHandler.h"
 #import <MaxLeap/MaxLeap.h>
-
+#import "StartViewController.h"
 
 @interface AppDelegate ()
 {
@@ -32,7 +32,7 @@
     
     WeatherViewController *weatherVc;
 
-
+    BOOL isfirstload;
 }
 @end
 
@@ -48,66 +48,22 @@
     self.window.backgroundColor=[UIColor whiteColor];
     
     
-    ZXYTabBarController *tabBar=[[ZXYTabBarController alloc]init];
-    tabBar.selectLabColor=kMainColor;
-    tabBar.nomalLabColor=nomalColor;
+    //数据持久化
+    NSUserDefaults *userDefault = [[NSUserDefaults alloc]init];
+    isfirstload = [userDefault boolForKey:@"first"];
+    if (isfirstload ==NO) {
+        StartViewController *startVc = [[StartViewController alloc]init];
+        self.window.rootViewController = startVc;
+        //第一次加载后重新赋值
+         [userDefault setBool:YES forKey:@"first"];
+        
+    }
+    else{
+        [self loadViewController];
     
     
-    //创建子视图控制器
+    }
     
-    //日历视图控制器
-    CalaViewController *calendarVc=[[CalaViewController alloc]init];
-    ThreeNavigationController *calendarNc=[[ThreeNavigationController alloc]initWithRootViewController:calendarVc];
-    
-    
-    
-    calendarVc.tabBarItem.image=[[UIImage imageNamed:@"calendar"]
-                                 rt_tintedImageWithColor:nomalColor level:1];
-    calendarVc.tabBarItem.selectedImage=[[UIImage imageNamed:@"calendar"]
-                                         rt_tintedImageWithColor:kMainColor level:1];
-    calendarVc.title=@"日历";
-    
-    
-    //星座视图控制器
-    ConstellationViewController *constellationVc=[[ConstellationViewController alloc]init];
-    ThreeNavigationController *constellationNc=[[ThreeNavigationController alloc]initWithRootViewController:constellationVc];
-    
-    constellationVc.tabBarItem.image=[[UIImage imageNamed:@"luck"]
-                                      rt_tintedImageWithColor:nomalColor level:1];
-    constellationVc.tabBarItem.selectedImage=[[UIImage imageNamed:@"luck"]
-                                             rt_tintedImageWithColor:kMainColor level:1];
-    constellationVc.title=@"星座";
-    
-    
-    //天气视图控制器
-    weatherVc=[[WeatherViewController alloc]init];
-    ThreeNavigationController *weatherNc=[[ThreeNavigationController alloc]initWithRootViewController:weatherVc];
-    
-    weatherVc.tabBarItem.image=[[UIImage imageNamed:@"weather"]
-                                rt_tintedImageWithColor:nomalColor level:1];
-    weatherVc.tabBarItem.selectedImage=[[UIImage imageNamed:@"weather"]
-                                        rt_tintedImageWithColor:kMainColor level:1];
-    weatherVc.title=@"天气";
-    
-    
-    //我的视图控制器
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MyViewController" bundle:nil];
-    
-    MyViewController *myVc = [storyBoard instantiateInitialViewController];
-    
-//    MyViewController *myVc=[[MyViewController alloc]init];
-    ThreeNavigationController *myNc=[[ThreeNavigationController alloc]initWithRootViewController:myVc];
-    
-    myVc.tabBarItem.image=[[UIImage imageNamed:@"my"]
-                           rt_tintedImageWithColor:nomalColor level:1];
-    myVc.tabBarItem.selectedImage=[[UIImage imageNamed:@"my"]
-                                   rt_tintedImageWithColor:kMainColor level:1];
-    myVc.title=@"我的";
-    
-    //tabbar的主控制器
-    tabBar.viewControllers=@[calendarNc,constellationNc,weatherNc,myNc];
-    
-    self.window.rootViewController=tabBar;
     
     //接收通知
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(oauthFunc) name:@"weibologin" object:nil];
@@ -156,6 +112,74 @@
     }
     
     return YES;
+
+}
+-(void)loadViewController{
+
+    
+    ZXYTabBarController *tabBar=[[ZXYTabBarController alloc]init];
+    tabBar.selectLabColor=kMainColor;
+    tabBar.nomalLabColor=nomalColor;
+    
+    
+    //创建子视图控制器
+    
+    //日历视图控制器
+    CalaViewController *calendarVc=[[CalaViewController alloc]init];
+    ThreeNavigationController *calendarNc=[[ThreeNavigationController alloc]initWithRootViewController:calendarVc];
+    
+    
+    
+    calendarVc.tabBarItem.image=[[UIImage imageNamed:@"calendar"]
+                                 rt_tintedImageWithColor:nomalColor level:1];
+    calendarVc.tabBarItem.selectedImage=[[UIImage imageNamed:@"calendar"]
+                                         rt_tintedImageWithColor:kMainColor level:1];
+    calendarVc.title=@"日历";
+    
+    
+    //星座视图控制器
+    ConstellationViewController *constellationVc=[[ConstellationViewController alloc]init];
+    ThreeNavigationController *constellationNc=[[ThreeNavigationController alloc]initWithRootViewController:constellationVc];
+    
+    constellationVc.tabBarItem.image=[[UIImage imageNamed:@"luck"]
+                                      rt_tintedImageWithColor:nomalColor level:1];
+    constellationVc.tabBarItem.selectedImage=[[UIImage imageNamed:@"luck"]
+                                              rt_tintedImageWithColor:kMainColor level:1];
+    constellationVc.title=@"星座";
+    
+    
+    //天气视图控制器
+    weatherVc=[[WeatherViewController alloc]init];
+    ThreeNavigationController *weatherNc=[[ThreeNavigationController alloc]initWithRootViewController:weatherVc];
+    
+    weatherVc.tabBarItem.image=[[UIImage imageNamed:@"weather"]
+                                rt_tintedImageWithColor:nomalColor level:1];
+    weatherVc.tabBarItem.selectedImage=[[UIImage imageNamed:@"weather"]
+                                        rt_tintedImageWithColor:kMainColor level:1];
+    weatherVc.title=@"天气";
+    
+    
+    //我的视图控制器
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MyViewController" bundle:nil];
+    
+    MyViewController *myVc = [storyBoard instantiateInitialViewController];
+    
+    //    MyViewController *myVc=[[MyViewController alloc]init];
+    ThreeNavigationController *myNc=[[ThreeNavigationController alloc]initWithRootViewController:myVc];
+    
+    myVc.tabBarItem.image=[[UIImage imageNamed:@"my"]
+                           rt_tintedImageWithColor:nomalColor level:1];
+    myVc.tabBarItem.selectedImage=[[UIImage imageNamed:@"my"]
+                                   rt_tintedImageWithColor:kMainColor level:1];
+    myVc.title=@"我的";
+    
+    //tabbar的主控制器
+    tabBar.viewControllers=@[calendarNc,constellationNc,weatherNc,myNc];
+    
+    self.window.rootViewController=tabBar;
+    
+
+
 
 }
 
@@ -308,6 +332,7 @@
     weatherVc.coordinate = coordinate;
     
 }
+
 
 //本地通知注册成功后调用的方法
 -(void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings{
