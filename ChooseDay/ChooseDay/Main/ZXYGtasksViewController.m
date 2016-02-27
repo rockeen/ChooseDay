@@ -11,7 +11,7 @@
 #import "GtasksData.h"
 #import "CslendarCell.h"
 
-@interface ZXYGtasksViewController ()<UITextViewDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface ZXYGtasksViewController ()<UITextViewDelegate,UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 
 @end
 
@@ -38,7 +38,8 @@ static const NSInteger rangeTop=20;
     // Do any additional setup after loading the view.
     
 
-    
+    self.navigationController.navigationBarHidden = YES;
+
     self.view.backgroundColor=kMainColor;
     
     //获取数据
@@ -225,9 +226,6 @@ static const NSInteger rangeTop=20;
 
     
     
-    //KVO
-//    [_zxyTextView addObserver:self forKeyPath:@"textViewHeight" options:NSKeyValueObservingOptionNew context:nil];
-    
     _zxyTextView.frame=CGRectMake(10, 64+rangeTop, kScreenW-20, 36.5);
     
     [[NSNotificationCenter defaultCenter ]addObserver:self selector:@selector(twoViewLaout) name:@"heightChange" object:nil];
@@ -239,32 +237,10 @@ static const NSInteger rangeTop=20;
     [self.view addSubview:_zxyTextView];
     
     
-//    //mas布局
-//    [_zxyTextView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        
-//        
-//        make.left.equalTo(self.view).with.offset(10);
-//        
-//        make.right.equalTo(self.view).with.offset(-10);
-//        
-//        make.top.equalTo(self.view).with.offset(64+20);
-//        
-//        make.height.mas_equalTo(40);
-//        
-//        
-//        
-//    }];
+
 
 
 }
-//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
-//    
-//    
-//    NSLog(@"bianhuale");
-//    
-//    
-//    
-//}
 
 
 #pragma mark - UITextView Delegate
@@ -487,6 +463,16 @@ static const NSInteger rangeTop=20;
     
         x=_gtasksOneDayFinishArray.count-1-indexPath.row;
         cell.textLable.text=_gtasksOneDayFinishArray[x];
+//        
+//        //2.长按手势
+//        UILongPressGestureRecognizer *longP = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPAct:Tag:)];
+//        
+//        //添加到cell上
+//        [cell.contentView addGestureRecognizer:longP];
+        
+        
+        
+
     
     }
     
@@ -497,6 +483,7 @@ static const NSInteger rangeTop=20;
     
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
+
     
     //选中按钮
     cell.yesBtn.hidden=YES;
@@ -508,6 +495,113 @@ static const NSInteger rangeTop=20;
 
 
 }
+
+
+
+
+//设置单元格是否可以编辑  默认所有单元格都可编辑
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        return NO;
+    }
+    return YES;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    return YES;
+
+
+}
+
+
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+//    if (indexPath.section==1) {
+//        
+//        
+//        //删除单元格  首先删除数据
+//        [_gtasksOneDayFinishArray removeObjectAtIndex:indexPath.row];
+//        //删除表视图中的单元格
+//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+//
+//        
+//    }
+    
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        //删除单元格  首先删除数据
+        [_gtasksOneDayFinishArray removeObjectAtIndex:indexPath.row];
+        //删除表视图中的单元格
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+    }
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//按压之后出现的方法
+- (void)longPAct:(UILongPressGestureRecognizer *)longP Tag:(NSInteger) num{
+
+
+
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"是否删除该条事项" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    
+    alert.alertViewStyle = UIAlertActionStyleDefault;
+    
+    [alert show];
+
+    
+    
+    
+    
+
+
+
+
+}
+
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    //发送推送通知
+//    [self createLocalNotification];
+    
+    
+    if (buttonIndex == 0) {
+        NSLog(@"取消");
+    }
+    else if (buttonIndex == 1)
+    {
+        
+        
+        
+        NSLog(@"OK");
+        
+        
+        
+        
+    }
+
+    
+}
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
 
@@ -546,6 +640,39 @@ static const NSInteger rangeTop=20;
 
 
 
+}
+
+
+#pragma mark-----点击yesbutton
+
+- (void)yesBtnAct:(UIButton *)btn{
+    
+    
+    CslendarCell *cell=(CslendarCell *)btn.superview;
+    
+    
+    [self deleteData:cell.tag];
+    
+    
+}
+
+//删除未完成事项数据
+- (void)deleteData:(NSInteger)num{
+    
+    
+    
+    GtasksData *gtd=[GtasksData new];
+    
+    [gtd deleteOneDayWillArray:_dataStr index:num];
+    
+    
+    [self addData];
+    
+    
+    [self haveData];
+    [_storyView reloadData];
+
+    
 }
 
 
