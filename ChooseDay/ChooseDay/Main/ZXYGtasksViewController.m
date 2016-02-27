@@ -349,13 +349,14 @@ static const NSInteger rangeTop=20;
     GtasksData *gtd=[GtasksData new];
 
     //获得willarray
-     _gtasksOneDayWillArray=[gtd getOneDayWillArray:self.dataStr];
+     _gtasksOneDayWillArray=(NSMutableArray *)[gtd getOneDayWillArray:self.dataStr];
 
     
     //获得FinishArray
-     _gtasksOneDayFinishArray=[gtd getOneDayFinishArray:self.dataStr];
+//     _gtasksOneDayFinishArray=(NSMutableArray *)[gtd getOneDayFinishArray:self.dataStr];
     
     
+    _gtasksOneDayFinishArray=[NSMutableArray arrayWithArray:[gtd getOneDayFinishArray:self.dataStr]];
 
 
 
@@ -499,7 +500,7 @@ static const NSInteger rangeTop=20;
 //设置单元格是否可以编辑  默认所有单元格都可编辑
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) {
+    if (indexPath.section == 0) {
         return NO;
     }
     return YES;
@@ -531,10 +532,33 @@ static const NSInteger rangeTop=20;
     
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        //删除单元格  首先删除数据
+        
+        
+        NSLog(@"%ld",indexPath.row);
+//        删除单元格  首先删除数据
         [_gtasksOneDayFinishArray removeObjectAtIndex:indexPath.row];
-        //删除表视图中的单元格
+//        删除表视图中的单元格
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        
+        
+        
+        
+        
+        GtasksData *gtd=[GtasksData new];
+        
+        [gtd deleteOneDayFinishArray:_dataStr index:indexPath.row];
+        
+        
+//        [self addData];
+//        
+//        
+//        [self haveData];
+//        [_storyView reloadData];
+        
+
+        
+        
+        
     }
 
     
@@ -542,7 +566,25 @@ static const NSInteger rangeTop=20;
 
 
 
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
 
+
+     return @"删除";
+
+
+
+}
+
+
+//- (void)layoutSubviews
+//{
+////    [super layoutSubviews];
+//    for (UIView *subView in self.view.subviews) {
+//        if ([NSStringFromClass([subView class]) isEqualToString:@"UITableViewCellDeleteConfirmationView"]) {
+//            ((UIView *)[subView.subviews firstObject]).backgroundColor =kMainColor;
+//        }
+//    }
+//}
 
 
 
@@ -563,12 +605,6 @@ static const NSInteger rangeTop=20;
     alert.alertViewStyle = UIAlertActionStyleDefault;
     
     [alert show];
-
-    
-    
-    
-    
-
 
 
 
