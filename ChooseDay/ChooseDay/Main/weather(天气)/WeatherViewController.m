@@ -199,8 +199,36 @@
         
         if (error) {
             _addressSuc = 0;
-            NSLog(@"输入的地址在火星");
-            return;
+            
+            
+
+            NSArray *arr = kHistoryData;
+            if (arr.count) {
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"无法定位到当前城市" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                
+                alert.alertViewStyle = UIAlertViewStyleDefault;
+                
+                alert.tag = 11;
+                
+                [alert show];
+                
+                _assign = 0;
+                [self loadHistoryWeather];
+
+            }
+            else{
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"无法定位，您可以点击右上角添加城市" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                
+                alert.alertViewStyle = UIAlertViewStyleDefault;
+                
+                alert.tag = 11;
+                
+                [alert show];
+                
+                [self leftBtnAct];
+
+
+            }
         }
         else
         {
@@ -222,6 +250,7 @@
             
             
             NSRange range = [pm.locality rangeOfString:@"市"];
+            
             
             //            NSString *a = @"jinan";
             
@@ -317,6 +346,18 @@
         }
         else{
             loadLabel.text = @"无法连接到互联网，没请检查网络连接";
+            
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"无法连接到互联网" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            
+            alert.alertViewStyle = UIAlertViewStyleDefault;
+            
+            alert.tag = 11;
+            
+            [alert show];
+            
+            
+            
+
         }
     }];
     
@@ -504,7 +545,7 @@
         //没有定位时候走这个方法
         if (_assign) {
             _assign = 0;
-            NSLog(@"_*****%@",_cityName);
+//            NSLog(@"_*****%@",_cityName);
             
             [self loadHistoryWeather];
 

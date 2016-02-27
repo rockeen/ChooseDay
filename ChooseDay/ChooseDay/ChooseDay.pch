@@ -11,21 +11,22 @@
 
 #import "UIViewExt.h"
 
+#import "Masonry.h"
+
 
 #define nomalColor [UIColor colorWithRed:128/255.0 green:128/255.0 blue:128/255.0 alpha:1]//默认颜色
 
 #define kMainColor [UIColor colorWithRed:250/255.0 green:128/255.0 blue:114/255.0 alpha:1]//navi主颜色
 
-#define kBgColor   [UIColor colorWithRed:0.93 green:0.92 blue:0.95 alpha:1];//背景颜色
+#define kBgColor   [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1];//背景颜色
 
 #define kScreenW [UIScreen mainScreen].bounds.size.width
 #define kScreenH [UIScreen mainScreen].bounds.size.height
 
-#import "Masonry.h"
-
+//历史城市
 #define kHistoryData [[NSUserDefaults standardUserDefaults] valueForKey:@"historyData"]
 
-
+//ChooseDay账号
 #define kUserName [[NSUserDefaults standardUserDefaults] valueForKey:@"username"]
 #define kUserImgName [[NSUserDefaults standardUserDefaults] valueForKey:@"imgName"]
 
@@ -42,7 +43,7 @@
 
 //新浪微博
 #define kAppKey @"3286697984"
-#define kAppRedirectURL @"http://www.baidu.com" //授权回调页
+#define kAppRedirectURL @"https://api.weibo.com/oauth2/default.html" //授权回调页
 #define kAccessToken [[NSUserDefaults standardUserDefaults]valueForKey:@"access_token"]
 #define kUserID [[NSUserDefaults standardUserDefaults]valueForKey:@"kUserID"]
 

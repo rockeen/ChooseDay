@@ -45,7 +45,7 @@
     self.title = @"登录";
     
     
-    self.view.backgroundColor=[UIColor whiteColor];
+    self.view.backgroundColor = kBgColor;
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
@@ -161,6 +161,8 @@
     
     pwdText.layer.cornerRadius = 5.f;
     
+    pwdText.secureTextEntry = YES;
+    
     pwdText.clearButtonMode = UITextFieldViewModeAlways;
     
     //设置输入光标不靠左
@@ -200,7 +202,7 @@
 //创建微博登录btn
 -(void)createWeiBoEnterBtn{
 
-    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(20, kScreenH-64-150, kScreenW-40, 40)];
+    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(20, kScreenH-64-200, kScreenW-40, 40)];
     
     btn.backgroundColor = kMainColor;
     
@@ -294,9 +296,6 @@
 //            NSLog(@"user: %@, isNew: %d", user, user.isNew);
             [[NSNotificationCenter defaultCenter] postNotificationName:@"MLUserDidLoginNotification" object:self];
             
-            
-//            NSDictionary *loginDic=@{@"username":nameText.text,@"password":pwdText.text};
-    
             //登陆成功用户名缓存
             _userDefault = [NSUserDefaults standardUserDefaults];
 
@@ -308,7 +307,7 @@
        
         } else {
             
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Login Failed" message:[NSString stringWithFormat:@"Code: %ld\n%@", (long)error.code, error.localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"登录失败" message:[NSString stringWithFormat:@"Code: %ld\n%@", (long)error.code, error.localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             
             [alertView show];
             
@@ -320,27 +319,7 @@
 
 //获取个人信息
 -(void)getUserInfoResponse:(APIResponse *)response{
-    
-    NSLog(@"11111111%@",response.jsonResponse);
-    
-//    _block(response.jsonResponse);
 
-    
-    NSString *access_token = [_tencentOAuth accessToken];
-    
-    //持久化token
-    [[NSUserDefaults standardUserDefaults] setObject:access_token forKey:@"kAccess_token"];
-    
-    //设置为nil---相当于重新请求数据
-    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"access_token"];
-    
-    //持久化openId
-    [[NSUserDefaults standardUserDefaults] setObject:[_tencentOAuth openId] forKey:@"kOpenID"];
-    
-//    NSLog(@"kqqopenid is %@",kQQOpenID);
-    
-    //持久化expirationDate
-    [[NSUserDefaults standardUserDefaults] setObject:[_tencentOAuth expirationDate] forKey:@"kExpirationDate"];
     
 }
 
@@ -352,6 +331,24 @@
 //    NSLog(@"tencentLogin success!");
     
     [_tencentOAuth getUserInfo];
+    
+    NSString *access_token = [_tencentOAuth accessToken];
+    
+    //持久化token
+    [[NSUserDefaults standardUserDefaults] setObject:access_token forKey:@"kAccess_token"];
+    
+    //设置为nil---相当于重新请求数据
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"access_token"];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"username"];
+    
+    //持久化openId
+    [[NSUserDefaults standardUserDefaults] setObject:[_tencentOAuth openId] forKey:@"kOpenID"];
+    
+    //    NSLog(@"kqqopenid is %@",kQQOpenID);
+    
+    //持久化expirationDate
+    [[NSUserDefaults standardUserDefaults] setObject:[_tencentOAuth expirationDate] forKey:@"kExpirationDate"];
     
     [self.navigationController popViewControllerAnimated:YES];
     

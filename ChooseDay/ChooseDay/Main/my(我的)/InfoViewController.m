@@ -35,28 +35,13 @@
     
     self.title = @"个人信息";
     
-    self.view.backgroundColor=[UIColor whiteColor];
+    self.view.backgroundColor = kBgColor;
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
     
     [self loadInfoView];
-    
-    //判断当前的登录账号
-    if (kAccessToken) {
-        
-        [self loadWeiBoInformation];
-        
-    }else if (kQQOpenID) {
-    
-        [self loadQQInformation];
-    
-    }else {
-    
-        [self loadChooseDayInformation];
-    
-    }
     
 }
 
@@ -264,6 +249,27 @@
     addLabel.text = @"未知";
     
     [infoView addSubview:addLabel];
+
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+
+    [super viewWillAppear:animated];
+    
+    //判断当前的登录账号
+    if (kAccessToken) {
+        
+        [self loadWeiBoInformation];
+        
+    }else if (kQQOpenID) {
+        
+        [self loadQQInformation];
+        
+    }else {
+        
+        [self loadChooseDayInformation];
+        
+    }
 
 }
 

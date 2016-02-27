@@ -235,10 +235,13 @@
     
     _gtasksOneDayWillArray=[_gtasksOneDayDic  objectForKey:@"Will"];
     
+    _gtasksOneDayFinishArray=[_gtasksOneDayDic  objectForKey:@"Finish"];
     
     NSMutableArray *oneDayWillArray=[[NSMutableArray alloc]initWithArray:_gtasksOneDayWillArray];
     
     NSMutableArray *oneDayFinishArray=[[NSMutableArray alloc]initWithArray:_gtasksOneDayFinishArray];
+    
+    
     
     
     

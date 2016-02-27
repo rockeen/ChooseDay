@@ -13,9 +13,10 @@
 #import "EnterViewController.h"
 #import "UMSocial.h"
 #import <MaxLeap/MaxLeap.h>
+#import "SDImageCache.h"
 
 
-@interface InstallViewController ()<UITableViewDataSource,UITableViewDelegate,UMSocialUIDelegate>
+@interface InstallViewController ()<UITableViewDataSource,UITableViewDelegate,UMSocialUIDelegate,UIAlertViewDelegate>
 {
 
     NSArray *_dataList;
@@ -35,7 +36,7 @@
     
     self.title = @"设置";
     
-    self.view.backgroundColor=[UIColor whiteColor];
+    self.view.backgroundColor = kBgColor;
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
@@ -118,8 +119,6 @@
     
     _tableView.dataSource = self;
     
-    _tableView.layer.borderWidth = .5;
-    
     _tableView.showsVerticalScrollIndicator = NO;
     
     [self.view addSubview:_tableView];
@@ -155,11 +154,7 @@
     cell.textLabel.text = _dataList[indexPath.row];
     
     cell.tag = 100+indexPath.row;
-    
-    cell.layer.borderWidth = .5;
-    
-    cell.layer.borderColor = [[UIColor grayColor]CGColor];
-    
+        
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
@@ -184,9 +179,6 @@
         [self.navigationController pushViewController:pwdVC animated:YES];
         
     }else if (cell.tag == 101) {
-    
-        //弹出提示框
-        [self createAlertView];
         
         //删除cache文件 清理缓存
         NSString *liabrary = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
@@ -194,8 +186,21 @@
         //获取Caches文件路径
         NSString *cache = [liabrary stringByAppendingPathComponent:@"Caches"];
         
-        //删除指定文件
-        [manager removeItemAtPath:cache error:nil];
+
+        //for in遍历library文件夹里的所有子文件
+        for (NSString *filePath in [manager subpathsAtPath:cache]) {
+            
+            //转换filePath
+            NSString *subPath = [cache stringByAppendingPathComponent:filePath];
+            
+            //删除指定文件
+            [manager removeItemAtPath:subPath error:nil];
+            
+        }
+//        NSLog(@"cache is:%@",cache);
+        
+        //弹出提示框
+        [self createAlertView];
         
         //刷新表视图
         [_tableView reloadData];
@@ -242,6 +247,10 @@
         
         alert.alertViewStyle = UIAlertActionStyleDefault;
         
+        alert.delegate = self;
+        
+        alert.tag = 10;
+        
         [alert show];
         
         //设置QQ、微博为nil
@@ -253,7 +262,6 @@
 
         //退出自有账号账号的登陆
         [MLUser logOut];
-        
         
         //发送通知，退出登录
         [[NSNotificationCenter defaultCenter]postNotificationName:@"exitLogin" object:nil];
@@ -267,6 +275,16 @@
         
         [alert show];
     
+    }
+
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+
+    if (alertView.tag == 10) {
+        
+        [self.navigationController popViewControllerAnimated:YES];
+        
     }
 
 }
