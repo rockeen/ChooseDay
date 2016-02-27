@@ -16,7 +16,7 @@
 #import "SDImageCache.h"
 
 
-@interface InstallViewController ()<UITableViewDataSource,UITableViewDelegate,UMSocialUIDelegate>
+@interface InstallViewController ()<UITableViewDataSource,UITableViewDelegate,UMSocialUIDelegate,UIAlertViewDelegate>
 {
 
     NSArray *_dataList;
@@ -247,6 +247,10 @@
         
         alert.alertViewStyle = UIAlertActionStyleDefault;
         
+        alert.delegate = self;
+        
+        alert.tag = 10;
+        
         [alert show];
         
         //设置QQ、微博为nil
@@ -271,6 +275,16 @@
         
         [alert show];
     
+    }
+
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+
+    if (alertView.tag == 10) {
+        
+        [self.navigationController popViewControllerAnimated:YES];
+        
     }
 
 }
