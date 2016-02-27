@@ -13,6 +13,7 @@
 #import "EnterViewController.h"
 #import "UMSocial.h"
 #import <MaxLeap/MaxLeap.h>
+#import "SDImageCache.h"
 
 
 @interface InstallViewController ()<UITableViewDataSource,UITableViewDelegate,UMSocialUIDelegate>
@@ -178,9 +179,6 @@
         [self.navigationController pushViewController:pwdVC animated:YES];
         
     }else if (cell.tag == 101) {
-    
-        //弹出提示框
-        [self createAlertView];
         
         //删除cache文件 清理缓存
         NSString *liabrary = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
@@ -188,8 +186,21 @@
         //获取Caches文件路径
         NSString *cache = [liabrary stringByAppendingPathComponent:@"Caches"];
         
-        //删除指定文件
-        [manager removeItemAtPath:cache error:nil];
+
+        //for in遍历library文件夹里的所有子文件
+        for (NSString *filePath in [manager subpathsAtPath:cache]) {
+            
+            //转换filePath
+            NSString *subPath = [cache stringByAppendingPathComponent:filePath];
+            
+            //删除指定文件
+            [manager removeItemAtPath:subPath error:nil];
+            
+        }
+//        NSLog(@"cache is:%@",cache);
+        
+        //弹出提示框
+        [self createAlertView];
         
         //刷新表视图
         [_tableView reloadData];

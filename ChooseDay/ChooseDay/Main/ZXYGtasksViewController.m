@@ -73,9 +73,6 @@ static const NSInteger rangeTop=20;
 }
 
 
-
-
-
 - (void)addData{
     
     //1.获取文件路径

@@ -352,7 +352,6 @@
 		5E42A1B71C7AAB4E00F7BCE8 /* ZXYGtasksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYGtasksViewController.m; sourceTree = "<group>"; };
 		5E42A1BA1C7AAB7000F7BCE8 /* ZXYTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXYTextView.h; sourceTree = "<group>"; };
 		5E42A1BB1C7AAB7000F7BCE8 /* ZXYTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYTextView.m; sourceTree = "<group>"; };
-		5E64BA421C8049C30072D430 /* UMSocialSDKResourcesNew.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = UMSocialSDKResourcesNew.bundle; path = Pods/UMengSocial/Umeng_SDK_Social_iOS_ARM64_4.2.5/UMSocial_Sdk_4.2.5/UMSocialSDKResourcesNew.bundle; sourceTree = "<group>"; };
 		5E7349B51C4C7AD800F810C2 /* MyViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyViewController.storyboard; sourceTree = "<group>"; };
 		5E85DC411C76101A00E30F62 /* libSocialRenren.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialRenren.a; sourceTree = "<group>"; };
 		5E85DC421C76101A00E30F62 /* RennSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RennSDK.framework; sourceTree = "<group>"; };
@@ -1269,7 +1268,6 @@
 		D6BFBE5F1C49ECCA007C68C7 = {
 			isa = PBXGroup;
 			children = (
-				5E64BA421C8049C30072D430 /* UMSocialSDKResourcesNew.bundle */,
 				5E8108BE1C7C8AFF00EAE82A /* MaxLeapSDK */,
 				5EC0F4ED1C7553F200673A59 /* 分享SDK */,
 				5EC0F4EC1C7553A900673A59 /* 登录SDK */,
@@ -2090,6 +2088,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
 					"$(inherited)",
 					"$(PROJECT_DIR)/libWeiboSDK",
 					"$(PROJECT_DIR)/TencentOpenAPI",
@@ -2125,6 +2124,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
 					"$(inherited)",
 					"$(PROJECT_DIR)/libWeiboSDK",
 					"$(PROJECT_DIR)/TencentOpenAPI",

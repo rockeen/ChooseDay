@@ -194,7 +194,7 @@
 }
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
-    NSLog(@"url is%@",url);
+//    NSLog(@"url is%@",url);
     
     return [WeiboSDK handleOpenURL:url delegate:self] || [UMSocialSnsService handleOpenURL:url wxApiDelegate:nil];
         
@@ -208,7 +208,7 @@
 
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
 
-    NSLog(@"url is%@",url);
+//    NSLog(@"url is%@",url);
 
     return [TencentOAuth HandleOpenURL:url];
 
