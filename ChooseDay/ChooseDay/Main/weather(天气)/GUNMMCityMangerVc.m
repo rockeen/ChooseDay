@@ -96,6 +96,7 @@
     
     
     nowCityTableView.backgroundColor = kMainColor;
+    nowCityTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     //3.添加到view
     [self.view addSubview:nowCityTableView];
@@ -158,6 +159,8 @@
     cell.textLabel.text = [NSString stringWithFormat:@"    %@",_dataList[indexPath.row]];
     cell.textLabel.textAlignment = NSTextAlignmentLeft;
     cell.textLabel.textColor = [UIColor whiteColor];
+    
+
     
     
     

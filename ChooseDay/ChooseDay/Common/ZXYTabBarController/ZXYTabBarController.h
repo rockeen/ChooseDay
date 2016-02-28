@@ -28,7 +28,7 @@
 /**
  *tabbar上的背景view
  */
-@property (nonatomic, strong) UIImageView *tabbarView;
+@property (nonatomic, strong) UIView *tabbarView;
 
 /**
  *选中状态下lable的字体颜色

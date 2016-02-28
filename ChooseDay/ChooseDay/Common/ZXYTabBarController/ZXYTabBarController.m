@@ -32,7 +32,7 @@
     //3.选中背景视图的滑动
     
     //创建自定义的tabBarview覆盖原生的 默认的标签栏高度--49
-    _tabbarView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 49)];
+    _tabbarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 49)];
     
     
     //设置_tabbar响应触摸事件
