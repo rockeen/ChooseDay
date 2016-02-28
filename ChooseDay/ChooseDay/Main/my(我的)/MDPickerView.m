@@ -14,7 +14,7 @@
 @property(nonatomic,strong)UIPickerView *pickerView;
 @property(nonatomic,assign)BOOL isHaveNavControler;
 @property(nonatomic,assign)NSInteger pickeviewHeight;
-@property(nonatomic,copy)NSString *resultString;
+//@property(nonatomic,copy)NSString *resultString;
 
 @end
 
@@ -125,10 +125,12 @@
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-
+    
     if (row < _dataList.count) {
         
-        _resultString = _dataList[row];
+//        _resultString = @"";
+//        
+//        _resultString = _dataList[row];
         
         return _dataList[row];
         
@@ -151,10 +153,22 @@
 }
 
 -(void)doneClick{
+    
+    if (_pickerView) {
         
-    if ([self.delegate respondsToSelector:@selector(tooBarDonBtnHaveClick:resultString:)]) {
+        NSInteger row = [_pickerView selectedRowInComponent:0];
         
-        [self.delegate tooBarDonBtnHaveClick:self resultString:_resultString];
+        NSString *resultS = _dataList[row];
+//
+        if (resultS) {
+            
+            if ([self.delegate respondsToSelector:@selector(tooBarDonBtnHaveClick:resultString:)]) {
+                
+                [self.delegate tooBarDonBtnHaveClick:self resultString:resultS];
+                
+            }
+            
+        }
         
     }
     

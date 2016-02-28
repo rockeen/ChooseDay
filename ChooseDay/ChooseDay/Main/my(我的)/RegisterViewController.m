@@ -217,15 +217,17 @@
 //注册btn的点击方法
 -(void)btnAct:(UIButton *)btn{
     
+    NSArray *sex = @[@"男",@"女",@"未知"];
+    
     if (nameText.text.length == 0 || pwdText.text.length == 0) {
         
         [MBProgressHUD showError:@"用户名或密码不能为空" toView:self.view];
         
-    }else if (nameText.text.length < 2 || pwdText.text.length < 6){
+    }else if ((nameText.text.length < 2 && nameText.text.length > 20) || (pwdText.text.length < 6 && pwdText.text.length > 20)){
     
-        [MBProgressHUD showError:@"用户名或密码长度不够" toView:self.view];
+        [MBProgressHUD showError:@"用户名或密码格式不合法" toView:self.view];
     
-    }else {
+    }else if ([sex containsObject:sexText.text]) {
     
         MLUser *user = [MLUser user];
 

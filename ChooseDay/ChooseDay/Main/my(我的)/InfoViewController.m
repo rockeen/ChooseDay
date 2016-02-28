@@ -43,21 +43,6 @@
     
     [self loadInfoView];
     
-    //判断当前的登录账号
-    if (kAccessToken) {
-        
-        [self loadWeiBoInformation];
-        
-    }else if (kQQOpenID) {
-    
-        [self loadQQInformation];
-    
-    }else {
-    
-        [self loadChooseDayInformation];
-    
-    }
-    
 }
 
 //加载微博信息数据
@@ -264,6 +249,27 @@
     addLabel.text = @"未知";
     
     [infoView addSubview:addLabel];
+
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+
+    [super viewWillAppear:animated];
+    
+    //判断当前的登录账号
+    if (kAccessToken) {
+        
+        [self loadWeiBoInformation];
+        
+    }else if (kQQOpenID) {
+        
+        [self loadQQInformation];
+        
+    }else {
+        
+        [self loadChooseDayInformation];
+        
+    }
 
 }
 

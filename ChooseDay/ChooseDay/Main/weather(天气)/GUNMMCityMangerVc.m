@@ -98,6 +98,8 @@
     nowCityTableView.backgroundColor = kMainColor;
     nowCityTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    nowCityTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     //3.添加到view
     [self.view addSubview:nowCityTableView];
     

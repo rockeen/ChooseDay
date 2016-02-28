@@ -161,6 +161,8 @@
     
     pwdText.layer.cornerRadius = 5.f;
     
+    pwdText.secureTextEntry = YES;
+    
     pwdText.clearButtonMode = UITextFieldViewModeAlways;
     
     //设置输入光标不靠左
@@ -294,9 +296,6 @@
 //            NSLog(@"user: %@, isNew: %d", user, user.isNew);
             [[NSNotificationCenter defaultCenter] postNotificationName:@"MLUserDidLoginNotification" object:self];
             
-            
-//            NSDictionary *loginDic=@{@"username":nameText.text,@"password":pwdText.text};
-    
             //登陆成功用户名缓存
             _userDefault = [NSUserDefaults standardUserDefaults];
 
@@ -308,7 +307,7 @@
        
         } else {
             
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Login Failed" message:[NSString stringWithFormat:@"Code: %ld\n%@", (long)error.code, error.localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"登录失败" message:[NSString stringWithFormat:@"Code: %ld\n%@", (long)error.code, error.localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             
             [alertView show];
             
@@ -320,11 +319,18 @@
 
 //获取个人信息
 -(void)getUserInfoResponse:(APIResponse *)response{
-    
-    NSLog(@"11111111%@",response.jsonResponse);
-    
-//    _block(response.jsonResponse);
 
+    
+}
+
+/**
+ * 登录成功后的回调
+ */
+- (void)tencentDidLogin{
+
+//    NSLog(@"tencentLogin success!");
+    
+    [_tencentOAuth getUserInfo];
     
     NSString *access_token = [_tencentOAuth accessToken];
     
@@ -339,21 +345,10 @@
     //持久化openId
     [[NSUserDefaults standardUserDefaults] setObject:[_tencentOAuth openId] forKey:@"kOpenID"];
     
-//    NSLog(@"kqqopenid is %@",kQQOpenID);
+    //    NSLog(@"kqqopenid is %@",kQQOpenID);
     
     //持久化expirationDate
     [[NSUserDefaults standardUserDefaults] setObject:[_tencentOAuth expirationDate] forKey:@"kExpirationDate"];
-    
-}
-
-/**
- * 登录成功后的回调
- */
-- (void)tencentDidLogin{
-
-//    NSLog(@"tencentLogin success!");
-    
-    [_tencentOAuth getUserInfo];
     
     [self.navigationController popViewControllerAnimated:YES];
     

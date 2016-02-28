@@ -208,6 +208,11 @@
 		D6F10C621C7BFDDD00CA72A5 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F10C5E1C7BFDDD00CA72A5 /* MBProgressHUD+Add.m */; };
 		D6F10C631C7BFDDD00CA72A5 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6F10C5F1C7BFDDD00CA72A5 /* MBProgressHUD.bundle */; };
 		D6F10C641C7BFDDD00CA72A5 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F10C611C7BFDDD00CA72A5 /* MBProgressHUD.m */; };
+<<<<<<< HEAD
+=======
+		E78B5A491C7FFA95004248A4 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E78B5A471C7FFA95004248A4 /* StartViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E79BEB2B1C7D96CE0047FA59 /* LLRotateView.m in Sources */ = {isa = PBXBuildFile; fileRef = E79BEB2A1C7D96CE0047FA59 /* LLRotateView.m */; };
+>>>>>>> d59290092f07738db24b83155724742e5e4949b1
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -361,7 +366,6 @@
 		5E42A1B71C7AAB4E00F7BCE8 /* ZXYGtasksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYGtasksViewController.m; sourceTree = "<group>"; };
 		5E42A1BA1C7AAB7000F7BCE8 /* ZXYTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXYTextView.h; sourceTree = "<group>"; };
 		5E42A1BB1C7AAB7000F7BCE8 /* ZXYTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYTextView.m; sourceTree = "<group>"; };
-		5E64BA421C8049C30072D430 /* UMSocialSDKResourcesNew.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = UMSocialSDKResourcesNew.bundle; path = Pods/UMengSocial/Umeng_SDK_Social_iOS_ARM64_4.2.5/UMSocial_Sdk_4.2.5/UMSocialSDKResourcesNew.bundle; sourceTree = "<group>"; };
 		5E7349B51C4C7AD800F810C2 /* MyViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyViewController.storyboard; sourceTree = "<group>"; };
 		5E85DC411C76101A00E30F62 /* libSocialRenren.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialRenren.a; sourceTree = "<group>"; };
 		5E85DC421C76101A00E30F62 /* RennSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RennSDK.framework; sourceTree = "<group>"; };
@@ -602,6 +606,13 @@
 		D6F10C5F1C7BFDDD00CA72A5 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		D6F10C601C7BFDDD00CA72A5 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		D6F10C611C7BFDDD00CA72A5 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
+		E78B5A461C7FFA95004248A4 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		E78B5A471C7FFA95004248A4 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
+		E79BEB291C7D96CE0047FA59 /* LLRotateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLRotateView.h; sourceTree = "<group>"; };
+		E79BEB2A1C7D96CE0047FA59 /* LLRotateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLRotateView.m; sourceTree = "<group>"; };
+>>>>>>> d59290092f07738db24b83155724742e5e4949b1
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1319,7 +1330,6 @@
 		D6BFBE5F1C49ECCA007C68C7 = {
 			isa = PBXGroup;
 			children = (
-				5E64BA421C8049C30072D430 /* UMSocialSDKResourcesNew.bundle */,
 				5E8108BE1C7C8AFF00EAE82A /* MaxLeapSDK */,
 				5EC0F4ED1C7553F200673A59 /* 分享SDK */,
 				5EC0F4EC1C7553A900673A59 /* 登录SDK */,
@@ -1388,6 +1398,7 @@
 		D6BFBE9E1C49EDC3007C68C7 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				E78B5A451C7FFA37004248A4 /* StartUI */,
 				D6BFBE6E1C49ECCA007C68C7 /* AppDelegate.h */,
 				D6BFBE6F1C49ECCA007C68C7 /* AppDelegate.m */,
 				D6BFBF611C4A2D2E007C68C7 /* ThreeNavigationController.h */,
@@ -1637,6 +1648,27 @@
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
+=======
+		E78B5A451C7FFA37004248A4 /* StartUI */ = {
+			isa = PBXGroup;
+			children = (
+				E78B5A461C7FFA95004248A4 /* StartViewController.h */,
+				E78B5A471C7FFA95004248A4 /* StartViewController.m */,
+			);
+			name = StartUI;
+			sourceTree = "<group>";
+		};
+		E79BEB1F1C7D42E10047FA59 /* RotateView */ = {
+			isa = PBXGroup;
+			children = (
+				E79BEB291C7D96CE0047FA59 /* LLRotateView.h */,
+				E79BEB2A1C7D96CE0047FA59 /* LLRotateView.m */,
+			);
+			name = RotateView;
+			sourceTree = "<group>";
+		};
+>>>>>>> d59290092f07738db24b83155724742e5e4949b1
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1930,6 +1962,7 @@
 				5E42A1AC1C7AAAE700F7BCE8 /* WHUCalendarCell.m in Sources */,
 				5E42A17E1C7AA1DB00F7BCE8 /* AFURLSessionManager.m in Sources */,
 				5E42A1AB1C7AAAE700F7BCE8 /* WHUCalendarCal.m in Sources */,
+				E78B5A491C7FFA95004248A4 /* StartViewController.m in Sources */,
 				5E1D97071C7AE17300587349 /* WindModel.m in Sources */,
 				5E867D661C4CF81D001AE678 /* EnterViewController.m in Sources */,
 				D68B4E391C4B58F600D8C8F9 /* UIImage+RTTint.m in Sources */,
@@ -2148,6 +2181,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
 					"$(inherited)",
 					"$(PROJECT_DIR)/libWeiboSDK",
 					"$(PROJECT_DIR)/TencentOpenAPI",
@@ -2183,6 +2217,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
 					"$(inherited)",
 					"$(PROJECT_DIR)/libWeiboSDK",
 					"$(PROJECT_DIR)/TencentOpenAPI",
