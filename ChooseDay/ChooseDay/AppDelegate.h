@@ -13,6 +13,8 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate,CLLocationManagerDelegate,WeiboSDKDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+//加载视图
+-(void)loadViewController;
 
 //第三方应用授权
 -(void)oauthFunc;

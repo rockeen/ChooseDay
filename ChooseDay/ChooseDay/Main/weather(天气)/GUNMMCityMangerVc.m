@@ -96,8 +96,7 @@
     
     NSMutableArray *arr = kMainColor;
     nowCityTableView.backgroundColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
-    
-    
+        
     nowCityTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     //3.添加到view
@@ -161,6 +160,8 @@
     cell.textLabel.text = [NSString stringWithFormat:@"    %@",_dataList[indexPath.row]];
     cell.textLabel.textAlignment = NSTextAlignmentLeft;
     cell.textLabel.textColor = [UIColor whiteColor];
+    
+
     
     
     

@@ -72,25 +72,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    //设置标题颜色
+    [self setTitleColor];
 
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
-    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
-    
-    self.navigationItem.backBarButtonItem = item;
-    
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
-    
-    //隐藏navigationController下面的黑线
-    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-
-    //隐藏navigationController下面的黑线
-    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setBackIndicatorTransitionMaskImage:[[UIImage alloc] init]];
-    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
-
-    //设置导航栏不透明
-    self.edgesForExtendedLayout = UIRectEdgeNone;
     
     _dataList = [NSMutableArray array];
     
@@ -129,6 +116,32 @@
     //接收删除通知
     [self reciveDeleteNot];
     
+    
+}
+
+
+//设置标题颜色
+- (void)setTitleColor{
+    
+    
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    self.navigationItem.backBarButtonItem = item;
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
+    
+    //隐藏navigationController下面的黑线
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    
+    //隐藏navigationController下面的黑线
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackIndicatorTransitionMaskImage:[[UIImage alloc] init]];
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+    
+    //设置导航栏不透明
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     
 }
 //接收删除通知
@@ -256,15 +269,22 @@
             
             NSMutableString *city = [NSMutableString stringWithString:pm.locality];
             
-            [city deleteCharactersInRange:range];
+            if (range.length) {
+                [city deleteCharactersInRange:range];
+                
+                
+                _city = city;
+                
+                _addressSuc = 1;
+                
+                //加载当前需要天气数据
+                [self loadCurrentDay];
+            }
+            else{
+                
+            }
             
-            
-            _city = city;
-            
-            _addressSuc = 1;
-            
-            //加载当前需要天气数据
-            [self loadCurrentDay];
+           
             
         }
         
@@ -340,12 +360,15 @@
     [reManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         
         if (status) {
+            
+            loadLabel.text = @"正在加载......";
+
             //反地理编码
             [self reverseCode];
         
         }
         else{
-            loadLabel.text = @"无法连接到互联网，没请检查网络连接";
+            loadLabel.text = @"无法连接到互联网，请检查网络连接";
             
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"无法连接到互联网" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             

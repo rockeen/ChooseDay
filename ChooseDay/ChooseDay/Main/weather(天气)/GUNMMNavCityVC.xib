@@ -18,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQW-hb-0tm">
-                    <rect key="frame" x="96" y="169" width="183" height="82"/>
+                    <rect key="frame" x="0.0" y="169" width="375" height="82"/>
                     <fontDescription key="fontDescription" type="system" pointSize="45"/>
                     <color key="textColor" red="0.97241950757575757" green="0.52760198416813375" blue="0.3900849352682193" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -41,7 +41,7 @@
                 <constraint firstItem="TEf-St-Icm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="QGQ-77-zvE"/>
                 <constraint firstItem="TEf-St-Icm" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.0449" id="e95-yr-QrI"/>
                 <constraint firstItem="TEf-St-Icm" firstAttribute="top" secondItem="uQW-hb-0tm" secondAttribute="bottom" constant="154" id="fgS-4z-v1M"/>
-                <constraint firstItem="uQW-hb-0tm" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.488" id="z3u-xa-ky5"/>
+                <constraint firstItem="uQW-hb-0tm" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="z3u-xa-ky5"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="304.5" y="292.5"/>

@@ -147,9 +147,19 @@
 		5EDFDB7E1C4F9D3A00777C0A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EDFDB7D1C4F9D3A00777C0A /* CoreGraphics.framework */; };
 		5EDFDB801C4F9D4500777C0A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EDFDB7F1C4F9D4500777C0A /* libz.tbd */; };
 		5EDFDB821C4F9D5300777C0A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EDFDB811C4F9D5300777C0A /* libsqlite3.tbd */; };
+		CD2DDC171C814B8800EB28E2 /* ConstellationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DDC161C814B8800EB28E2 /* ConstellationModel.m */; };
+		CD2DDC1A1C8169EE00EB28E2 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DDC191C8169EE00EB28E2 /* iCarousel.m */; };
+		CD2DDC1C1C81756D00EB28E2 /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2DDC1B1C81756D00EB28E2 /* page.png */; };
+		CD2DDC1F1C818AD800EB28E2 /* CellView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DDC1E1C818AD800EB28E2 /* CellView.m */; };
+		CD2DDC211C818B4000EB28E2 /* CellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD2DDC201C818B4000EB28E2 /* CellView.xib */; };
+		CD2DDC231C81955400EB28E2 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2DDC221C81955400EB28E2 /* placeholder.png */; };
 		CD943EF41C7C46FD00A9DD69 /* GUNMMNavCityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CD943EF21C7C46FD00A9DD69 /* GUNMMNavCityVC.m */; };
 		CD943EF51C7C46FD00A9DD69 /* GUNMMNavCityVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD943EF31C7C46FD00A9DD69 /* GUNMMNavCityVC.xib */; };
 		CD943EF81C7C600200A9DD69 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = CD943EF71C7C600200A9DD69 /* NSArray+Log.m */; };
+		CDDA50511C81CD8E00E4B6C4 /* afc0ca93e673abd3f0a2f5bd60eabea6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CDDA504F1C81CD8E00E4B6C4 /* afc0ca93e673abd3f0a2f5bd60eabea6.jpg */; };
+		CDDA50521C81CD8E00E4B6C4 /* 2009011217182510462.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CDDA50501C81CD8E00E4B6C4 /* 2009011217182510462.jpg */; };
+		CDE4D1681C81B451004129FC /* PushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE4D1661C81B451004129FC /* PushViewController.m */; };
+		CDE4D1691C81B451004129FC /* PushViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE4D1671C81B451004129FC /* PushViewController.xib */; };
 		D68B4E391C4B58F600D8C8F9 /* UIImage+RTTint.m in Sources */ = {isa = PBXBuildFile; fileRef = D68B4E381C4B58F600D8C8F9 /* UIImage+RTTint.m */; };
 		D68B4E3E1C4B5D9900D8C8F9 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = D68B4E3D1C4B5D9900D8C8F9 /* UIViewExt.m */; };
 		D6BFBE6D1C49ECCA007C68C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BFBE6C1C49ECCA007C68C7 /* main.m */; };
@@ -199,7 +209,6 @@
 		D6F10C621C7BFDDD00CA72A5 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F10C5E1C7BFDDD00CA72A5 /* MBProgressHUD+Add.m */; };
 		D6F10C631C7BFDDD00CA72A5 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6F10C5F1C7BFDDD00CA72A5 /* MBProgressHUD.bundle */; };
 		D6F10C641C7BFDDD00CA72A5 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F10C611C7BFDDD00CA72A5 /* MBProgressHUD.m */; };
-		E79BEB2B1C7D96CE0047FA59 /* LLRotateView.m in Sources */ = {isa = PBXBuildFile; fileRef = E79BEB2A1C7D96CE0047FA59 /* LLRotateView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -478,11 +487,25 @@
 		7085B8AE0144C0D69FF84E7E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7E4EB7F30D91DDCD5D28BF36 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		869BB69912E21681EFDA50BA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		CD2DDC151C814B8800EB28E2 /* ConstellationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstellationModel.h; sourceTree = "<group>"; };
+		CD2DDC161C814B8800EB28E2 /* ConstellationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstellationModel.m; sourceTree = "<group>"; };
+		CD2DDC181C8169EE00EB28E2 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		CD2DDC191C8169EE00EB28E2 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		CD2DDC1B1C81756D00EB28E2 /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page.png; sourceTree = "<group>"; };
+		CD2DDC1D1C818AD800EB28E2 /* CellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellView.h; sourceTree = "<group>"; };
+		CD2DDC1E1C818AD800EB28E2 /* CellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellView.m; sourceTree = "<group>"; };
+		CD2DDC201C818B4000EB28E2 /* CellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellView.xib; sourceTree = "<group>"; };
+		CD2DDC221C81955400EB28E2 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		CD943EF11C7C46FD00A9DD69 /* GUNMMNavCityVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUNMMNavCityVC.h; sourceTree = "<group>"; };
 		CD943EF21C7C46FD00A9DD69 /* GUNMMNavCityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUNMMNavCityVC.m; sourceTree = "<group>"; };
 		CD943EF31C7C46FD00A9DD69 /* GUNMMNavCityVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GUNMMNavCityVC.xib; sourceTree = "<group>"; };
 		CD943EF61C7C600200A9DD69 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+Log.h"; path = "../../NSArray+Log.h"; sourceTree = "<group>"; };
 		CD943EF71C7C600200A9DD69 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Log.m"; path = "../../NSArray+Log.m"; sourceTree = "<group>"; };
+		CDDA504F1C81CD8E00E4B6C4 /* afc0ca93e673abd3f0a2f5bd60eabea6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = afc0ca93e673abd3f0a2f5bd60eabea6.jpg; sourceTree = "<group>"; };
+		CDDA50501C81CD8E00E4B6C4 /* 2009011217182510462.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2009011217182510462.jpg; sourceTree = "<group>"; };
+		CDE4D1651C81B451004129FC /* PushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushViewController.h; sourceTree = "<group>"; };
+		CDE4D1661C81B451004129FC /* PushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushViewController.m; sourceTree = "<group>"; };
+		CDE4D1671C81B451004129FC /* PushViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PushViewController.xib; sourceTree = "<group>"; };
 		D68B4E371C4B58F600D8C8F9 /* UIImage+RTTint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RTTint.h"; sourceTree = "<group>"; };
 		D68B4E381C4B58F600D8C8F9 /* UIImage+RTTint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RTTint.m"; sourceTree = "<group>"; };
 		D68B4E3A1C4B5CB700D8C8F9 /* ChooseDay.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseDay.pch; sourceTree = "<group>"; };
@@ -580,8 +603,6 @@
 		D6F10C5F1C7BFDDD00CA72A5 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		D6F10C601C7BFDDD00CA72A5 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		D6F10C611C7BFDDD00CA72A5 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		E79BEB291C7D96CE0047FA59 /* LLRotateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLRotateView.h; sourceTree = "<group>"; };
-		E79BEB2A1C7D96CE0047FA59 /* LLRotateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLRotateView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1259,6 +1280,35 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CD2DDC141C814B6E00EB28E2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DDC151C814B8800EB28E2 /* ConstellationModel.h */,
+				CD2DDC161C814B8800EB28E2 /* ConstellationModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		CDE4D1631C81B417004129FC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CD2DDC1D1C818AD800EB28E2 /* CellView.h */,
+				CD2DDC1E1C818AD800EB28E2 /* CellView.m */,
+				CD2DDC201C818B4000EB28E2 /* CellView.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		CDE4D1641C81B433004129FC /* Push */ = {
+			isa = PBXGroup;
+			children = (
+				CDE4D1651C81B451004129FC /* PushViewController.h */,
+				CDE4D1661C81B451004129FC /* PushViewController.m */,
+				CDE4D1671C81B451004129FC /* PushViewController.xib */,
+			);
+			name = Push;
+			sourceTree = "<group>";
+		};
 		D68B4E361C4B58F600D8C8F9 /* UIImage+RTTint */ = {
 			isa = PBXGroup;
 			children = (
@@ -1526,9 +1576,17 @@
 		D6BFBF4F1C4A1F51007C68C7 /* Constellation(星座) */ = {
 			isa = PBXGroup;
 			children = (
-				E79BEB1F1C7D42E10047FA59 /* RotateView */,
+				CD2DDC181C8169EE00EB28E2 /* iCarousel.h */,
+				CD2DDC191C8169EE00EB28E2 /* iCarousel.m */,
+				CDDA504F1C81CD8E00E4B6C4 /* afc0ca93e673abd3f0a2f5bd60eabea6.jpg */,
+				CDDA50501C81CD8E00E4B6C4 /* 2009011217182510462.jpg */,
+				CD2DDC1B1C81756D00EB28E2 /* page.png */,
+				CD2DDC221C81955400EB28E2 /* placeholder.png */,
 				D6BFBF551C4A1FDF007C68C7 /* ConstellationViewController.h */,
 				D6BFBF561C4A1FDF007C68C7 /* ConstellationViewController.m */,
+				CDE4D1641C81B433004129FC /* Push */,
+				CDE4D1631C81B417004129FC /* Cell */,
+				CD2DDC141C814B6E00EB28E2 /* Model */,
 			);
 			name = "Constellation(星座)";
 			path = "constellation(星座)";
@@ -1587,15 +1645,6 @@
 				D6F10C611C7BFDDD00CA72A5 /* MBProgressHUD.m */,
 			);
 			path = MBProgressHUD;
-			sourceTree = "<group>";
-		};
-		E79BEB1F1C7D42E10047FA59 /* RotateView */ = {
-			isa = PBXGroup;
-			children = (
-				E79BEB291C7D96CE0047FA59 /* LLRotateView.h */,
-				E79BEB2A1C7D96CE0047FA59 /* LLRotateView.m */,
-			);
-			name = RotateView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1712,15 +1761,19 @@
 				5E1D96F41C7ABF9600587349 /* InCollectionViewCell.xib in Resources */,
 				5EC0F5811C756B8600673A59 /* UMShareEditViewController.xib in Resources */,
 				5E1D96BB1C7ABDA000587349 /* city.plist in Resources */,
+				CDE4D1691C81B451004129FC /* PushViewController.xib in Resources */,
 				5E42A18E1C7AAA1600F7BCE8 /* AlmanacView.xib in Resources */,
 				5EB748491C83D88B00967643 /* WeiboSDK.bundle in Resources */,
 				D6BFBE7B1C49ECCA007C68C7 /* LaunchScreen.storyboard in Resources */,
 				CD943EF51C7C46FD00A9DD69 /* GUNMMNavCityVC.xib in Resources */,
+				CDDA50521C81CD8E00E4B6C4 /* 2009011217182510462.jpg in Resources */,
 				D6BFBE781C49ECCA007C68C7 /* Assets.xcassets in Resources */,
+				CD2DDC211C818B4000EB28E2 /* CellView.xib in Resources */,
 				5EC0F57C1C756B8600673A59 /* UMSocialLocalizable.strings in Resources */,
 				D6BFBF221C49EF0C007C68C7 /* MJRefresh.bundle in Resources */,
 				5E1D96D01C7ABE0F00587349 /* 其他.jpg in Resources */,
 				5E42A0F61C7A947000F7BCE8 /* Info.plist in Resources */,
+				CD2DDC231C81955400EB28E2 /* placeholder.png in Resources */,
 				5E40636A1C7860FF00596868 /* DayPlist.plist in Resources */,
 				5EC0F5821C756B8600673A59 /* UMShareEditViewControlleriPad.xib in Resources */,
 				5E1D96D11C7ABE0F00587349 /* 北京.jpg in Resources */,
@@ -1731,6 +1784,7 @@
 				D6F10C631C7BFDDD00CA72A5 /* MBProgressHUD.bundle in Resources */,
 				5E1D96C41C7ABDE000587349 /* 空调.png in Resources */,
 				5EC0F5831C756B8600673A59 /* UMSLoginViewController.xib in Resources */,
+				CDDA50511C81CD8E00E4B6C4 /* afc0ca93e673abd3f0a2f5bd60eabea6.jpg in Resources */,
 				5E42A1931C7AAA2C00F7BCE8 /* CslendarCell.xib in Resources */,
 				5E1D96C31C7ABDE000587349 /* 洗车.png in Resources */,
 				5EC0F57F1C756B8600673A59 /* UMSCommentInputController.xib in Resources */,
@@ -1742,6 +1796,7 @@
 				5EC0F5521C75680D00673A59 /* UMS_social_demo.png in Resources */,
 				5EDAA6911C7840EF006CD05D /* PeriodViewController.storyboard in Resources */,
 				5E1D96C61C7ABDE000587349 /* 运动.png in Resources */,
+				CD2DDC1C1C81756D00EB28E2 /* page.png in Resources */,
 				5EC0F5801C756B8600673A59 /* UMSCommentInputControlleriPad.xib in Resources */,
 				5E1D96C51C7ABDE000587349 /* 穿衣.png in Resources */,
 				5EB7484B1C83F15700967643 /* ThemeViewController.storyboard in Resources */,
@@ -1846,7 +1901,6 @@
 				5E42A0F91C7A947000F7BCE8 /* MASConstraintMaker.m in Sources */,
 				D6BFBF451C49EF3D007C68C7 /* NSObject+MJProperty.m in Sources */,
 				5E42A0FB1C7A947000F7BCE8 /* MASViewAttribute.m in Sources */,
-				E79BEB2B1C7D96CE0047FA59 /* LLRotateView.m in Sources */,
 				5E85DC891C76C0BB00E30F62 /* UIImageView+WebCache.m in Sources */,
 				5E42A0FF1C7A947000F7BCE8 /* View+MASAdditions.m in Sources */,
 				5E1D96DB1C7ABEAF00587349 /* GUNMMCityMangerVc.m in Sources */,
@@ -1879,6 +1933,7 @@
 				5E42A0F51C7A947000F7BCE8 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				5E1D96E81C7ABF4700587349 /* OutCollectionViewCell.m in Sources */,
 				5E85DC881C76C0BB00E30F62 /* UIImageView+HighlightedWebCache.m in Sources */,
+				CD2DDC171C814B8800EB28E2 /* ConstellationModel.m in Sources */,
 				D6BFBF3E1C49EF3D007C68C7 /* MJFoundation.m in Sources */,
 				5E42A1B41C7AAB1D00F7BCE8 /* GtasksData.m in Sources */,
 				5E42A0FA1C7A947000F7BCE8 /* MASLayoutConstraint.m in Sources */,
@@ -1905,7 +1960,9 @@
 				5E1D96F71C7ABFD100587349 /* OutModel.m in Sources */,
 				5E40636D1C7873AB00596868 /* MDPickerView.m in Sources */,
 				D6BFBF571C4A1FDF007C68C7 /* ConstellationViewController.m in Sources */,
+				CD2DDC1A1C8169EE00EB28E2 /* iCarousel.m in Sources */,
 				5E1D97061C7AE17300587349 /* RealtimeModel.m in Sources */,
+				CDE4D1681C81B451004129FC /* PushViewController.m in Sources */,
 				5E42A1971C7AAA7000F7BCE8 /* ZXYAlmanacModel.m in Sources */,
 				5E85DC7E1C76C0BA00E30F62 /* SDWebImageCompat.m in Sources */,
 				5E85DC821C76C0BB00E30F62 /* SDWebImageManager.m in Sources */,
@@ -1936,6 +1993,7 @@
 				5E42A1791C7AA1DB00F7BCE8 /* AFHTTPSessionManager.m in Sources */,
 				5E85DC851C76C0BB00E30F62 /* UIImage+GIF.m in Sources */,
 				5EDF76E61C4DE3B8001B9239 /* ChangePWDViewController.m in Sources */,
+				CD2DDC1F1C818AD800EB28E2 /* CellView.m in Sources */,
 				5E42A1AD1C7AAAE700F7BCE8 /* WHUCalendarFlowLayout.m in Sources */,
 				D6BFBF421C49EF3D007C68C7 /* NSObject+MJClass.m in Sources */,
 				5E42A0FD1C7A947000F7BCE8 /* NSArray+MASAdditions.m in Sources */,
@@ -2098,7 +2156,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ChooseDay/ChooseDay.pch";
 				INFOPLIST_FILE = ChooseDay/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
@@ -2109,7 +2167,7 @@
 					"$(PROJECT_DIR)/Wechat",
 					"$(PROJECT_DIR)/Renren",
 				);
-				OTHER_LDFLAGS = "  -ObjC";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.rockeen.ChooseDay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -2134,7 +2192,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ChooseDay/ChooseDay.pch";
 				INFOPLIST_FILE = ChooseDay/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
@@ -2145,7 +2203,7 @@
 					"$(PROJECT_DIR)/Wechat",
 					"$(PROJECT_DIR)/Renren",
 				);
-				OTHER_LDFLAGS = "  -ObjC";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.rockeen.ChooseDay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

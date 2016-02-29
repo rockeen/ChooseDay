@@ -19,7 +19,7 @@
 #import "UMSocialQQHandler.h"
 #import "UMSocialWechatHandler.h"
 #import <MaxLeap/MaxLeap.h>
-
+//#import "StartViewController.h"
 
 @interface AppDelegate ()
 {
@@ -32,7 +32,7 @@
     
     WeatherViewController *weatherVc;
 
-
+    BOOL isfirstload;
 }
 @end
 
@@ -67,6 +67,61 @@
 
 -(void)loadNewView{
     
+//    //数据持久化
+//    NSUserDefaults *userDefault = [[NSUserDefaults alloc]init];
+//    isfirstload = [userDefault boolForKey:@"first"];
+//    if (isfirstload ==NO) {
+//        StartViewController *startVc = [[StartViewController alloc]init];
+//        self.window.rootViewController = startVc;
+//        //第一次加载后重新赋值
+//         [userDefault setBool:YES forKey:@"first"];
+//        
+//    }
+//    else{
+        [self loadViewController];
+    
+    
+//    }
+    
+    
+    //接收通知
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(oauthFunc) name:@"weibologin" object:nil];
+    
+    //分享功能
+    [UMSocialData setAppKey:kUMAppkey];
+    
+    //打开调试log的开关
+    [UMSocialData openLog:YES];
+    
+    //    //设置分享到QQ空间的应用Id，和分享url 链接
+    [UMSocialQQHandler setQQWithAppId:kAppID appKey:kAPPKEY url:@"http://www.umeng.com/social"];
+    //    //设置支持没有客户端情况下使用SSO授权
+    [UMSocialQQHandler setSupportWebView:YES];
+    
+    //设置微信AppId，设置分享url，默认使用友盟的网址
+    [UMSocialWechatHandler setWXAppId:kWXAppID appSecret:kWXAppSecret url:@"http://www.umeng.com/social"];
+    
+    //初始化_locManager
+    [self initLocManager];
+    
+    //链接服务器
+    [MaxLeap setApplicationId:@"56ca625760b2b393412e7d29" clientKey:@"YkNIQUVPM3JMTUdLT2wzaUdPVzJ3Zw" site:MLSiteCN];
+    
+//    [MaxLeap setApplicationId:@"your_application_id" clientKey:@"your_client_key" site:MLSiteCN];
+    
+    MLObject *obj = [MLObject objectWithoutDataWithClassName:@"Test" objectId:@"561c83c0226"];
+    [obj fetchIfNeededInBackgroundWithBlock:^(MLObject * _Nullable object, NSError * _Nullable error) {
+        if (error.code == kMLErrorInvalidObjectId) {
+            NSLog(@"已经能够正确连接上您的云端应用");
+        } else {
+            NSLog(@"应用访问凭证不正确，请检查。");
+        }
+    }];
+    
+}
+-(void)loadViewController{
+
+    
     ZXYTabBarController *tabBar=[[ZXYTabBarController alloc]init];
     
     NSMutableArray *arr = kMainColor;
@@ -95,8 +150,8 @@
     
     constellationVc.tabBarItem.image=[[UIImage imageNamed:@"luck"]
                                       rt_tintedImageWithColor:nomalColor level:1];
-    constellationVc.tabBarItem.selectedImage=[[UIImage imageNamed:@"luck"]
-                                              rt_tintedImageWithColor:[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1] level:1];
+    constellationVc.tabBarItem.selectedImage=[[UIImage imageNamed:@"luck"]rt_tintedImageWithColor:[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1] level:1];
+
     constellationVc.title=@"星座";
     
     
@@ -317,6 +372,7 @@
     weatherVc.coordinate = coordinate;
     
 }
+
 
 //本地通知注册成功后调用的方法
 -(void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings{

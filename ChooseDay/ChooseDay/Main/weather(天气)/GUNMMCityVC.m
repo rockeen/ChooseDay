@@ -8,6 +8,7 @@
 
 #import "GUNMMCityVC.h"
 #import "CityCollectionViewCell.h"
+#import "WeatherViewController.h"
 
 static NSString *identifier = @"cell";
 
@@ -261,6 +262,11 @@ static NSString *footer = @"footer";
         _block(name);
         
         [self.navigationController popViewControllerAnimated:NO];
+        
+//        WeatherViewController *weatherVC = [[WeatherViewController alloc]init];
+//        
+//        [self.navigationController popToViewController:weatherVC animated:YES];
+
     }
 
     
