@@ -39,8 +39,10 @@ static const NSInteger rangeTop=20;
     
 
     self.navigationController.navigationBarHidden = YES;
+    
+    NSMutableArray *arr = kMainColor;
+    self.view.backgroundColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
 
-    self.view.backgroundColor=kMainColor;
     
     //获取数据
     [self addData];
@@ -109,7 +111,8 @@ static const NSInteger rangeTop=20;
     
     UIView *itemView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenW, 64)];
     
-    itemView.backgroundColor=kMainColor;
+    NSMutableArray *arr = kMainColor;
+    itemView.backgroundColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
     
     self.navigationItem.titleView=itemView;
     
@@ -473,8 +476,9 @@ static const NSInteger rangeTop=20;
 
     
     }
+    NSMutableArray *arr = kMainColor;
+    cell.backgroundColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
     
-    cell.backgroundColor=kMainColor;
 
     cell.textLable.textColor=[UIColor whiteColor];
 
@@ -662,7 +666,8 @@ static const NSInteger rangeTop=20;
     
     sectionHeader.textColor=[UIColor whiteColor];
     
-    sectionHeader.backgroundColor=kMainColor;
+    NSMutableArray *arr = kMainColor;
+    sectionHeader.backgroundColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
     
     sectionHeader.textAlignment=NSTextAlignmentCenter;
     
@@ -707,7 +712,6 @@ static const NSInteger rangeTop=20;
 
     
 }
-
 
 /*
 #pragma mark - Navigation

@@ -51,7 +51,10 @@
     
     if (a) {
         _label.textColor = [UIColor whiteColor];
-        _label.backgroundColor = kMainColor;
+        
+        
+        NSMutableArray *arr = kMainColor;
+        _label.backgroundColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
         
     }
     

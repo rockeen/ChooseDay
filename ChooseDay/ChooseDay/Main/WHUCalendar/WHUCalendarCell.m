@@ -91,7 +91,12 @@
 -(void)setSelected:(BOOL)selected{
     [super setSelected:selected];
     if(selected){
-        self.layer.backgroundColor=kMainColor.CGColor;
+        
+        NSMutableArray *arr = kMainColor;
+        UIColor *color=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
+        
+        
+        self.layer.backgroundColor=color.CGColor;
 //        [UIColor colorWithRed:0.02 green:0.45 blue:0.67 alpha:1].CGColor;
         self.lbl.textColor=[UIColor whiteColor];
         self.dbl.textColor=[UIColor whiteColor];

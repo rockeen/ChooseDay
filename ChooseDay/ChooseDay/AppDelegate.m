@@ -47,9 +47,30 @@
     [self.window makeKeyAndVisible];
     self.window.backgroundColor=[UIColor whiteColor];
     
+    //注册本地通知
+    //判断当前设备的系统版本是否是大于8.0的
+    if ([UIDevice currentDevice].systemVersion.floatValue > 8.0) {
+        
+        //创建通知
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert categories:nil];
+        
+        //注册通知
+        [application registerUserNotificationSettings:settings];
+        
+    }
+    
+    [self loadNewView];
+    
+    return YES;
+
+}
+
+-(void)loadNewView{
     
     ZXYTabBarController *tabBar=[[ZXYTabBarController alloc]init];
-    tabBar.selectLabColor=kMainColor;
+    
+    NSMutableArray *arr = kMainColor;
+    tabBar.selectLabColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
     tabBar.nomalLabColor=nomalColor;
     
     
@@ -64,7 +85,7 @@
     calendarVc.tabBarItem.image=[[UIImage imageNamed:@"calendar"]
                                  rt_tintedImageWithColor:nomalColor level:1];
     calendarVc.tabBarItem.selectedImage=[[UIImage imageNamed:@"calendar"]
-                                         rt_tintedImageWithColor:kMainColor level:1];
+                                         rt_tintedImageWithColor:[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1] level:1];
     calendarVc.title=@"日历";
     
     
@@ -75,7 +96,7 @@
     constellationVc.tabBarItem.image=[[UIImage imageNamed:@"luck"]
                                       rt_tintedImageWithColor:nomalColor level:1];
     constellationVc.tabBarItem.selectedImage=[[UIImage imageNamed:@"luck"]
-                                             rt_tintedImageWithColor:kMainColor level:1];
+                                              rt_tintedImageWithColor:[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1] level:1];
     constellationVc.title=@"星座";
     
     
@@ -86,7 +107,7 @@
     weatherVc.tabBarItem.image=[[UIImage imageNamed:@"weather"]
                                 rt_tintedImageWithColor:nomalColor level:1];
     weatherVc.tabBarItem.selectedImage=[[UIImage imageNamed:@"weather"]
-                                        rt_tintedImageWithColor:kMainColor level:1];
+                                        rt_tintedImageWithColor:[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1] level:1];
     weatherVc.title=@"天气";
     
     
@@ -95,13 +116,13 @@
     
     MyViewController *myVc = [storyBoard instantiateInitialViewController];
     
-//    MyViewController *myVc=[[MyViewController alloc]init];
+    //    MyViewController *myVc=[[MyViewController alloc]init];
     ThreeNavigationController *myNc=[[ThreeNavigationController alloc]initWithRootViewController:myVc];
     
     myVc.tabBarItem.image=[[UIImage imageNamed:@"my"]
                            rt_tintedImageWithColor:nomalColor level:1];
     myVc.tabBarItem.selectedImage=[[UIImage imageNamed:@"my"]
-                                   rt_tintedImageWithColor:kMainColor level:1];
+                                   rt_tintedImageWithColor:[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1] level:1];
     myVc.title=@"我的";
     
     //tabbar的主控制器
@@ -132,7 +153,7 @@
     //链接服务器
     [MaxLeap setApplicationId:@"56ca625760b2b393412e7d29" clientKey:@"YkNIQUVPM3JMTUdLT2wzaUdPVzJ3Zw" site:MLSiteCN];
     
-//    [MaxLeap setApplicationId:@"your_application_id" clientKey:@"your_client_key" site:MLSiteCN];
+    //    [MaxLeap setApplicationId:@"your_application_id" clientKey:@"your_client_key" site:MLSiteCN];
     
     MLObject *obj = [MLObject objectWithoutDataWithClassName:@"Test" objectId:@"561c83c0226"];
     [obj fetchIfNeededInBackgroundWithBlock:^(MLObject * _Nullable object, NSError * _Nullable error) {
@@ -142,20 +163,6 @@
             NSLog(@"应用访问凭证不正确，请检查。");
         }
     }];
-    
-    //注册本地通知
-    //判断当前设备的系统版本是否是大于8.0的
-    if ([UIDevice currentDevice].systemVersion.floatValue > 8.0) {
-        
-        //创建通知
-        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert categories:nil];
-        
-        //注册通知
-        [application registerUserNotificationSettings:settings];
-        
-    }
-    
-    return YES;
 
 }
 

@@ -8,14 +8,14 @@
 
 #import "MyViewController.h"
 #import "EnterViewController.h"
-//#import "MatterViewController.h"
+#import "ThemeViewController.h"
 #import "PeriodViewController.h"
 #import "InstallViewController.h"
 #import "AboutViewController.h"
 #import "AFNetworking.h"
 #import "UIImageView+WebCache.h"
 #import "InfoViewController.h"
-#import "ZXYGtasksViewController.h"
+//#import "ZXYGtasksViewController.h"
 #import <MaxLeap/MaxLeap.h>
 #import "GUNMMAFN.h"
 
@@ -314,12 +314,12 @@
         
     }else if (cell.tag == 110) {
     
-        //待办事项
-        ZXYGtasksViewController *matterVC = [[ZXYGtasksViewController alloc]init];
+        //主题切换
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"ThemeViewController" bundle:nil];
         
-        matterVC.navigationController.navigationBar.hidden = YES;
+        ThemeViewController *themeVC = [story instantiateInitialViewController];
         
-        [self.navigationController pushViewController:matterVC animated:YES];
+        [self.navigationController pushViewController:themeVC animated:YES];
     
     }else if (cell.tag == 111) {
     

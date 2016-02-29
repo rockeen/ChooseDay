@@ -110,7 +110,7 @@ typedef NS_ENUM(NSUInteger, WHUCalendarViewMonthOption) {
     [calendarConView addSubview:_contentView];
     _calendarConView=calendarConView;
     UIColor* bgColor=[UIColor colorWithRed:0.93 green:0.92 blue:0.95 alpha:1];
-    _topView.backgroundColor=kMainColor;
+//    _topView.backgroundColor=kMainColor;
     _weekView.backgroundColor=bgColor;
     _contentView.backgroundColor=bgColor;
     self.backgroundColor=bgColor;

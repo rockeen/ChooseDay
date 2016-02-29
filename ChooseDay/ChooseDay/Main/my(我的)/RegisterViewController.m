@@ -199,7 +199,8 @@
     
     UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(88, _imgV.bottom+30, kScreenW-88*2, 50)];
     
-    btn.backgroundColor = kMainColor;
+    NSMutableArray *arr = kMainColor;
+    btn.backgroundColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
     
     [btn setTitle:@"注册" forState:UIControlStateNormal];
     
@@ -269,6 +270,10 @@
             
         }];
         
+    }else {
+    
+        [MBProgressHUD showError:@"性别输入不合法" toView:self.view];
+    
     }
     
 }

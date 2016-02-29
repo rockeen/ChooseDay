@@ -38,7 +38,10 @@
     
     _timeLable.text=yangLiStr;
     _timeLable.font=[UIFont systemFontOfSize:50];
-    _timeLable.textColor=kMainColor;
+    
+    
+    NSMutableArray *arr = kMainColor;
+    _timeLable.textColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
     
     _wuxingLable.text=almanacModel.wuxing;
     

@@ -204,7 +204,9 @@
     //分类文字
     UILabel *remindLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 50, 30)];
     remindLabel.font = [UIFont systemFontOfSize:14];
-    remindLabel.textColor = kMainColor;
+    
+    NSMutableArray *arr = kMainColor;
+    remindLabel.textColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
     
     remindLabel.backgroundColor = [UIColor clearColor];
     
@@ -416,7 +418,9 @@
     //分割线
     UIView *cutLine = [[UIView alloc]initWithFrame:CGRectMake(remindLabel.right, remindLabel.height/2, kScreenW-remindLabel.width, 1)];
     
-    cutLine.backgroundColor = kMainColor;
+    NSMutableArray *arrr = kMainColor;
+    cutLine.backgroundColor=[UIColor colorWithRed:[arrr[0] floatValue] green:[arrr[1] floatValue] blue:[arrr[2] floatValue] alpha:1];
+    
     [cell addSubview:cutLine];
 
 

@@ -172,7 +172,8 @@
 
     UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(88, newPwd2.bottom+50, kScreenW-88*2, 50)];
     
-    btn.backgroundColor = kMainColor;
+    NSMutableArray *arr = kMainColor;
+    btn.backgroundColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
     
     [btn setTitle:@"确认" forState:UIControlStateNormal];
     

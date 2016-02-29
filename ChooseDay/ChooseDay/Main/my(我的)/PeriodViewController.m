@@ -49,8 +49,9 @@
     
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
     
-    _finishBtn.backgroundColor = kMainColor;
     
+    NSMutableArray *arr = kMainColor;
+    _finishBtn.backgroundColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
     _finishBtn.layer.cornerRadius = 5.f;
     
     //加载数据
@@ -117,6 +118,8 @@
 
     //发送推送通知
     [self createLocalNotification];
+    
+    [self.navigationController popViewControllerAnimated:YES];
 
 }
 

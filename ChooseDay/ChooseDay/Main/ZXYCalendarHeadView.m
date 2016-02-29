@@ -124,8 +124,8 @@ NSInteger const clearance=10;
     
     
     
-    
-    _mengView.textColor=kMainColor;
+    NSMutableArray *arr = kMainColor;
+    _mengView.textColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
     
     _mengView.textAlignment=NSTextAlignmentCenter;
     
@@ -194,7 +194,8 @@ NSInteger const clearance=10;
             
             _noWifi.text=@"无网络连接，请检查网络！";
             
-            _noWifi.textColor=kMainColor;
+            NSMutableArray *arr = kMainColor;
+            _noWifi.textColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
             
             _noWifi.textAlignment=NSTextAlignmentCenter;
             

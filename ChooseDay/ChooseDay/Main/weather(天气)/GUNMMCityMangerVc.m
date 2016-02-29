@@ -94,8 +94,9 @@
     nowCityTableView.delegate = self;
     nowCityTableView.dataSource = self;
     
+    NSMutableArray *arr = kMainColor;
+    nowCityTableView.backgroundColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
     
-    nowCityTableView.backgroundColor = kMainColor;
     
     nowCityTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     

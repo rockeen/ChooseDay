@@ -100,7 +100,9 @@ NSInteger const yearNumber=2016;
    
   UILabel *lable=  (UILabel *)[pickerView viewForRow:row forComponent:component];
     
-  lable.textColor = kMainColor;
+    
+    NSMutableArray *arr = kMainColor;
+    lable.textColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
 
 
     
