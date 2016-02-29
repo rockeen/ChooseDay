@@ -77,7 +77,7 @@
     [UMSocialData defaultData].extConfig.qqData.shareText = @"分享到新浪微博内容1";
     [UMSocialData defaultData].extConfig.qqData.url = @"http://www.baidu.com";
     NSString *shareText = @"ChooseDay~";             //分享内嵌文字
-    UIImage *shareImage = [UIImage imageNamed:@"UMS_social_demo"];
+    UIImage *shareImage = [UIImage imageNamed:@"afc0ca93e673abd3f0a2f5bd60eabea6.jpg"];
     
     [UMSocialSnsService presentSnsIconSheetView:self
                                          appKey:kUMAppkey

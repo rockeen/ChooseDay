@@ -146,6 +146,8 @@
 		5EDFDB7E1C4F9D3A00777C0A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EDFDB7D1C4F9D3A00777C0A /* CoreGraphics.framework */; };
 		5EDFDB801C4F9D4500777C0A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EDFDB7F1C4F9D4500777C0A /* libz.tbd */; };
 		5EDFDB821C4F9D5300777C0A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EDFDB811C4F9D5300777C0A /* libsqlite3.tbd */; };
+		CD0085C31C84304E00701152 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CD0085C21C84304E00701152 /* Icon.png */; };
+		CD0085C71C8440AD00701152 /* bg_mtime_star.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD0085C61C8440AD00701152 /* bg_mtime_star.jpg */; };
 		CD2DDC171C814B8800EB28E2 /* ConstellationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DDC161C814B8800EB28E2 /* ConstellationModel.m */; };
 		CD2DDC1A1C8169EE00EB28E2 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DDC191C8169EE00EB28E2 /* iCarousel.m */; };
 		CD2DDC1C1C81756D00EB28E2 /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2DDC1B1C81756D00EB28E2 /* page.png */; };
@@ -156,7 +158,6 @@
 		CD943EF51C7C46FD00A9DD69 /* GUNMMNavCityVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD943EF31C7C46FD00A9DD69 /* GUNMMNavCityVC.xib */; };
 		CD943EF81C7C600200A9DD69 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = CD943EF71C7C600200A9DD69 /* NSArray+Log.m */; };
 		CDDA50511C81CD8E00E4B6C4 /* afc0ca93e673abd3f0a2f5bd60eabea6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CDDA504F1C81CD8E00E4B6C4 /* afc0ca93e673abd3f0a2f5bd60eabea6.jpg */; };
-		CDDA50521C81CD8E00E4B6C4 /* 2009011217182510462.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CDDA50501C81CD8E00E4B6C4 /* 2009011217182510462.jpg */; };
 		CDE4D1681C81B451004129FC /* PushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE4D1661C81B451004129FC /* PushViewController.m */; };
 		CDE4D1691C81B451004129FC /* PushViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE4D1671C81B451004129FC /* PushViewController.xib */; };
 		D68B4E391C4B58F600D8C8F9 /* UIImage+RTTint.m in Sources */ = {isa = PBXBuildFile; fileRef = D68B4E381C4B58F600D8C8F9 /* UIImage+RTTint.m */; };
@@ -485,6 +486,8 @@
 		7085B8AE0144C0D69FF84E7E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7E4EB7F30D91DDCD5D28BF36 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		869BB69912E21681EFDA50BA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		CD0085C21C84304E00701152 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		CD0085C61C8440AD00701152 /* bg_mtime_star.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_mtime_star.jpg; sourceTree = "<group>"; };
 		CD2DDC151C814B8800EB28E2 /* ConstellationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstellationModel.h; sourceTree = "<group>"; };
 		CD2DDC161C814B8800EB28E2 /* ConstellationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstellationModel.m; sourceTree = "<group>"; };
 		CD2DDC181C8169EE00EB28E2 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
@@ -500,7 +503,6 @@
 		CD943EF61C7C600200A9DD69 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+Log.h"; path = "../../NSArray+Log.h"; sourceTree = "<group>"; };
 		CD943EF71C7C600200A9DD69 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Log.m"; path = "../../NSArray+Log.m"; sourceTree = "<group>"; };
 		CDDA504F1C81CD8E00E4B6C4 /* afc0ca93e673abd3f0a2f5bd60eabea6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = afc0ca93e673abd3f0a2f5bd60eabea6.jpg; sourceTree = "<group>"; };
-		CDDA50501C81CD8E00E4B6C4 /* 2009011217182510462.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2009011217182510462.jpg; sourceTree = "<group>"; };
 		CDE4D1651C81B451004129FC /* PushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushViewController.h; sourceTree = "<group>"; };
 		CDE4D1661C81B451004129FC /* PushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushViewController.m; sourceTree = "<group>"; };
 		CDE4D1671C81B451004129FC /* PushViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PushViewController.xib; sourceTree = "<group>"; };
@@ -1347,6 +1349,7 @@
 				D6BFBEA01C49EDC3007C68C7 /* Main */,
 				D6BFBE771C49ECCA007C68C7 /* Assets.xcassets */,
 				D6BFBE791C49ECCA007C68C7 /* LaunchScreen.storyboard */,
+				CD0085C21C84304E00701152 /* Icon.png */,
 				D6BFBE7C1C49ECCA007C68C7 /* Info.plist */,
 				D6BFBE9F1C49EDC3007C68C7 /* Common */,
 				D6BFBE6B1C49ECCA007C68C7 /* Supporting Files */,
@@ -1567,7 +1570,7 @@
 				CD2DDC181C8169EE00EB28E2 /* iCarousel.h */,
 				CD2DDC191C8169EE00EB28E2 /* iCarousel.m */,
 				CDDA504F1C81CD8E00E4B6C4 /* afc0ca93e673abd3f0a2f5bd60eabea6.jpg */,
-				CDDA50501C81CD8E00E4B6C4 /* 2009011217182510462.jpg */,
+				CD0085C61C8440AD00701152 /* bg_mtime_star.jpg */,
 				CD2DDC1B1C81756D00EB28E2 /* page.png */,
 				CD2DDC221C81955400EB28E2 /* placeholder.png */,
 				D6BFBF551C4A1FDF007C68C7 /* ConstellationViewController.h */,
@@ -1753,7 +1756,6 @@
 				5E42A18E1C7AAA1600F7BCE8 /* AlmanacView.xib in Resources */,
 				D6BFBE7B1C49ECCA007C68C7 /* LaunchScreen.storyboard in Resources */,
 				CD943EF51C7C46FD00A9DD69 /* GUNMMNavCityVC.xib in Resources */,
-				CDDA50521C81CD8E00E4B6C4 /* 2009011217182510462.jpg in Resources */,
 				D6BFBE781C49ECCA007C68C7 /* Assets.xcassets in Resources */,
 				CD2DDC211C818B4000EB28E2 /* CellView.xib in Resources */,
 				5EC0F57C1C756B8600673A59 /* UMSocialLocalizable.strings in Resources */,
@@ -1768,6 +1770,7 @@
 				5EC0F57E1C756B8600673A59 /* UMSCommentDetailController.xib in Resources */,
 				D6F10C4F1C7BF6F500CA72A5 /* LICENSE.txt in Resources */,
 				5EDF76DE1C4DC763001B9239 /* AboutViewController.storyboard in Resources */,
+				CD0085C71C8440AD00701152 /* bg_mtime_star.jpg in Resources */,
 				D6F10C631C7BFDDD00CA72A5 /* MBProgressHUD.bundle in Resources */,
 				5E1D96C41C7ABDE000587349 /* 空调.png in Resources */,
 				5EC0F5831C756B8600673A59 /* UMSLoginViewController.xib in Resources */,
@@ -1779,6 +1782,7 @@
 				5E7349B61C4C7AD800F810C2 /* MyViewController.storyboard in Resources */,
 				5E1D96CF1C7ABE0F00587349 /* 上海.jpg in Resources */,
 				5EC0F57B1C756B8600673A59 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				CD0085C31C84304E00701152 /* Icon.png in Resources */,
 				5EC0F5861C756B8600673A59 /* UMSocialSDKResourcesNew.bundle in Resources */,
 				5EC0F5521C75680D00673A59 /* UMS_social_demo.png in Resources */,
 				5EDAA6911C7840EF006CD05D /* PeriodViewController.storyboard in Resources */,
@@ -2129,7 +2133,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 869BB69912E21681EFDA50BA /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -2165,7 +2168,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7085B8AE0144C0D69FF84E7E /* Pods.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;

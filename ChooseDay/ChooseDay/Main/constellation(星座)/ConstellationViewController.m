@@ -21,6 +21,9 @@
 #import "PushViewController.h"
 
 
+#import "AFNetworking.h"
+
+
 @interface ConstellationViewController ()<iCarouselDataSource,iCarouselDelegate>
 {
     //data
@@ -63,10 +66,46 @@
     [self createCollection];
 
     
-    //请求数据
-    [self loadData];
+    //判断是否有网
+    [self  judgeTheNet];
     
     
+    
+    
+    
+}
+
+
+//判断是否有网
+- (void)judgeTheNet{
+    
+    
+    AFNetworkReachabilityManager *reManager = [AFNetworkReachabilityManager sharedManager];
+    
+    // 提示：要监控网络连接状态，必须要先调用单例的startMonitoring方法
+    [reManager startMonitoring];
+    
+    
+    [reManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        if (status) {
+            //请求数据
+            [self loadData];
+            
+        }
+        else{
+            
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"无法连接到互联网" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            
+            alert.alertViewStyle = UIAlertViewStyleDefault;
+            
+            alert.tag = 11;
+            
+            [alert show];
+        }
+    }];
+    
+
     
     
     

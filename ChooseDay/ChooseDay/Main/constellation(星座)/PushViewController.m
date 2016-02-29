@@ -19,11 +19,13 @@
     
     UIImageView *backgroundImgV = [[UIImageView alloc]initWithFrame:self.view.bounds];
     
-    backgroundImgV.image = [UIImage imageNamed:@"2009011217182510462.jpg"];
+    backgroundImgV.image = [UIImage imageNamed:@"bg_mtime_star.jpg"];
     
     
     [self.view insertSubview:backgroundImgV atIndex:0];
 
+    
+//    self.view.backgroundColor = kMainColor;
 
     // Do any additional setup after loading the view from its nib.
     
