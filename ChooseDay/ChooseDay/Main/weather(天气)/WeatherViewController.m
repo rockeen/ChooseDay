@@ -360,6 +360,9 @@
     [reManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         
         if (status) {
+            
+            loadLabel.text = @"正在加载......";
+
             //反地理编码
             [self reverseCode];
         

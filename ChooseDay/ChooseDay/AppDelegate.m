@@ -19,7 +19,7 @@
 #import "UMSocialQQHandler.h"
 #import "UMSocialWechatHandler.h"
 #import <MaxLeap/MaxLeap.h>
-#import "StartViewController.h"
+//#import "StartViewController.h"
 
 @interface AppDelegate ()
 {
@@ -48,21 +48,21 @@
     self.window.backgroundColor=[UIColor whiteColor];
     
     
-    //数据持久化
-    NSUserDefaults *userDefault = [[NSUserDefaults alloc]init];
-    isfirstload = [userDefault boolForKey:@"first"];
-    if (isfirstload ==NO) {
-        StartViewController *startVc = [[StartViewController alloc]init];
-        self.window.rootViewController = startVc;
-        //第一次加载后重新赋值
-         [userDefault setBool:YES forKey:@"first"];
-        
-    }
-    else{
+//    //数据持久化
+//    NSUserDefaults *userDefault = [[NSUserDefaults alloc]init];
+//    isfirstload = [userDefault boolForKey:@"first"];
+//    if (isfirstload ==NO) {
+//        StartViewController *startVc = [[StartViewController alloc]init];
+//        self.window.rootViewController = startVc;
+//        //第一次加载后重新赋值
+//         [userDefault setBool:YES forKey:@"first"];
+//        
+//    }
+//    else{
         [self loadViewController];
     
     
-    }
+//    }
     
     
     //接收通知
