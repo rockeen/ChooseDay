@@ -39,7 +39,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor=kMainColor;
+    
+    NSMutableArray *arr = kMainColor;
+    self.view.backgroundColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
+    
     
     self.navigationController.navigationBarHidden = YES;
     
@@ -171,7 +174,10 @@
     
     _tabView.delegate=self;
     
-    _tabView.backgroundColor=kMainColor;
+    
+    NSMutableArray *arr = kMainColor;
+    _tabView.backgroundColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
+    
     
     _tabView.separatorStyle=UITableViewCellSeparatorStyleNone;
     
@@ -317,8 +323,8 @@
     
     cell.tag=_gtasksOneDayWillArray.count-1-indexPath.row;
     
-    
-    cell.backgroundColor=kMainColor;
+    NSMutableArray *arr = kMainColor;
+    cell.backgroundColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
     
     
     

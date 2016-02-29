@@ -19,5 +19,8 @@
 //第三方应用授权
 -(void)oauthFunc;
 
+//加载视图
+-(void)loadNewView;
+
 @end
 

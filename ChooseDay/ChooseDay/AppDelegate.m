@@ -47,6 +47,25 @@
     [self.window makeKeyAndVisible];
     self.window.backgroundColor=[UIColor whiteColor];
     
+    //注册本地通知
+    //判断当前设备的系统版本是否是大于8.0的
+    if ([UIDevice currentDevice].systemVersion.floatValue > 8.0) {
+        
+        //创建通知
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert categories:nil];
+        
+        //注册通知
+        [application registerUserNotificationSettings:settings];
+        
+    }
+    
+    [self loadNewView];
+    
+    return YES;
+
+}
+
+-(void)loadNewView{
     
 //    //数据持久化
 //    NSUserDefaults *userDefault = [[NSUserDefaults alloc]init];
@@ -99,26 +118,14 @@
         }
     }];
     
-    //注册本地通知
-    //判断当前设备的系统版本是否是大于8.0的
-    if ([UIDevice currentDevice].systemVersion.floatValue > 8.0) {
-        
-        //创建通知
-        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert categories:nil];
-        
-        //注册通知
-        [application registerUserNotificationSettings:settings];
-        
-    }
-    
-    return YES;
-
 }
 -(void)loadViewController{
 
     
     ZXYTabBarController *tabBar=[[ZXYTabBarController alloc]init];
-    tabBar.selectLabColor=kMainColor;
+    
+    NSMutableArray *arr = kMainColor;
+    tabBar.selectLabColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
     tabBar.nomalLabColor=nomalColor;
     
     
@@ -133,7 +140,7 @@
     calendarVc.tabBarItem.image=[[UIImage imageNamed:@"calendar"]
                                  rt_tintedImageWithColor:nomalColor level:1];
     calendarVc.tabBarItem.selectedImage=[[UIImage imageNamed:@"calendar"]
-                                         rt_tintedImageWithColor:kMainColor level:1];
+                                         rt_tintedImageWithColor:[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1] level:1];
     calendarVc.title=@"日历";
     
     
@@ -143,8 +150,8 @@
     
     constellationVc.tabBarItem.image=[[UIImage imageNamed:@"luck"]
                                       rt_tintedImageWithColor:nomalColor level:1];
-    constellationVc.tabBarItem.selectedImage=[[UIImage imageNamed:@"luck"]
-                                              rt_tintedImageWithColor:kMainColor level:1];
+    constellationVc.tabBarItem.selectedImage=[[UIImage imageNamed:@"luck"]rt_tintedImageWithColor:[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1] level:1];
+
     constellationVc.title=@"星座";
     
     
@@ -155,7 +162,7 @@
     weatherVc.tabBarItem.image=[[UIImage imageNamed:@"weather"]
                                 rt_tintedImageWithColor:nomalColor level:1];
     weatherVc.tabBarItem.selectedImage=[[UIImage imageNamed:@"weather"]
-                                        rt_tintedImageWithColor:kMainColor level:1];
+                                        rt_tintedImageWithColor:[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1] level:1];
     weatherVc.title=@"天气";
     
     
@@ -170,7 +177,7 @@
     myVc.tabBarItem.image=[[UIImage imageNamed:@"my"]
                            rt_tintedImageWithColor:nomalColor level:1];
     myVc.tabBarItem.selectedImage=[[UIImage imageNamed:@"my"]
-                                   rt_tintedImageWithColor:kMainColor level:1];
+                                   rt_tintedImageWithColor:[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1] level:1];
     myVc.title=@"我的";
     
     //tabbar的主控制器
@@ -178,8 +185,39 @@
     
     self.window.rootViewController=tabBar;
     
-
-
+    //接收通知
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(oauthFunc) name:@"weibologin" object:nil];
+    
+    //分享功能
+    [UMSocialData setAppKey:kUMAppkey];
+    
+    //打开调试log的开关
+    [UMSocialData openLog:YES];
+    
+    //    //设置分享到QQ空间的应用Id，和分享url 链接
+    [UMSocialQQHandler setQQWithAppId:kAppID appKey:kAPPKEY url:@"http://www.umeng.com/social"];
+    //    //设置支持没有客户端情况下使用SSO授权
+    [UMSocialQQHandler setSupportWebView:YES];
+    
+    //设置微信AppId，设置分享url，默认使用友盟的网址
+    [UMSocialWechatHandler setWXAppId:kWXAppID appSecret:kWXAppSecret url:@"http://www.umeng.com/social"];
+    
+    //初始化_locManager
+    [self initLocManager];
+    
+    //链接服务器
+    [MaxLeap setApplicationId:@"56ca625760b2b393412e7d29" clientKey:@"YkNIQUVPM3JMTUdLT2wzaUdPVzJ3Zw" site:MLSiteCN];
+    
+    //    [MaxLeap setApplicationId:@"your_application_id" clientKey:@"your_client_key" site:MLSiteCN];
+    
+    MLObject *obj = [MLObject objectWithoutDataWithClassName:@"Test" objectId:@"561c83c0226"];
+    [obj fetchIfNeededInBackgroundWithBlock:^(MLObject * _Nullable object, NSError * _Nullable error) {
+        if (error.code == kMLErrorInvalidObjectId) {
+            NSLog(@"已经能够正确连接上您的云端应用");
+        } else {
+            NSLog(@"应用访问凭证不正确，请检查。");
+        }
+    }];
 
 }
 

@@ -185,7 +185,9 @@
 
     UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(88, pwdText.bottom+50, kScreenW-88*2, 50)];
     
-    btn.backgroundColor = kMainColor;
+    NSMutableArray *arr = kMainColor;
+    btn.backgroundColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
+    
     
     [btn setTitle:@"登录" forState:UIControlStateNormal];
     
@@ -203,8 +205,8 @@
 -(void)createWeiBoEnterBtn{
 
     UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(20, kScreenH-64-200, kScreenW-40, 40)];
-    
-    btn.backgroundColor = kMainColor;
+    NSMutableArray *arr = kMainColor;
+    btn.backgroundColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
     
     [btn setTitle:@"微博登录" forState:UIControlStateNormal];
     
@@ -218,7 +220,9 @@
     
     UIButton *qqBtn = [[UIButton alloc]initWithFrame:CGRectMake(btn.origin.x, btn.bottom+10, btn.width, btn.height)];
     
-    qqBtn.backgroundColor = kMainColor;
+    NSMutableArray *arrww = kMainColor;
+    qqBtn.backgroundColor=[UIColor colorWithRed:[arrww[0] floatValue] green:[arrww[1] floatValue] blue:[arrww[2] floatValue] alpha:1];
+    
     
     [qqBtn setTitle:@"QQ登录" forState:UIControlStateNormal];
     

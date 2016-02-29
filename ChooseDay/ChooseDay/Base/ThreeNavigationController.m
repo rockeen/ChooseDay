@@ -20,8 +20,10 @@
     
     
     self.navigationBar.translucent = NO;
+    
+    NSMutableArray *arr = kMainColor;
+    self.navigationBar.barTintColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
 
-    self.navigationBar.barTintColor =kMainColor ;
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     

@@ -94,10 +94,9 @@
     nowCityTableView.delegate = self;
     nowCityTableView.dataSource = self;
     
-    
-    nowCityTableView.backgroundColor = kMainColor;
-    nowCityTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
+    NSMutableArray *arr = kMainColor;
+    nowCityTableView.backgroundColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
+        
     nowCityTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     //3.添加到view

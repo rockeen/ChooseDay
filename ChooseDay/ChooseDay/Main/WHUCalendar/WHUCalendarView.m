@@ -110,7 +110,7 @@ typedef NS_ENUM(NSUInteger, WHUCalendarViewMonthOption) {
     [calendarConView addSubview:_contentView];
     _calendarConView=calendarConView;
     UIColor* bgColor=[UIColor colorWithRed:0.93 green:0.92 blue:0.95 alpha:1];
-    _topView.backgroundColor=kMainColor;
+//    _topView.backgroundColor=kMainColor;
     _weekView.backgroundColor=bgColor;
     _contentView.backgroundColor=bgColor;
     self.backgroundColor=bgColor;
@@ -171,6 +171,10 @@ typedef NS_ENUM(NSUInteger, WHUCalendarViewMonthOption) {
     [_topView addConstraint:[NSLayoutConstraint constraintWithItem:curDateLbl attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:_topView attribute:NSLayoutAttributeCenterY multiplier:1.0f constant:0]];
     [_topView addConstraint:[NSLayoutConstraint constraintWithItem:curDateLbl attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:_topView attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0]];
     
+    
+    
+    NSMutableArray *arr = kMainColor;
+    _topView.backgroundColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
 }
 
 //点击添加

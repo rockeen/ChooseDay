@@ -46,7 +46,7 @@
     
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
     
-    _dataList = @[@"修改密码",@"清除缓存",@"服务条款",@"分享软件"];
+    _dataList = @[@"修改密码",@"清除缓存",@"服务条款",@"分享软件",@"主题切换"];
 
     //创建表视图
     [self createTableView];
@@ -96,7 +96,10 @@
 
     UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(88, _tableView.bottom+50, kScreenW-88*2, 50)];
     
-    btn.backgroundColor = kMainColor;
+    
+    NSMutableArray *arr = kMainColor;
+    btn.backgroundColor=[UIColor colorWithRed:[arr[0] floatValue] green:[arr[1] floatValue] blue:[arr[2] floatValue] alpha:1];
+    
     
     [btn setTitle:@"退出登录" forState:UIControlStateNormal];
     
@@ -113,7 +116,7 @@
 //创建表视图
 -(void)createTableView{
 
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 60, kScreenW, 200)];
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 60, kScreenW, 250)];
     
     _tableView.delegate = self;
     
@@ -216,6 +219,11 @@
     
         //分享软件
         [self createActionSheet];
+    
+    }else if (cell.tag == 104) {
+    
+        //主题切换
+        
     
     }
 
