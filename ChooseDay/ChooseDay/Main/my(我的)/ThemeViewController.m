@@ -187,7 +187,6 @@
     
     [[NSUserDefaults standardUserDefaults] setObject:dic forKey:@"mainColor"];
 
-    NSLog(@"***************%@",dic);
 
 
 }

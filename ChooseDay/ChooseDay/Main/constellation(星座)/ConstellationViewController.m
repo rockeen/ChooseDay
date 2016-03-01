@@ -49,10 +49,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _dataList = [NSMutableArray arrayWithObjects:@"0",@"1",@"2", nil];
-    
-    
 
-    _photoArr = @[@"aries",@"taurus",@"gemini",@"cancer",@"leo",@"virgo",@"libra",@"scorpio",@"sagittarius",@"aquarius",@"capricorn",@"pisces"];
+    
+//    _photoArr = @[@"白羊.jpg",@"金牛.jpg",@"双子.jpg",@"巨蟹.jpg",@"狮子.jpg",@"处女.jpg",@"天秤.jpg",@"天蝎.jpg",@"射手.jpg",@"摩羯.jpg",@"水瓶.jpg",@"双鱼.jpg"];
+
+//    _photoArr = @[@"白羊s.jpg",@"金牛s.jpg",@"双子s.jpg",@"巨蟹s.jpg",@"狮子s.jpg",@"处女s.jpg",@"天秤s.jpg",@"天蝎s.jpg",@"射手s.jpg",@"摩羯s.jpg",@"水瓶s.jpg",@"双鱼s.jpg"];
+    
+    _photoArr = @[@"白羊a",@"金牛a",@"双子a",@"巨蟹a",@"狮子a",@"处女a",@"天秤a",@"天蝎a",@"射手a",@"摩羯a",@"水瓶a",@"双鱼a"];
+
     _monthArr = @[@"(3.21~4.19)",@"(4.20~5.20)",@"(5.21~6.21)",@"(6.22~7.22)",@"(7.23~8.22)",@"(8.23~9.22)",@"(9.23~10.23)",@"(10.24~11.22)",@"(11.23~12.21)",@"(12.22~1.19)",@"(1.20~2.18)",@"(2.19~3.20)"];
 
     
@@ -143,7 +147,7 @@
     
     UIImageView *backgroundImgV = [[UIImageView alloc]initWithFrame:self.view.bounds];
     
-    backgroundImgV.image = [UIImage imageNamed:@"afc0ca93e673abd3f0a2f5bd60eabea6.jpg"];
+    backgroundImgV.image = [UIImage imageNamed:@"星座背景.jpg"];
     
     
     [self.view addSubview:backgroundImgV];

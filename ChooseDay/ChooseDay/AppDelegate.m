@@ -59,10 +59,35 @@
         
     }
     
+    
+    //初始化颜色
+    [self loadBeginColor];
+    
+    
+    //初始化_locManager
+    [self initLocManager];
+
+    
     [self loadNewView];
     
     return YES;
 
+}
+
+- (void)loadBeginColor{
+    
+    
+    NSMutableArray *dic = [NSMutableArray array];
+    [dic addObject:@(250/255.0)];
+    [dic addObject:@(128/255.0)];
+    
+    [dic addObject:@(114/255.0)];
+    
+    
+    [[NSUserDefaults standardUserDefaults] setObject:dic forKey:@"mainColor"];
+
+
+    
 }
 
 -(void)loadNewView{
@@ -101,8 +126,6 @@
     //设置微信AppId，设置分享url，默认使用友盟的网址
     [UMSocialWechatHandler setWXAppId:kWXAppID appSecret:kWXAppSecret url:@"http://www.umeng.com/social"];
     
-    //初始化_locManager
-    [self initLocManager];
     
     //链接服务器
     [MaxLeap setApplicationId:@"56ca625760b2b393412e7d29" clientKey:@"YkNIQUVPM3JMTUdLT2wzaUdPVzJ3Zw" site:MLSiteCN];
@@ -203,7 +226,7 @@
     [UMSocialWechatHandler setWXAppId:kWXAppID appSecret:kWXAppSecret url:@"http://www.umeng.com/social"];
     
     //初始化_locManager
-    [self initLocManager];
+//    [self initLocManager];
     
     //链接服务器
     [MaxLeap setApplicationId:@"56ca625760b2b393412e7d29" clientKey:@"YkNIQUVPM3JMTUdLT2wzaUdPVzJ3Zw" site:MLSiteCN];
