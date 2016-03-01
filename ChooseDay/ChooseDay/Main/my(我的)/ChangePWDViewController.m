@@ -103,6 +103,8 @@
     
     oldPwd.layer.cornerRadius = 5.f;
     
+    oldPwd.secureTextEntry = YES;
+    
     oldPwd.clearButtonMode = UITextFieldViewModeAlways;
     
     oldPwd.delegate = self;
@@ -122,6 +124,8 @@
     
     newPwd.layer.cornerRadius = 5.f;
     
+    newPwd.secureTextEntry = YES;
+    
     newPwd.clearButtonMode = UITextFieldViewModeAlways;
     
     newPwd.delegate = self;
@@ -140,6 +144,8 @@
     newPwd2.layer.borderColor = [[UIColor grayColor]CGColor];
     
     newPwd2.layer.cornerRadius = 5.f;
+    
+    newPwd2.secureTextEntry = YES;
     
     newPwd2.clearButtonMode = UITextFieldViewModeAlways;
     

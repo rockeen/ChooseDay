@@ -1068,14 +1068,6 @@
 			path = libWeiboSDK;
 			sourceTree = "<group>";
 		};
-		5EB7484F1C83F66B00967643 /* Theme */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Theme;
-			path = ../../Common;
-			sourceTree = "<group>";
-		};
 		5EC0F4EC1C7553A900673A59 /* 登录SDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -1203,7 +1195,6 @@
 		5EDF76DA1C4D390D001B9239 /* Theme(主题) */ = {
 			isa = PBXGroup;
 			children = (
-				5EB7484F1C83F66B00967643 /* Theme */,
 				5EDF76CC1C4D311D001B9239 /* ThemeViewController.h */,
 				5EDF76CD1C4D311E001B9239 /* ThemeViewController.m */,
 				5EB7484A1C83F15700967643 /* ThemeViewController.storyboard */,

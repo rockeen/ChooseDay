@@ -13,6 +13,8 @@
 {
 
     NSMutableArray *dic;
+    
+    UITableViewCell *_cell;
 }
 @end
 
@@ -34,26 +36,63 @@
     
     self.label1.backgroundColor = [UIColor colorWithRed:250/255.0 green:128/255.0 blue:114/255.0 alpha:1];
     
+    self.label1.layer.cornerRadius = 5.f;
+    
+    self.label1.clipsToBounds = YES;
+    
     self.label2.backgroundColor = [UIColor colorWithRed:158/255.0 green:122/255.0 blue:64/255.0 alpha:1];
+    
+    self.label2.layer.cornerRadius = 5.f;
+    
+    self.label2.clipsToBounds = YES;
     
     self.label3.backgroundColor = [UIColor colorWithRed:242/255.0 green:134/255.0 blue:10/255.0 alpha:1];
     
+    self.label3.layer.cornerRadius = 5.f;
+    
+    self.label3.clipsToBounds = YES;
+    
     self.label4.backgroundColor = [UIColor colorWithRed:27/255.0 green:30/255.0 blue:37/255.0 alpha:1];
+    
+    self.label4.layer.cornerRadius = 5.f;
+    
+    self.label4.clipsToBounds = YES;
     
     self.label5.backgroundColor = [UIColor colorWithRed:20/255.0 green:100/255.0 blue:145/255.0 alpha:1];
     
+    self.label5.layer.cornerRadius = 5.f;
+    
+    self.label5.clipsToBounds = YES;
+    
     self.label6.backgroundColor = [UIColor colorWithRed:134/255.0 green:76/255.0 blue:27/255.0 alpha:1];
+    
+    self.label6.layer.cornerRadius = 5.f;
+    
+    self.label6.clipsToBounds = YES;
     
     self.label7.backgroundColor = [UIColor colorWithRed:90/255.0 green:35/255.0 blue:134/255.0 alpha:1];
     
+    self.label7.layer.cornerRadius = 5.f;
+    
+    self.label7.clipsToBounds = YES;
+    
     self.label8.backgroundColor = [UIColor colorWithRed:32/255.0 green:158/255.0 blue:141/255.0 alpha:1];
+    
+    self.label8.layer.cornerRadius = 5.f;
+    
+    self.label8.clipsToBounds = YES;
     
     dic = [NSMutableArray array];
 //    [NSDictionary dictionary];
     
 //    [dic setValue:[UIColor colorWithRed:250/255.0 green:128/255.0 blue:114/255.0 alpha:1] forKey:@"label1"];
     
+    [self createNavigationItem];
+    
+    
 }
+
+
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
@@ -64,8 +103,8 @@
     switch (cell.tag) {
         case 1:
             
-//            NSString *color = (NSString *)[UIColor colorWithRed:250/255.0 green:128/255.0 blue:114/255.0 alpha:1];
-        
+            _cell.accessoryType = UITableViewCellAccessoryNone;
+                       
 //            [UIColor colorWithRed:250/255.0 green:128/255.0 blue:114/255.0 alpha:1]
             [dic removeAllObjects];
 
@@ -75,13 +114,14 @@
 
             [dic addObject:@(114/255.0)];
 
-
-            
-            
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            
+            _cell = cell;
             
             break;
         case 2:
+            
+            _cell.accessoryType = UITableViewCellAccessoryNone;
 //            [UIColor colorWithRed:158/255.0 green:122/255.0 blue:64/255.0 alpha:1]
             [dic removeAllObjects];
             
@@ -93,9 +133,13 @@
             
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
             
+            _cell = cell;
+            
             break;
         case 3:
-//            [UIColor colorWithRed:242/255.0 green:134/255.0 blue:10/255.0 alpha:1]
+
+            _cell.accessoryType = UITableViewCellAccessoryNone;
+            
             [dic removeAllObjects];
             
             [dic addObject:@(242/255.0)];
@@ -106,9 +150,13 @@
             
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
             
+            _cell = cell;
+            
             break;
         case 4:
-//            [UIColor colorWithRed:27/255.0 green:30/255.0 blue:37/255.0 alpha:1]
+
+            _cell.accessoryType = UITableViewCellAccessoryNone;
+            
             [dic removeAllObjects];
             
             [dic addObject:@(27/255.0)];
@@ -119,9 +167,13 @@
             
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
             
+            _cell = cell;
+            
             break;
         case 5:
-//            [UIColor colorWithRed:20/255.0 green:100/255.0 blue:145/255.0 alpha:1]
+            
+            _cell.accessoryType = UITableViewCellAccessoryNone;
+            
             [dic removeAllObjects];
             
             [dic addObject:@(20/255.0)];
@@ -132,9 +184,12 @@
             
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
             
+            _cell = cell;
+            
             break;
         case 6:
-//            [UIColor colorWithRed:134/255.0 green:76/255.0 blue:27/255.0 alpha:1]
+            _cell.accessoryType = UITableViewCellAccessoryNone;
+            
             [dic removeAllObjects];
             
             [dic addObject:@(134/255.0)];
@@ -145,9 +200,12 @@
             
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
             
+            _cell = cell;
+            
             break;
         case 7:
-//            [UIColor colorWithRed:90/255.0 green:35/255.0 blue:134/255.0 alpha:1]
+            _cell.accessoryType = UITableViewCellAccessoryNone;
+            
             [dic removeAllObjects];
             
             [dic addObject:@(90/255.0)];
@@ -155,15 +213,13 @@
             
             [dic addObject:@(134/255.0)];
             
-
-
-            
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            
+            _cell = cell;
             
             break;
         case 8:
-//            [UIColor colorWithRed:32/255.0 green:158/255.0 blue:141/255.0 alpha:1]
-//            UIColor *color = [UIColor];
+            _cell.accessoryType = UITableViewCellAccessoryNone;
             
             [dic removeAllObjects];
             
@@ -172,34 +228,56 @@
             
             [dic addObject:@(141/255.0)];
             
-            
-
-
-            
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            
+            _cell = cell;
             
             break;
 
             
         default:
+            
             break;
     }
     
     [[NSUserDefaults standardUserDefaults] setObject:dic forKey:@"mainColor"];
 
-    NSLog(@"***************%@",dic);
+//    NSLog(@"***************%@",dic);
 
 
 }
 
--(void)viewDidDisappear:(BOOL)animated{
+//自定义导航项
+-(void)createNavigationItem{
 
-    [super viewDidDisappear:animated];
+    UIButton *leftBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 44, 44)];
     
-    AppDelegate *application = [UIApplication sharedApplication].delegate;
+    [leftBtn setTitle:@"确定" forState:UIControlStateNormal];
     
-    [application loadNewView];
+    [leftBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    [leftBtn addTarget:self action:@selector(leftBtn:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:leftBtn];
+    
+    self.navigationItem.leftBarButtonItem = item;
 
+}
+
+-(void)leftBtn:(UIButton *)btn{
+
+    if (_cell.selected) {
+        
+        AppDelegate *application = [UIApplication sharedApplication].delegate;
+        
+        [application loadNewView];
+        
+    }else {
+    
+        [self.navigationController popViewControllerAnimated:YES];
+    
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

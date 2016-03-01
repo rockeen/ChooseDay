@@ -318,6 +318,11 @@
         }
         
     }];
+    
+    //设置为nil---相当于重新请求数据
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"access_token"];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"kOpenID"];
 
 }
 

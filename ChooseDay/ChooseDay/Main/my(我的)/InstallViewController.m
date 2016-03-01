@@ -46,7 +46,7 @@
     
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
     
-    _dataList = @[@"修改密码",@"清除缓存",@"服务条款",@"分享软件",@"主题切换"];
+    _dataList = @[@"修改密码",@"清除缓存",@"服务条款",@"分享软件"];
 
     //创建表视图
     [self createTableView];
@@ -321,7 +321,7 @@
     }
 
    //返回大小---存放的是字节，转换成M
-    return [NSString stringWithFormat:@"%.1f",totalsize/1024.0/1024.0];
+    return [NSString stringWithFormat:@"%.1f",totalsize/1024.0/1024.0-0.1f];
 }
 
 //移除通知

@@ -491,6 +491,8 @@ static const NSInteger rangeTop=20;
     cell.yesBtn.hidden=YES;
     //    UIButton *btn=[[UIButton alloc]initWithFrame:CGRectMake(cell.width-10-20, 10, 20, 20)];
     
+    [tableView setEditing:!tableView.editing animated:NO];
+    
     
     return cell;
 
@@ -538,7 +540,7 @@ static const NSInteger rangeTop=20;
     {
         
         
-        NSLog(@"%ld",indexPath.row);
+//        NSLog(@"%ld",indexPath.row);
 //        删除单元格  首先删除数据
         [_gtasksOneDayFinishArray removeObjectAtIndex:indexPath.row];
 //        删除表视图中的单元格
@@ -576,6 +578,39 @@ static const NSInteger rangeTop=20;
      return @"删除";
 
 
+
+}
+
+-(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    //设置删除按钮
+    UITableViewRowAction *deleteRow = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        
+        //        删除单元格  首先删除数据
+        [_gtasksOneDayFinishArray removeObjectAtIndex:indexPath.row];
+        //        删除表视图中的单元格
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        
+    }];
+    
+    //设置置顶按钮
+    UITableViewRowAction *topRow = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"置顶" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        
+        [_gtasksOneDayFinishArray exchangeObjectAtIndex:indexPath.row withObjectAtIndex:0];
+        
+        NSIndexPath *firstIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
+        
+        [tableView moveRowAtIndexPath:indexPath toIndexPath:firstIndexPath];
+        
+        [tableView setEditing:!tableView.editing animated:NO];
+        
+    }];
+    
+    deleteRow.backgroundColor = [UIColor colorWithRed:.7 green:.7 blue:.3 alpha:1];
+    
+    topRow.backgroundColor = [UIColor colorWithRed:.4 green:.4 blue:.8 alpha:1];
+    
+    return @[deleteRow,topRow];
 
 }
 

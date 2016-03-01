@@ -15,10 +15,8 @@
 #import "AFNetworking.h"
 #import "UIImageView+WebCache.h"
 #import "InfoViewController.h"
-//#import "ZXYGtasksViewController.h"
 #import <MaxLeap/MaxLeap.h>
 #import "GUNMMAFN.h"
-
 
 @interface MyViewController ()
 
@@ -191,30 +189,6 @@
         
     }];
     
-//    //管理者
-//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-//    
-//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-//    
-//    [manager GET:url parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
-//        nil;
-//        
-//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        
-//        NSString *userName = [responseObject objectForKey:@"nickname"];
-//        
-//        NSString *userImg = [responseObject objectForKey:@"figureurl_qq_2"];
-//        
-//        self.userName.text = userName;
-//        
-//        [self.userImg setImageWithURL:[NSURL URLWithString:userImg]];
-//        
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        
-//        NSLog(@"____%@",error);
-//        
-//    }];
-//
 }
 
 //更新微博数据
