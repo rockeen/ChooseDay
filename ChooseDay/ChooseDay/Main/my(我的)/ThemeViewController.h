@@ -26,5 +26,25 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *label8;
 
+@property (weak, nonatomic) IBOutlet UITableViewCell *cell1;
+
+@property (weak, nonatomic) IBOutlet UITableViewCell *cell2;
+
+@property (weak, nonatomic) IBOutlet UITableViewCell *cell3;
+
+@property (weak, nonatomic) IBOutlet UITableViewCell *cell4;
+
+@property (weak, nonatomic) IBOutlet UITableViewCell *cell5;
+
+@property (weak, nonatomic) IBOutlet UITableViewCell *cell6;
+
+@property (weak, nonatomic) IBOutlet UITableViewCell *cell7;
+
+@property (weak, nonatomic) IBOutlet UITableViewCell *cell8;
+
+
+
+@property (strong, nonatomic) IBOutlet UITableView *tableview;
+
 
 @end

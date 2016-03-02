@@ -147,17 +147,54 @@
 		5EDFDB7E1C4F9D3A00777C0A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EDFDB7D1C4F9D3A00777C0A /* CoreGraphics.framework */; };
 		5EDFDB801C4F9D4500777C0A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EDFDB7F1C4F9D4500777C0A /* libz.tbd */; };
 		5EDFDB821C4F9D5300777C0A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EDFDB811C4F9D5300777C0A /* libsqlite3.tbd */; };
+		CD0085C31C84304E00701152 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CD0085C21C84304E00701152 /* Icon.png */; };
+		CD0085C71C8440AD00701152 /* bg_mtime_star.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD0085C61C8440AD00701152 /* bg_mtime_star.jpg */; };
 		CD2DDC171C814B8800EB28E2 /* ConstellationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DDC161C814B8800EB28E2 /* ConstellationModel.m */; };
 		CD2DDC1A1C8169EE00EB28E2 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DDC191C8169EE00EB28E2 /* iCarousel.m */; };
 		CD2DDC1C1C81756D00EB28E2 /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2DDC1B1C81756D00EB28E2 /* page.png */; };
 		CD2DDC1F1C818AD800EB28E2 /* CellView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DDC1E1C818AD800EB28E2 /* CellView.m */; };
 		CD2DDC211C818B4000EB28E2 /* CellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD2DDC201C818B4000EB28E2 /* CellView.xib */; };
 		CD2DDC231C81955400EB28E2 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = CD2DDC221C81955400EB28E2 /* placeholder.png */; };
+		CD62DEDF1C853D8E00661206 /* 星座背景.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD62DEDE1C853D8E00661206 /* 星座背景.jpg */; };
+		CD62DF361C8596E300661206 /* 双子.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF121C8596E300661206 /* 双子.jpg */; };
+		CD62DF371C8596E300661206 /* 双子a.png in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF131C8596E300661206 /* 双子a.png */; };
+		CD62DF381C8596E300661206 /* 双子s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF141C8596E300661206 /* 双子s.jpg */; };
+		CD62DF391C8596E300661206 /* 双鱼.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF151C8596E300661206 /* 双鱼.jpg */; };
+		CD62DF3A1C8596E300661206 /* 双鱼a.png in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF161C8596E300661206 /* 双鱼a.png */; };
+		CD62DF3B1C8596E300661206 /* 双鱼s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF171C8596E300661206 /* 双鱼s.jpg */; };
+		CD62DF3C1C8596E300661206 /* 处女.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF181C8596E300661206 /* 处女.jpg */; };
+		CD62DF3D1C8596E300661206 /* 处女a.png in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF191C8596E300661206 /* 处女a.png */; };
+		CD62DF3E1C8596E300661206 /* 处女s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF1A1C8596E300661206 /* 处女s.jpg */; };
+		CD62DF3F1C8596E300661206 /* 天秤.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF1B1C8596E300661206 /* 天秤.jpg */; };
+		CD62DF401C8596E300661206 /* 天秤a.png in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF1C1C8596E300661206 /* 天秤a.png */; };
+		CD62DF411C8596E300661206 /* 天秤s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF1D1C8596E300661206 /* 天秤s.jpg */; };
+		CD62DF421C8596E300661206 /* 天蝎.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF1E1C8596E300661206 /* 天蝎.jpg */; };
+		CD62DF431C8596E300661206 /* 天蝎a.png in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF1F1C8596E300661206 /* 天蝎a.png */; };
+		CD62DF441C8596E300661206 /* 天蝎s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF201C8596E300661206 /* 天蝎s.jpg */; };
+		CD62DF451C8596E300661206 /* 射手.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF211C8596E300661206 /* 射手.jpg */; };
+		CD62DF461C8596E300661206 /* 射手a.png in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF221C8596E300661206 /* 射手a.png */; };
+		CD62DF471C8596E300661206 /* 射手s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF231C8596E300661206 /* 射手s.jpg */; };
+		CD62DF481C8596E300661206 /* 巨蟹.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF241C8596E300661206 /* 巨蟹.jpg */; };
+		CD62DF491C8596E300661206 /* 巨蟹a.png in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF251C8596E300661206 /* 巨蟹a.png */; };
+		CD62DF4A1C8596E300661206 /* 巨蟹s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF261C8596E300661206 /* 巨蟹s.jpg */; };
+		CD62DF4B1C8596E300661206 /* 摩羯.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF271C8596E300661206 /* 摩羯.jpg */; };
+		CD62DF4C1C8596E300661206 /* 摩羯a.png in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF281C8596E300661206 /* 摩羯a.png */; };
+		CD62DF4D1C8596E300661206 /* 水瓶.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF291C8596E300661206 /* 水瓶.jpg */; };
+		CD62DF4E1C8596E300661206 /* 水瓶a.png in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF2A1C8596E300661206 /* 水瓶a.png */; };
+		CD62DF4F1C8596E300661206 /* 水瓶s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF2B1C8596E300661206 /* 水瓶s.jpg */; };
+		CD62DF501C8596E300661206 /* 狮子.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF2C1C8596E300661206 /* 狮子.jpg */; };
+		CD62DF511C8596E300661206 /* 狮子a.png in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF2D1C8596E300661206 /* 狮子a.png */; };
+		CD62DF521C8596E300661206 /* 狮子s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF2E1C8596E300661206 /* 狮子s.jpg */; };
+		CD62DF531C8596E300661206 /* 白羊.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF2F1C8596E300661206 /* 白羊.jpg */; };
+		CD62DF541C8596E300661206 /* 白羊a.png in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF301C8596E300661206 /* 白羊a.png */; };
+		CD62DF551C8596E300661206 /* 白羊s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF311C8596E300661206 /* 白羊s.jpg */; };
+		CD62DF561C8596E300661206 /* 金牛.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF321C8596E300661206 /* 金牛.jpg */; };
+		CD62DF571C8596E300661206 /* 金牛a.png in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF331C8596E300661206 /* 金牛a.png */; };
+		CD62DF581C8596E300661206 /* 金牛s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF341C8596E300661206 /* 金牛s.jpg */; };
+		CD62DF591C8596E300661206 /* 魔蝎s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD62DF351C8596E300661206 /* 魔蝎s.jpg */; };
 		CD943EF41C7C46FD00A9DD69 /* GUNMMNavCityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CD943EF21C7C46FD00A9DD69 /* GUNMMNavCityVC.m */; };
 		CD943EF51C7C46FD00A9DD69 /* GUNMMNavCityVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD943EF31C7C46FD00A9DD69 /* GUNMMNavCityVC.xib */; };
 		CD943EF81C7C600200A9DD69 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = CD943EF71C7C600200A9DD69 /* NSArray+Log.m */; };
-		CDDA50511C81CD8E00E4B6C4 /* afc0ca93e673abd3f0a2f5bd60eabea6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CDDA504F1C81CD8E00E4B6C4 /* afc0ca93e673abd3f0a2f5bd60eabea6.jpg */; };
-		CDDA50521C81CD8E00E4B6C4 /* 2009011217182510462.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CDDA50501C81CD8E00E4B6C4 /* 2009011217182510462.jpg */; };
 		CDE4D1681C81B451004129FC /* PushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE4D1661C81B451004129FC /* PushViewController.m */; };
 		CDE4D1691C81B451004129FC /* PushViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE4D1671C81B451004129FC /* PushViewController.xib */; };
 		D68B4E391C4B58F600D8C8F9 /* UIImage+RTTint.m in Sources */ = {isa = PBXBuildFile; fileRef = D68B4E381C4B58F600D8C8F9 /* UIImage+RTTint.m */; };
@@ -487,6 +524,8 @@
 		7085B8AE0144C0D69FF84E7E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7E4EB7F30D91DDCD5D28BF36 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		869BB69912E21681EFDA50BA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		CD0085C21C84304E00701152 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		CD0085C61C8440AD00701152 /* bg_mtime_star.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_mtime_star.jpg; sourceTree = "<group>"; };
 		CD2DDC151C814B8800EB28E2 /* ConstellationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstellationModel.h; sourceTree = "<group>"; };
 		CD2DDC161C814B8800EB28E2 /* ConstellationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstellationModel.m; sourceTree = "<group>"; };
 		CD2DDC181C8169EE00EB28E2 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
@@ -496,13 +535,48 @@
 		CD2DDC1E1C818AD800EB28E2 /* CellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellView.m; sourceTree = "<group>"; };
 		CD2DDC201C818B4000EB28E2 /* CellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellView.xib; sourceTree = "<group>"; };
 		CD2DDC221C81955400EB28E2 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		CD62DEDE1C853D8E00661206 /* 星座背景.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "星座背景.jpg"; sourceTree = "<group>"; };
+		CD62DF121C8596E300661206 /* 双子.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "双子.jpg"; sourceTree = "<group>"; };
+		CD62DF131C8596E300661206 /* 双子a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "双子a.png"; sourceTree = "<group>"; };
+		CD62DF141C8596E300661206 /* 双子s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "双子s.jpg"; sourceTree = "<group>"; };
+		CD62DF151C8596E300661206 /* 双鱼.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "双鱼.jpg"; sourceTree = "<group>"; };
+		CD62DF161C8596E300661206 /* 双鱼a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "双鱼a.png"; sourceTree = "<group>"; };
+		CD62DF171C8596E300661206 /* 双鱼s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "双鱼s.jpg"; sourceTree = "<group>"; };
+		CD62DF181C8596E300661206 /* 处女.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "处女.jpg"; sourceTree = "<group>"; };
+		CD62DF191C8596E300661206 /* 处女a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "处女a.png"; sourceTree = "<group>"; };
+		CD62DF1A1C8596E300661206 /* 处女s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "处女s.jpg"; sourceTree = "<group>"; };
+		CD62DF1B1C8596E300661206 /* 天秤.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "天秤.jpg"; sourceTree = "<group>"; };
+		CD62DF1C1C8596E300661206 /* 天秤a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "天秤a.png"; sourceTree = "<group>"; };
+		CD62DF1D1C8596E300661206 /* 天秤s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "天秤s.jpg"; sourceTree = "<group>"; };
+		CD62DF1E1C8596E300661206 /* 天蝎.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "天蝎.jpg"; sourceTree = "<group>"; };
+		CD62DF1F1C8596E300661206 /* 天蝎a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "天蝎a.png"; sourceTree = "<group>"; };
+		CD62DF201C8596E300661206 /* 天蝎s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "天蝎s.jpg"; sourceTree = "<group>"; };
+		CD62DF211C8596E300661206 /* 射手.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "射手.jpg"; sourceTree = "<group>"; };
+		CD62DF221C8596E300661206 /* 射手a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "射手a.png"; sourceTree = "<group>"; };
+		CD62DF231C8596E300661206 /* 射手s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "射手s.jpg"; sourceTree = "<group>"; };
+		CD62DF241C8596E300661206 /* 巨蟹.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "巨蟹.jpg"; sourceTree = "<group>"; };
+		CD62DF251C8596E300661206 /* 巨蟹a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "巨蟹a.png"; sourceTree = "<group>"; };
+		CD62DF261C8596E300661206 /* 巨蟹s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "巨蟹s.jpg"; sourceTree = "<group>"; };
+		CD62DF271C8596E300661206 /* 摩羯.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "摩羯.jpg"; sourceTree = "<group>"; };
+		CD62DF281C8596E300661206 /* 摩羯a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "摩羯a.png"; sourceTree = "<group>"; };
+		CD62DF291C8596E300661206 /* 水瓶.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "水瓶.jpg"; sourceTree = "<group>"; };
+		CD62DF2A1C8596E300661206 /* 水瓶a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "水瓶a.png"; sourceTree = "<group>"; };
+		CD62DF2B1C8596E300661206 /* 水瓶s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "水瓶s.jpg"; sourceTree = "<group>"; };
+		CD62DF2C1C8596E300661206 /* 狮子.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "狮子.jpg"; sourceTree = "<group>"; };
+		CD62DF2D1C8596E300661206 /* 狮子a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "狮子a.png"; sourceTree = "<group>"; };
+		CD62DF2E1C8596E300661206 /* 狮子s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "狮子s.jpg"; sourceTree = "<group>"; };
+		CD62DF2F1C8596E300661206 /* 白羊.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "白羊.jpg"; sourceTree = "<group>"; };
+		CD62DF301C8596E300661206 /* 白羊a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "白羊a.png"; sourceTree = "<group>"; };
+		CD62DF311C8596E300661206 /* 白羊s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "白羊s.jpg"; sourceTree = "<group>"; };
+		CD62DF321C8596E300661206 /* 金牛.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "金牛.jpg"; sourceTree = "<group>"; };
+		CD62DF331C8596E300661206 /* 金牛a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "金牛a.png"; sourceTree = "<group>"; };
+		CD62DF341C8596E300661206 /* 金牛s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "金牛s.jpg"; sourceTree = "<group>"; };
+		CD62DF351C8596E300661206 /* 魔蝎s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "魔蝎s.jpg"; sourceTree = "<group>"; };
 		CD943EF11C7C46FD00A9DD69 /* GUNMMNavCityVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUNMMNavCityVC.h; sourceTree = "<group>"; };
 		CD943EF21C7C46FD00A9DD69 /* GUNMMNavCityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUNMMNavCityVC.m; sourceTree = "<group>"; };
 		CD943EF31C7C46FD00A9DD69 /* GUNMMNavCityVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GUNMMNavCityVC.xib; sourceTree = "<group>"; };
 		CD943EF61C7C600200A9DD69 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+Log.h"; path = "../../NSArray+Log.h"; sourceTree = "<group>"; };
 		CD943EF71C7C600200A9DD69 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Log.m"; path = "../../NSArray+Log.m"; sourceTree = "<group>"; };
-		CDDA504F1C81CD8E00E4B6C4 /* afc0ca93e673abd3f0a2f5bd60eabea6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = afc0ca93e673abd3f0a2f5bd60eabea6.jpg; sourceTree = "<group>"; };
-		CDDA50501C81CD8E00E4B6C4 /* 2009011217182510462.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2009011217182510462.jpg; sourceTree = "<group>"; };
 		CDE4D1651C81B451004129FC /* PushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushViewController.h; sourceTree = "<group>"; };
 		CDE4D1661C81B451004129FC /* PushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushViewController.m; sourceTree = "<group>"; };
 		CDE4D1671C81B451004129FC /* PushViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PushViewController.xib; sourceTree = "<group>"; };
@@ -1280,6 +1354,57 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		CD62DEE01C85855600661206 /* 星座汉服图标 */ = {
+			isa = PBXGroup;
+			children = (
+				CD62DF111C8596E300661206 /* 星座 */,
+			);
+			path = "星座汉服图标";
+			sourceTree = "<group>";
+		};
+		CD62DF111C8596E300661206 /* 星座 */ = {
+			isa = PBXGroup;
+			children = (
+				CD62DF121C8596E300661206 /* 双子.jpg */,
+				CD62DF131C8596E300661206 /* 双子a.png */,
+				CD62DF141C8596E300661206 /* 双子s.jpg */,
+				CD62DF151C8596E300661206 /* 双鱼.jpg */,
+				CD62DF161C8596E300661206 /* 双鱼a.png */,
+				CD62DF171C8596E300661206 /* 双鱼s.jpg */,
+				CD62DF181C8596E300661206 /* 处女.jpg */,
+				CD62DF191C8596E300661206 /* 处女a.png */,
+				CD62DF1A1C8596E300661206 /* 处女s.jpg */,
+				CD62DF1B1C8596E300661206 /* 天秤.jpg */,
+				CD62DF1C1C8596E300661206 /* 天秤a.png */,
+				CD62DF1D1C8596E300661206 /* 天秤s.jpg */,
+				CD62DF1E1C8596E300661206 /* 天蝎.jpg */,
+				CD62DF1F1C8596E300661206 /* 天蝎a.png */,
+				CD62DF201C8596E300661206 /* 天蝎s.jpg */,
+				CD62DF211C8596E300661206 /* 射手.jpg */,
+				CD62DF221C8596E300661206 /* 射手a.png */,
+				CD62DF231C8596E300661206 /* 射手s.jpg */,
+				CD62DF241C8596E300661206 /* 巨蟹.jpg */,
+				CD62DF251C8596E300661206 /* 巨蟹a.png */,
+				CD62DF261C8596E300661206 /* 巨蟹s.jpg */,
+				CD62DF271C8596E300661206 /* 摩羯.jpg */,
+				CD62DF281C8596E300661206 /* 摩羯a.png */,
+				CD62DF291C8596E300661206 /* 水瓶.jpg */,
+				CD62DF2A1C8596E300661206 /* 水瓶a.png */,
+				CD62DF2B1C8596E300661206 /* 水瓶s.jpg */,
+				CD62DF2C1C8596E300661206 /* 狮子.jpg */,
+				CD62DF2D1C8596E300661206 /* 狮子a.png */,
+				CD62DF2E1C8596E300661206 /* 狮子s.jpg */,
+				CD62DF2F1C8596E300661206 /* 白羊.jpg */,
+				CD62DF301C8596E300661206 /* 白羊a.png */,
+				CD62DF311C8596E300661206 /* 白羊s.jpg */,
+				CD62DF321C8596E300661206 /* 金牛.jpg */,
+				CD62DF331C8596E300661206 /* 金牛a.png */,
+				CD62DF341C8596E300661206 /* 金牛s.jpg */,
+				CD62DF351C8596E300661206 /* 魔蝎s.jpg */,
+			);
+			path = "星座";
+			sourceTree = "<group>";
+		};
 		CDE4D1631C81B417004129FC /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1350,6 +1475,7 @@
 				D6BFBEA01C49EDC3007C68C7 /* Main */,
 				D6BFBE771C49ECCA007C68C7 /* Assets.xcassets */,
 				D6BFBE791C49ECCA007C68C7 /* LaunchScreen.storyboard */,
+				CD0085C21C84304E00701152 /* Icon.png */,
 				D6BFBE7C1C49ECCA007C68C7 /* Info.plist */,
 				D6BFBE9F1C49EDC3007C68C7 /* Common */,
 				D6BFBE6B1C49ECCA007C68C7 /* Supporting Files */,
@@ -1567,10 +1693,11 @@
 		D6BFBF4F1C4A1F51007C68C7 /* Constellation(星座) */ = {
 			isa = PBXGroup;
 			children = (
+				CD62DEE01C85855600661206 /* 星座汉服图标 */,
 				CD2DDC181C8169EE00EB28E2 /* iCarousel.h */,
 				CD2DDC191C8169EE00EB28E2 /* iCarousel.m */,
-				CDDA504F1C81CD8E00E4B6C4 /* afc0ca93e673abd3f0a2f5bd60eabea6.jpg */,
-				CDDA50501C81CD8E00E4B6C4 /* 2009011217182510462.jpg */,
+				CD62DEDE1C853D8E00661206 /* 星座背景.jpg */,
+				CD0085C61C8440AD00701152 /* bg_mtime_star.jpg */,
 				CD2DDC1B1C81756D00EB28E2 /* page.png */,
 				CD2DDC221C81955400EB28E2 /* placeholder.png */,
 				D6BFBF551C4A1FDF007C68C7 /* ConstellationViewController.h */,
@@ -1746,8 +1873,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD62DF481C8596E300661206 /* 巨蟹.jpg in Resources */,
+				CD62DF431C8596E300661206 /* 天蝎a.png in Resources */,
+				CD62DF421C8596E300661206 /* 天蝎.jpg in Resources */,
+				CD62DF591C8596E300661206 /* 魔蝎s.jpg in Resources */,
+				CD62DF541C8596E300661206 /* 白羊a.png in Resources */,
+				CD62DF4E1C8596E300661206 /* 水瓶a.png in Resources */,
 				5E1D96C21C7ABDE000587349 /* 感冒.png in Resources */,
+				CD62DF381C8596E300661206 /* 双子s.jpg in Resources */,
+				CD62DF4B1C8596E300661206 /* 摩羯.jpg in Resources */,
 				5EC0F5841C756B8600673A59 /* UMSnsAccountViewController.xib in Resources */,
+				CD62DF461C8596E300661206 /* 射手a.png in Resources */,
 				5E1D96CE1C7ABE0F00587349 /* 济南.jpg in Resources */,
 				5E1D96F41C7ABF9600587349 /* InCollectionViewCell.xib in Resources */,
 				5EC0F5811C756B8600673A59 /* UMShareEditViewController.xib in Resources */,
@@ -1755,39 +1891,67 @@
 				CDE4D1691C81B451004129FC /* PushViewController.xib in Resources */,
 				5E42A18E1C7AAA1600F7BCE8 /* AlmanacView.xib in Resources */,
 				5EB748491C83D88B00967643 /* WeiboSDK.bundle in Resources */,
+				CD62DF491C8596E300661206 /* 巨蟹a.png in Resources */,
 				D6BFBE7B1C49ECCA007C68C7 /* LaunchScreen.storyboard in Resources */,
+				CD62DF451C8596E300661206 /* 射手.jpg in Resources */,
+				CD62DF411C8596E300661206 /* 天秤s.jpg in Resources */,
+				CD62DEDF1C853D8E00661206 /* 星座背景.jpg in Resources */,
+				CD62DF571C8596E300661206 /* 金牛a.png in Resources */,
+				CD62DF501C8596E300661206 /* 狮子.jpg in Resources */,
+				CD62DF551C8596E300661206 /* 白羊s.jpg in Resources */,
 				CD943EF51C7C46FD00A9DD69 /* GUNMMNavCityVC.xib in Resources */,
-				CDDA50521C81CD8E00E4B6C4 /* 2009011217182510462.jpg in Resources */,
 				D6BFBE781C49ECCA007C68C7 /* Assets.xcassets in Resources */,
 				CD2DDC211C818B4000EB28E2 /* CellView.xib in Resources */,
 				5EC0F57C1C756B8600673A59 /* UMSocialLocalizable.strings in Resources */,
 				D6BFBF221C49EF0C007C68C7 /* MJRefresh.bundle in Resources */,
+				CD62DF511C8596E300661206 /* 狮子a.png in Resources */,
 				5E1D96D01C7ABE0F00587349 /* 其他.jpg in Resources */,
+				CD62DF371C8596E300661206 /* 双子a.png in Resources */,
 				5E42A0F61C7A947000F7BCE8 /* Info.plist in Resources */,
 				CD2DDC231C81955400EB28E2 /* placeholder.png in Resources */,
 				5E40636A1C7860FF00596868 /* DayPlist.plist in Resources */,
 				5EC0F5821C756B8600673A59 /* UMShareEditViewControlleriPad.xib in Resources */,
+				CD62DF3D1C8596E300661206 /* 处女a.png in Resources */,
+				CD62DF4C1C8596E300661206 /* 摩羯a.png in Resources */,
 				5E1D96D11C7ABE0F00587349 /* 北京.jpg in Resources */,
 				5E1D96D21C7ABE0F00587349 /* 西安.jpg in Resources */,
+				CD62DF391C8596E300661206 /* 双鱼.jpg in Resources */,
+				CD62DF3E1C8596E300661206 /* 处女s.jpg in Resources */,
+				CD62DF361C8596E300661206 /* 双子.jpg in Resources */,
 				5EC0F57E1C756B8600673A59 /* UMSCommentDetailController.xib in Resources */,
+				CD62DF521C8596E300661206 /* 狮子s.jpg in Resources */,
 				D6F10C4F1C7BF6F500CA72A5 /* LICENSE.txt in Resources */,
 				5EDF76DE1C4DC763001B9239 /* AboutViewController.storyboard in Resources */,
+				CD0085C71C8440AD00701152 /* bg_mtime_star.jpg in Resources */,
 				D6F10C631C7BFDDD00CA72A5 /* MBProgressHUD.bundle in Resources */,
 				5E1D96C41C7ABDE000587349 /* 空调.png in Resources */,
 				5EC0F5831C756B8600673A59 /* UMSLoginViewController.xib in Resources */,
-				CDDA50511C81CD8E00E4B6C4 /* afc0ca93e673abd3f0a2f5bd60eabea6.jpg in Resources */,
+				CD62DF3F1C8596E300661206 /* 天秤.jpg in Resources */,
 				5E42A1931C7AAA2C00F7BCE8 /* CslendarCell.xib in Resources */,
+				CD62DF4D1C8596E300661206 /* 水瓶.jpg in Resources */,
 				5E1D96C31C7ABDE000587349 /* 洗车.png in Resources */,
+				CD62DF471C8596E300661206 /* 射手s.jpg in Resources */,
 				5EC0F57F1C756B8600673A59 /* UMSCommentInputController.xib in Resources */,
 				5E983CFF1C50F70200F61EC1 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				5E7349B61C4C7AD800F810C2 /* MyViewController.storyboard in Resources */,
 				5E1D96CF1C7ABE0F00587349 /* 上海.jpg in Resources */,
 				5EC0F57B1C756B8600673A59 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				CD0085C31C84304E00701152 /* Icon.png in Resources */,
+				CD62DF4A1C8596E300661206 /* 巨蟹s.jpg in Resources */,
 				5EC0F5861C756B8600673A59 /* UMSocialSDKResourcesNew.bundle in Resources */,
+				CD62DF3C1C8596E300661206 /* 处女.jpg in Resources */,
+				CD62DF3B1C8596E300661206 /* 双鱼s.jpg in Resources */,
+				CD62DF581C8596E300661206 /* 金牛s.jpg in Resources */,
+				CD62DF441C8596E300661206 /* 天蝎s.jpg in Resources */,
+				CD62DF4F1C8596E300661206 /* 水瓶s.jpg in Resources */,
 				5EC0F5521C75680D00673A59 /* UMS_social_demo.png in Resources */,
 				5EDAA6911C7840EF006CD05D /* PeriodViewController.storyboard in Resources */,
 				5E1D96C61C7ABDE000587349 /* 运动.png in Resources */,
 				CD2DDC1C1C81756D00EB28E2 /* page.png in Resources */,
+				CD62DF401C8596E300661206 /* 天秤a.png in Resources */,
+				CD62DF3A1C8596E300661206 /* 双鱼a.png in Resources */,
+				CD62DF561C8596E300661206 /* 金牛.jpg in Resources */,
+				CD62DF531C8596E300661206 /* 白羊.jpg in Resources */,
 				5EC0F5801C756B8600673A59 /* UMSCommentInputControlleriPad.xib in Resources */,
 				5E1D96C51C7ABDE000587349 /* 穿衣.png in Resources */,
 				5EB7484B1C83F15700967643 /* ThemeViewController.storyboard in Resources */,
@@ -2133,7 +2297,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 869BB69912E21681EFDA50BA /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -2169,7 +2332,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7085B8AE0144C0D69FF84E7E /* Pods.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;

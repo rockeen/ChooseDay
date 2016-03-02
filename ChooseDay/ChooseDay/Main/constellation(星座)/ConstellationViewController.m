@@ -21,6 +21,9 @@
 #import "PushViewController.h"
 
 
+#import "AFNetworking.h"
+
+
 @interface ConstellationViewController ()<iCarouselDataSource,iCarouselDelegate>
 {
     //data
@@ -35,6 +38,8 @@
     NSArray *_photoArr;
     
     NSArray *_monthArr;
+    
+    NSArray *_bgImgArr;
 }
 
 @end
@@ -46,13 +51,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _dataList = [NSMutableArray arrayWithObjects:@"0",@"1",@"2", nil];
-    
-    
 
-    _photoArr = @[@"aries",@"taurus",@"gemini",@"cancer",@"leo",@"virgo",@"libra",@"scorpio",@"sagittarius",@"aquarius",@"capricorn",@"pisces"];
+    
+//    _photoArr = @[@"白羊.jpg",@"金牛.jpg",@"双子.jpg",@"巨蟹.jpg",@"狮子.jpg",@"处女.jpg",@"天秤.jpg",@"天蝎.jpg",@"射手.jpg",@"摩羯.jpg",@"水瓶.jpg",@"双鱼.jpg"];
+
+//    _photoArr = @[@"白羊s.jpg",@"金牛s.jpg",@"双子s.jpg",@"巨蟹s.jpg",@"狮子s.jpg",@"处女s.jpg",@"天秤s.jpg",@"天蝎s.jpg",@"射手s.jpg",@"摩羯s.jpg",@"水瓶s.jpg",@"双鱼s.jpg"];
+    
+    _photoArr = @[@"白羊a",@"金牛a",@"双子a",@"巨蟹a",@"狮子a",@"处女a",@"天秤a",@"天蝎a",@"射手a",@"摩羯a",@"水瓶a",@"双鱼a"];
+
     _monthArr = @[@"(3.21~4.19)",@"(4.20~5.20)",@"(5.21~6.21)",@"(6.22~7.22)",@"(7.23~8.22)",@"(8.23~9.22)",@"(9.23~10.23)",@"(10.24~11.22)",@"(11.23~12.21)",@"(12.22~1.19)",@"(1.20~2.18)",@"(2.19~3.20)"];
 
-    
+    _bgImgArr = @[@"白羊.jpg",@"金牛.jpg",@"双子.jpg",@"巨蟹.jpg",@"狮子.jpg",@"处女.jpg",@"天秤.jpg",@"天蝎.jpg",@"射手.jpg",@"摩羯.jpg",@"水瓶.jpg",@"双鱼.jpg"];
     
     
     //设置标题颜色
@@ -63,13 +72,41 @@
     [self createCollection];
 
     
-    //请求数据
-    [self loadData];
+    //判断是否有网
+    [self  judgeTheNet];
+    
+
+}
+
+
+//判断是否有网
+- (void)judgeTheNet{
     
     
+    AFNetworkReachabilityManager *reManager = [AFNetworkReachabilityManager sharedManager];
+    
+    // 提示：要监控网络连接状态，必须要先调用单例的startMonitoring方法
+    [reManager startMonitoring];
     
     
-    
+    [reManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        if (status) {
+            //请求数据
+            [self loadData];
+            
+        }
+        else{
+            
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"无法连接到互联网" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            
+            alert.alertViewStyle = UIAlertViewStyleDefault;
+            
+            alert.tag = 11;
+            
+            [alert show];
+        }
+    }];
     
 }
 
@@ -104,7 +141,7 @@
     
     UIImageView *backgroundImgV = [[UIImageView alloc]initWithFrame:self.view.bounds];
     
-    backgroundImgV.image = [UIImage imageNamed:@"afc0ca93e673abd3f0a2f5bd60eabea6.jpg"];
+    backgroundImgV.image = [UIImage imageNamed:@"星座背景.jpg"];
     
     
     [self.view addSubview:backgroundImgV];
@@ -150,11 +187,11 @@
             
             //如果十二个model添加完整了
             if (_assign == 12) {
-                
-                for (ConstellationModel *model1 in _dataList) {
-                    NSLog(@"money = %@,work = %@ ",model1.name,model1.work);
-                    
-                }
+//                
+//                for (ConstellationModel *model1 in _dataList) {
+//                    NSLog(@"money = %@,work = %@ ",model1.name,model1.work);
+//                    
+//                }
                 
                 //重新加载数据
                 [_icarous reloadData];
@@ -166,10 +203,6 @@
         
         
     }
-    
-    
-    
-    
     
 }
 
@@ -246,6 +279,9 @@
         PushViewController *pushV = [[PushViewController alloc]init];
         
         pushV.model = _dataList[index];
+        
+        pushV.backgroundImg = [UIImage imageNamed:_bgImgArr[index]];
+        
         pushV.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:pushV animated:NO];
     }

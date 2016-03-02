@@ -29,6 +29,10 @@
 //历史城市
 #define kHistoryData [[NSUserDefaults standardUserDefaults] valueForKey:@"historyData"]
 
+//当前主题
+#define kNowTheme [[NSUserDefaults standardUserDefaults] valueForKey:@"knowTheme"]
+
+
 //ChooseDay账号
 #define kUserName [[NSUserDefaults standardUserDefaults] valueForKey:@"username"]
 #define kUserImgName [[NSUserDefaults standardUserDefaults] valueForKey:@"imgName"]

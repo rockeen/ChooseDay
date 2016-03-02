@@ -26,4 +26,8 @@
 
 
 @property(nonatomic,retain)ConstellationModel *model;
+
+@property (nonatomic,retain)UIImage *backgroundImg;
+
+
 @end

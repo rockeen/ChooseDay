@@ -18,6 +18,8 @@
 }
 @end
 
+static int selectCell = 1;
+
 @implementation ThemeViewController
 
 - (void)viewDidLoad {
@@ -40,7 +42,7 @@
     
     self.label1.clipsToBounds = YES;
     
-    self.label2.backgroundColor = [UIColor colorWithRed:158/255.0 green:122/255.0 blue:64/255.0 alpha:1];
+    self.label2.backgroundColor = [UIColor colorWithRed:112/255.0 green:128/255.0 blue:144/255.0 alpha:1];
     
     self.label2.layer.cornerRadius = 5.f;
     
@@ -58,7 +60,7 @@
     
     self.label4.clipsToBounds = YES;
     
-    self.label5.backgroundColor = [UIColor colorWithRed:20/255.0 green:100/255.0 blue:145/255.0 alpha:1];
+    self.label5.backgroundColor = [UIColor colorWithRed:100/255.0 green:149/255.0 blue:237/255.0 alpha:1];
     
     self.label5.layer.cornerRadius = 5.f;
     
@@ -70,44 +72,111 @@
     
     self.label6.clipsToBounds = YES;
     
-    self.label7.backgroundColor = [UIColor colorWithRed:90/255.0 green:35/255.0 blue:134/255.0 alpha:1];
+    self.label7.backgroundColor = [UIColor colorWithRed:123/255.0 green:104/255.0 blue:238/255.0 alpha:1];
     
     self.label7.layer.cornerRadius = 5.f;
     
     self.label7.clipsToBounds = YES;
     
-    self.label8.backgroundColor = [UIColor colorWithRed:32/255.0 green:158/255.0 blue:141/255.0 alpha:1];
+    self.label8.backgroundColor = [UIColor colorWithRed:64/255.0 green:224/255.0 blue:208/255.0 alpha:1];
     
     self.label8.layer.cornerRadius = 5.f;
     
     self.label8.clipsToBounds = YES;
     
     dic = [NSMutableArray array];
-//    [NSDictionary dictionary];
-    
-//    [dic setValue:[UIColor colorWithRed:250/255.0 green:128/255.0 blue:114/255.0 alpha:1] forKey:@"label1"];
     
     [self createNavigationItem];
     
+    //根据选择的
+    switch ([kNowTheme intValue]) {
+        case 0:
+            self.cell1.accessoryType = UITableViewCellAccessoryCheckmark;
+            break;
+        case 1:
+            self.cell1.accessoryType = UITableViewCellAccessoryCheckmark;
+            break;
+        case 2:
+            self.cell2.accessoryType = UITableViewCellAccessoryCheckmark;
+            break;
+        case 3:
+            self.cell3.accessoryType = UITableViewCellAccessoryCheckmark;
+            break;
+        case 4:
+            self.cell4.accessoryType = UITableViewCellAccessoryCheckmark;
+            break;
+        case 5:
+            self.cell5.accessoryType = UITableViewCellAccessoryCheckmark;
+            break;
+        case 6:
+            self.cell6.accessoryType = UITableViewCellAccessoryCheckmark;
+            break;
+        case 7:
+            self.cell7.accessoryType = UITableViewCellAccessoryCheckmark;
+            break;
+        case 8:
+            self.cell8.accessoryType = UITableViewCellAccessoryCheckmark;
+            break;
+
+        default:
+            
+            break;
+            
+    }
     
 }
-
-
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
+    cell.accessoryType = UITableViewCellAccessoryNone;
     
+    _cell.accessoryType = UITableViewCellAccessoryNone;
+
+    //将之前点击的cell设置为不勾选
+    switch ([kNowTheme intValue]) {
+        case 0:
+            self.cell1.accessoryType = UITableViewCellAccessoryNone;
+            break;
+        case 1:
+            self.cell1.accessoryType = UITableViewCellAccessoryNone;
+            break;
+        case 2:
+            self.cell2.accessoryType = UITableViewCellAccessoryNone;
+            break;
+        case 3:
+            self.cell3.accessoryType = UITableViewCellAccessoryNone;
+            break;
+        case 4:
+            self.cell4.accessoryType = UITableViewCellAccessoryNone;
+            break;
+        case 5:
+            self.cell5.accessoryType = UITableViewCellAccessoryNone;
+            break;
+        case 6:
+            self.cell6.accessoryType = UITableViewCellAccessoryNone;
+            break;
+        case 7:
+            self.cell7.accessoryType = UITableViewCellAccessoryNone;
+            break;
+        case 8:
+            self.cell8.accessoryType = UITableViewCellAccessoryNone;
+            break;
+        
+        default:
+        
+        break;
+        
+    }
+
+    //判断点击的cell
     switch (cell.tag) {
         case 1:
             
-            _cell.accessoryType = UITableViewCellAccessoryNone;
-                       
-//            [UIColor colorWithRed:250/255.0 green:128/255.0 blue:114/255.0 alpha:1]
             [dic removeAllObjects];
-
             
             [dic addObject:@(250/255.0)];
             [dic addObject:@(128/255.0)];
@@ -117,28 +186,25 @@
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
             
             _cell = cell;
-            
+
             break;
+        
         case 2:
             
-            _cell.accessoryType = UITableViewCellAccessoryNone;
-//            [UIColor colorWithRed:158/255.0 green:122/255.0 blue:64/255.0 alpha:1]
             [dic removeAllObjects];
             
-            [dic addObject:@(158/255.0)];
-            [dic addObject:@(122/255.0)];
+            [dic addObject:@(112/255.0)];
+            [dic addObject:@(128/255.0)];
             
-            [dic addObject:@(64/255.0)];
+            [dic addObject:@(144/255.0)];
 
-            
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
             
             _cell = cell;
-            
+
             break;
         case 3:
 
-            _cell.accessoryType = UITableViewCellAccessoryNone;
             
             [dic removeAllObjects];
             
@@ -147,15 +213,12 @@
             
             [dic addObject:@(10/255.0)];
 
-            
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
-            
             _cell = cell;
             
             break;
         case 4:
 
-            _cell.accessoryType = UITableViewCellAccessoryNone;
             
             [dic removeAllObjects];
             
@@ -164,31 +227,27 @@
             
             [dic addObject:@(37/255.0)];
 
-            
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
-            
             _cell = cell;
-            
+
             break;
         case 5:
             
-            _cell.accessoryType = UITableViewCellAccessoryNone;
             
             [dic removeAllObjects];
             
-            [dic addObject:@(20/255.0)];
             [dic addObject:@(100/255.0)];
+            [dic addObject:@(149/255.0)];
             
-            [dic addObject:@(145/255.0)];
+            [dic addObject:@(237/255.0)];
 
-            
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
             
             _cell = cell;
+
             
             break;
         case 6:
-            _cell.accessoryType = UITableViewCellAccessoryNone;
             
             [dic removeAllObjects];
             
@@ -197,39 +256,32 @@
             
             [dic addObject:@(27/255.0)];
 
-            
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
-            
-            _cell = cell;
+                _cell = cell;
+
             
             break;
         case 7:
-            _cell.accessoryType = UITableViewCellAccessoryNone;
             
             [dic removeAllObjects];
             
-            [dic addObject:@(90/255.0)];
-            [dic addObject:@(35/255.0)];
+            [dic addObject:@(123/255.0)];
+            [dic addObject:@(104/255.0)];
             
-            [dic addObject:@(134/255.0)];
-            
+            [dic addObject:@(238/255.0)];
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
-            
             _cell = cell;
             
             break;
         case 8:
-            _cell.accessoryType = UITableViewCellAccessoryNone;
             
             [dic removeAllObjects];
             
-            [dic addObject:@(32/255.0)];
-            [dic addObject:@(158/255.0)];
+            [dic addObject:@(64/255.0)];
+            [dic addObject:@(224/255.0)];
             
-            [dic addObject:@(141/255.0)];
-            
+            [dic addObject:@(208/255.0)];
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
-            
             _cell = cell;
             
             break;
@@ -240,9 +292,12 @@
             break;
     }
     
+    NSLog(@"----%ld",(long)_cell.tag);
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@(_cell.tag) forKey:@"knowTheme"];
+    
+    
     [[NSUserDefaults standardUserDefaults] setObject:dic forKey:@"mainColor"];
-
-//    NSLog(@"***************%@",dic);
 
 
 }
@@ -269,6 +324,8 @@
     if (_cell.selected) {
         
         AppDelegate *application = [UIApplication sharedApplication].delegate;
+        
+
         
         [application loadNewView];
         

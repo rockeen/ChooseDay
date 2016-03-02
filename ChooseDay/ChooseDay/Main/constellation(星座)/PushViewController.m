@@ -17,13 +17,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIImageView *backgroundImgV = [[UIImageView alloc]initWithFrame:self.view.bounds];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
-    backgroundImgV.image = [UIImage imageNamed:@"2009011217182510462.jpg"];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     
+    self.navigationItem.backBarButtonItem = item;
     
-    [self.view insertSubview:backgroundImgV atIndex:0];
-
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
+    
+    UIImageView *imgV = [[UIImageView alloc]initWithFrame:self.view.bounds];
+    
+    imgV.image = self.backgroundImg;
+    
+    imgV.contentMode = UIViewContentModeScaleAspectFit;
+    
+    [self.view insertSubview:imgV atIndex:0];
 
     // Do any additional setup after loading the view from its nib.
     
@@ -50,8 +58,6 @@
     _number.text = [NSString stringWithFormat:@"%@",_model.number];
     
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
