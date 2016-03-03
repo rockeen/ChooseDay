@@ -80,6 +80,12 @@
 		5E42A1B41C7AAB1D00F7BCE8 /* GtasksData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E42A1B31C7AAB1D00F7BCE8 /* GtasksData.m */; };
 		5E42A1B81C7AAB4E00F7BCE8 /* ZXYGtasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E42A1B71C7AAB4E00F7BCE8 /* ZXYGtasksViewController.m */; };
 		5E42A1BC1C7AAB7000F7BCE8 /* ZXYTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E42A1BB1C7AAB7000F7BCE8 /* ZXYTextView.m */; };
+		5E53AA8E1C883A04003259D2 /* GuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E53AA8D1C883A04003259D2 /* GuideView.m */; };
+		5E53AA921C883A1A003259D2 /* fx_my_attention_guide_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E53AA8F1C883A1A003259D2 /* fx_my_attention_guide_arrow.png */; };
+		5E53AA931C883A1A003259D2 /* fx_guide_arrow_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E53AA901C883A1A003259D2 /* fx_guide_arrow_down.png */; };
+		5E53AA941C883A1A003259D2 /* fx_livRm_guide_ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E53AA911C883A1A003259D2 /* fx_livRm_guide_ok.png */; };
+		5E53AA981C885BAE003259D2 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E53AA971C885BAE003259D2 /* GameViewController.m */; };
+		5E53AA9A1C886801003259D2 /* UseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E53AA991C886801003259D2 /* UseViewController.storyboard */; };
 		5E63DFBB1C86E28100A9C1D2 /* CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E63DFBA1C86E28100A9C1D2 /* CycleScrollView.m */; };
 		5E7349B61C4C7AD800F810C2 /* MyViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E7349B51C4C7AD800F810C2 /* MyViewController.storyboard */; };
 		5E85DC441C76101A00E30F62 /* libSocialRenren.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E85DC411C76101A00E30F62 /* libSocialRenren.a */; };
@@ -400,6 +406,14 @@
 		5E42A1B71C7AAB4E00F7BCE8 /* ZXYGtasksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYGtasksViewController.m; sourceTree = "<group>"; };
 		5E42A1BA1C7AAB7000F7BCE8 /* ZXYTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXYTextView.h; sourceTree = "<group>"; };
 		5E42A1BB1C7AAB7000F7BCE8 /* ZXYTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYTextView.m; sourceTree = "<group>"; };
+		5E53AA8C1C883A04003259D2 /* GuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideView.h; sourceTree = "<group>"; };
+		5E53AA8D1C883A04003259D2 /* GuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideView.m; sourceTree = "<group>"; };
+		5E53AA8F1C883A1A003259D2 /* fx_my_attention_guide_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fx_my_attention_guide_arrow.png; sourceTree = "<group>"; };
+		5E53AA901C883A1A003259D2 /* fx_guide_arrow_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fx_guide_arrow_down.png; sourceTree = "<group>"; };
+		5E53AA911C883A1A003259D2 /* fx_livRm_guide_ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fx_livRm_guide_ok.png; sourceTree = "<group>"; };
+		5E53AA961C885BAE003259D2 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		5E53AA971C885BAE003259D2 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		5E53AA991C886801003259D2 /* UseViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UseViewController.storyboard; sourceTree = "<group>"; };
 		5E63DFB91C86E28100A9C1D2 /* CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CycleScrollView.h; sourceTree = "<group>"; };
 		5E63DFBA1C86E28100A9C1D2 /* CycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleScrollView.m; sourceTree = "<group>"; };
 		5E7349B51C4C7AD800F810C2 /* MyViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyViewController.storyboard; sourceTree = "<group>"; };
@@ -1037,6 +1051,27 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		5E53AA8B1C8839E9003259D2 /* 引导页面 */ = {
+			isa = PBXGroup;
+			children = (
+				5E53AA8F1C883A1A003259D2 /* fx_my_attention_guide_arrow.png */,
+				5E53AA901C883A1A003259D2 /* fx_guide_arrow_down.png */,
+				5E53AA911C883A1A003259D2 /* fx_livRm_guide_ok.png */,
+				5E53AA8C1C883A04003259D2 /* GuideView.h */,
+				5E53AA8D1C883A04003259D2 /* GuideView.m */,
+			);
+			name = "引导页面";
+			sourceTree = "<group>";
+		};
+		5E53AA951C885B89003259D2 /* 拼图游戏 */ = {
+			isa = PBXGroup;
+			children = (
+				5E53AA961C885BAE003259D2 /* GameViewController.h */,
+				5E53AA971C885BAE003259D2 /* GameViewController.m */,
+			);
+			name = "拼图游戏";
+			sourceTree = "<group>";
+		};
 		5E63DFB81C86E26200A9C1D2 /* 无限轮播图(手动or自动) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1132,6 +1167,7 @@
 				5E8A54BF1C507A1100EA9C98 /* WebViewController.m */,
 				5E8A54C31C507AF200EA9C98 /* UseViewController.h */,
 				5E8A54C41C507AF200EA9C98 /* UseViewController.m */,
+				5E53AA991C886801003259D2 /* UseViewController.storyboard */,
 			);
 			name = SubView;
 			sourceTree = "<group>";
@@ -1532,6 +1568,7 @@
 		D6BFBE9E1C49EDC3007C68C7 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				5E53AA8B1C8839E9003259D2 /* 引导页面 */,
 				D6BFBE6E1C49ECCA007C68C7 /* AppDelegate.h */,
 				D6BFBE6F1C49ECCA007C68C7 /* AppDelegate.m */,
 				D6BFBF611C4A2D2E007C68C7 /* ThreeNavigationController.h */,
@@ -1710,6 +1747,7 @@
 		D6BFBF4F1C4A1F51007C68C7 /* Constellation(星座) */ = {
 			isa = PBXGroup;
 			children = (
+				5E53AA951C885B89003259D2 /* 拼图游戏 */,
 				CD62DEE01C85855600661206 /* 星座汉服图标 */,
 				CD2DDC181C8169EE00EB28E2 /* iCarousel.h */,
 				CD2DDC191C8169EE00EB28E2 /* iCarousel.m */,
@@ -1892,6 +1930,7 @@
 				CD62DF591C8596E300661206 /* 魔蝎s.jpg in Resources */,
 				CD62DF541C8596E300661206 /* 白羊a.png in Resources */,
 				CD62DF4E1C8596E300661206 /* 水瓶a.png in Resources */,
+				5E53AA941C883A1A003259D2 /* fx_livRm_guide_ok.png in Resources */,
 				5E1D96C21C7ABDE000587349 /* 感冒.png in Resources */,
 				CD62DF381C8596E300661206 /* 双子s.jpg in Resources */,
 				CD62DF4B1C8596E300661206 /* 摩羯.jpg in Resources */,
@@ -1906,6 +1945,7 @@
 				5EB748491C83D88B00967643 /* WeiboSDK.bundle in Resources */,
 				CD62DF491C8596E300661206 /* 巨蟹a.png in Resources */,
 				D6BFBE7B1C49ECCA007C68C7 /* LaunchScreen.storyboard in Resources */,
+				5E53AA931C883A1A003259D2 /* fx_guide_arrow_down.png in Resources */,
 				CD62DF451C8596E300661206 /* 射手.jpg in Resources */,
 				CD62DF411C8596E300661206 /* 天秤s.jpg in Resources */,
 				CD62DEDF1C853D8E00661206 /* 星座背景.jpg in Resources */,
@@ -1931,6 +1971,7 @@
 				CD62DF391C8596E300661206 /* 双鱼.jpg in Resources */,
 				CD62DF3E1C8596E300661206 /* 处女s.jpg in Resources */,
 				CD62DF361C8596E300661206 /* 双子.jpg in Resources */,
+				5E53AA9A1C886801003259D2 /* UseViewController.storyboard in Resources */,
 				5EC0F57E1C756B8600673A59 /* UMSCommentDetailController.xib in Resources */,
 				CD62DF521C8596E300661206 /* 狮子s.jpg in Resources */,
 				D6F10C4F1C7BF6F500CA72A5 /* LICENSE.txt in Resources */,
@@ -1960,6 +2001,7 @@
 				5EC0F5521C75680D00673A59 /* UMS_social_demo.png in Resources */,
 				5EDAA6911C7840EF006CD05D /* PeriodViewController.storyboard in Resources */,
 				5E1D96C61C7ABDE000587349 /* 运动.png in Resources */,
+				5E53AA921C883A1A003259D2 /* fx_my_attention_guide_arrow.png in Resources */,
 				CD2DDC1C1C81756D00EB28E2 /* page.png in Resources */,
 				CD62DF401C8596E300661206 /* 天秤a.png in Resources */,
 				CD62DF3A1C8596E300661206 /* 双鱼a.png in Resources */,
@@ -2072,6 +2114,7 @@
 				5E85DC891C76C0BB00E30F62 /* UIImageView+WebCache.m in Sources */,
 				5E42A0FF1C7A947000F7BCE8 /* View+MASAdditions.m in Sources */,
 				5E1D96DB1C7ABEAF00587349 /* GUNMMCityMangerVc.m in Sources */,
+				5E53AA8E1C883A04003259D2 /* GuideView.m in Sources */,
 				5EDF76E91C4DE65C001B9239 /* ServiceViewController.m in Sources */,
 				D6BFBF4C1C49EF9D007C68C7 /* ZXYBtn.m in Sources */,
 				5E85DC7B1C76C0BA00E30F62 /* MKAnnotationView+WebCache.m in Sources */,
@@ -2111,6 +2154,7 @@
 				5E42A17E1C7AA1DB00F7BCE8 /* AFURLSessionManager.m in Sources */,
 				5E42A1AB1C7AAAE700F7BCE8 /* WHUCalendarCal.m in Sources */,
 				5E1D97071C7AE17300587349 /* WindModel.m in Sources */,
+				5E53AA981C885BAE003259D2 /* GameViewController.m in Sources */,
 				5E867D661C4CF81D001AE678 /* EnterViewController.m in Sources */,
 				D68B4E391C4B58F600D8C8F9 /* UIImage+RTTint.m in Sources */,
 				5E85DC7D1C76C0BA00E30F62 /* SDImageCache.m in Sources */,

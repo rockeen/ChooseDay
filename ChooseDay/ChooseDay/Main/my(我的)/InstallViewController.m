@@ -116,7 +116,7 @@
 //创建表视图
 -(void)createTableView{
 
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 60, kScreenW, 250)];
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 60, kScreenW, 200)];
     
     _tableView.delegate = self;
     

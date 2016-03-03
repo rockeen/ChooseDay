@@ -56,7 +56,11 @@
     }else if (cell.tag == 3) {
     
         //推出使用帮助
-        UseViewController *useVC = [[UseViewController alloc]init];
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"UseViewController" bundle:nil];
+        
+        UseViewController *useVC = [story instantiateInitialViewController];
+        
+        useVC.view.backgroundColor = kBgColor;
         
         [self.navigationController pushViewController:useVC animated:YES];
     
