@@ -29,7 +29,7 @@
     
     imgV.image = self.backgroundImg;
     
-    imgV.contentMode = UIViewContentModeScaleAspectFit;
+    imgV.contentMode = UIViewContentModeScaleAspectFill;
     
     [self.view insertSubview:imgV atIndex:0];
 

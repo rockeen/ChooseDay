@@ -47,6 +47,9 @@
     [self.window makeKeyAndVisible];
     self.window.backgroundColor=[UIColor whiteColor];
     
+    //接收通知
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(oauthFunc) name:@"weibologin" object:nil];
+    
     //注册本地通知
     //判断当前设备的系统版本是否是大于8.0的
     if ([UIDevice currentDevice].systemVersion.floatValue > 8.0) {
@@ -72,7 +75,6 @@
     //初始化_locManager
     [self initLocManager];
 
-    
     [self loadNewView];
     
     return YES;
@@ -95,25 +97,7 @@
 
 -(void)loadNewView{
     
-//    //数据持久化
-//    NSUserDefaults *userDefault = [[NSUserDefaults alloc]init];
-//    isfirstload = [userDefault boolForKey:@"first"];
-//    if (isfirstload ==NO) {
-//        StartViewController *startVc = [[StartViewController alloc]init];
-//        self.window.rootViewController = startVc;
-//        //第一次加载后重新赋值
-//         [userDefault setBool:YES forKey:@"first"];
-//        
-//    }
-//    else{
-        [self loadViewController];
-    
-    
-//    }
-    
-    
-    //接收通知
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(oauthFunc) name:@"weibologin" object:nil];
+    [self loadViewController];
     
     //分享功能
     [UMSocialData setAppKey:kUMAppkey];
@@ -211,9 +195,6 @@
     
     self.window.rootViewController=tabBar;
     
-    //接收通知
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(oauthFunc) name:@"weibologin" object:nil];
-    
     //分享功能
     [UMSocialData setAppKey:kUMAppkey];
     
@@ -243,6 +224,7 @@
         } else {
             NSLog(@"应用访问凭证不正确，请检查。");
         }
+        
     }];
 
 }

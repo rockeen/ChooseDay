@@ -80,6 +80,7 @@
 		5E42A1B41C7AAB1D00F7BCE8 /* GtasksData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E42A1B31C7AAB1D00F7BCE8 /* GtasksData.m */; };
 		5E42A1B81C7AAB4E00F7BCE8 /* ZXYGtasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E42A1B71C7AAB4E00F7BCE8 /* ZXYGtasksViewController.m */; };
 		5E42A1BC1C7AAB7000F7BCE8 /* ZXYTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E42A1BB1C7AAB7000F7BCE8 /* ZXYTextView.m */; };
+		5E63DFBB1C86E28100A9C1D2 /* CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E63DFBA1C86E28100A9C1D2 /* CycleScrollView.m */; };
 		5E7349B61C4C7AD800F810C2 /* MyViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E7349B51C4C7AD800F810C2 /* MyViewController.storyboard */; };
 		5E85DC441C76101A00E30F62 /* libSocialRenren.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E85DC411C76101A00E30F62 /* libSocialRenren.a */; };
 		5E85DC451C76101A00E30F62 /* RennSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E85DC421C76101A00E30F62 /* RennSDK.framework */; };
@@ -399,6 +400,8 @@
 		5E42A1B71C7AAB4E00F7BCE8 /* ZXYGtasksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYGtasksViewController.m; sourceTree = "<group>"; };
 		5E42A1BA1C7AAB7000F7BCE8 /* ZXYTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXYTextView.h; sourceTree = "<group>"; };
 		5E42A1BB1C7AAB7000F7BCE8 /* ZXYTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYTextView.m; sourceTree = "<group>"; };
+		5E63DFB91C86E28100A9C1D2 /* CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CycleScrollView.h; sourceTree = "<group>"; };
+		5E63DFBA1C86E28100A9C1D2 /* CycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleScrollView.m; sourceTree = "<group>"; };
 		5E7349B51C4C7AD800F810C2 /* MyViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyViewController.storyboard; sourceTree = "<group>"; };
 		5E85DC411C76101A00E30F62 /* libSocialRenren.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialRenren.a; sourceTree = "<group>"; };
 		5E85DC421C76101A00E30F62 /* RennSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RennSDK.framework; sourceTree = "<group>"; };
@@ -525,17 +528,17 @@
 		7E4EB7F30D91DDCD5D28BF36 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		869BB69912E21681EFDA50BA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CD0085C21C84304E00701152 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		CD0085C61C8440AD00701152 /* bg_mtime_star.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_mtime_star.jpg; sourceTree = "<group>"; };
+		CD0085C61C8440AD00701152 /* bg_mtime_star.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bg_mtime_star.jpg; path = ../../bg_mtime_star.jpg; sourceTree = "<group>"; };
 		CD2DDC151C814B8800EB28E2 /* ConstellationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstellationModel.h; sourceTree = "<group>"; };
 		CD2DDC161C814B8800EB28E2 /* ConstellationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstellationModel.m; sourceTree = "<group>"; };
 		CD2DDC181C8169EE00EB28E2 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		CD2DDC191C8169EE00EB28E2 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
-		CD2DDC1B1C81756D00EB28E2 /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page.png; sourceTree = "<group>"; };
+		CD2DDC1B1C81756D00EB28E2 /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page.png; path = ../../page.png; sourceTree = "<group>"; };
 		CD2DDC1D1C818AD800EB28E2 /* CellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellView.h; sourceTree = "<group>"; };
 		CD2DDC1E1C818AD800EB28E2 /* CellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellView.m; sourceTree = "<group>"; };
 		CD2DDC201C818B4000EB28E2 /* CellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellView.xib; sourceTree = "<group>"; };
-		CD2DDC221C81955400EB28E2 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
-		CD62DEDE1C853D8E00661206 /* 星座背景.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "星座背景.jpg"; sourceTree = "<group>"; };
+		CD2DDC221C81955400EB28E2 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = ../../placeholder.png; sourceTree = "<group>"; };
+		CD62DEDE1C853D8E00661206 /* 星座背景.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "星座背景.jpg"; path = "../../星座背景.jpg"; sourceTree = "<group>"; };
 		CD62DF121C8596E300661206 /* 双子.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "双子.jpg"; sourceTree = "<group>"; };
 		CD62DF131C8596E300661206 /* 双子a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "双子a.png"; sourceTree = "<group>"; };
 		CD62DF141C8596E300661206 /* 双子s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "双子s.jpg"; sourceTree = "<group>"; };
@@ -1034,6 +1037,15 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		5E63DFB81C86E26200A9C1D2 /* 无限轮播图(手动or自动) */ = {
+			isa = PBXGroup;
+			children = (
+				5E63DFB91C86E28100A9C1D2 /* CycleScrollView.h */,
+				5E63DFBA1C86E28100A9C1D2 /* CycleScrollView.m */,
+			);
+			name = "无限轮播图(手动or自动)";
+			sourceTree = "<group>";
+		};
 		5E8108BE1C7C8AFF00EAE82A /* MaxLeapSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -1055,6 +1067,7 @@
 		5E85DC461C76170B00E30F62 /* Info(个人信息) */ = {
 			isa = PBXGroup;
 			children = (
+				5E63DFB81C86E26200A9C1D2 /* 无限轮播图(手动or自动) */,
 				5E85DC471C76BF6300E30F62 /* InfoViewController.h */,
 				5E85DC481C76BF6300E30F62 /* InfoViewController.m */,
 			);
@@ -1365,6 +1378,10 @@
 		CD62DF111C8596E300661206 /* 星座 */ = {
 			isa = PBXGroup;
 			children = (
+				CD62DEDE1C853D8E00661206 /* 星座背景.jpg */,
+				CD0085C61C8440AD00701152 /* bg_mtime_star.jpg */,
+				CD2DDC1B1C81756D00EB28E2 /* page.png */,
+				CD2DDC221C81955400EB28E2 /* placeholder.png */,
 				CD62DF121C8596E300661206 /* 双子.jpg */,
 				CD62DF131C8596E300661206 /* 双子a.png */,
 				CD62DF141C8596E300661206 /* 双子s.jpg */,
@@ -1696,10 +1713,6 @@
 				CD62DEE01C85855600661206 /* 星座汉服图标 */,
 				CD2DDC181C8169EE00EB28E2 /* iCarousel.h */,
 				CD2DDC191C8169EE00EB28E2 /* iCarousel.m */,
-				CD62DEDE1C853D8E00661206 /* 星座背景.jpg */,
-				CD0085C61C8440AD00701152 /* bg_mtime_star.jpg */,
-				CD2DDC1B1C81756D00EB28E2 /* page.png */,
-				CD2DDC221C81955400EB28E2 /* placeholder.png */,
 				D6BFBF551C4A1FDF007C68C7 /* ConstellationViewController.h */,
 				D6BFBF561C4A1FDF007C68C7 /* ConstellationViewController.m */,
 				CDE4D1641C81B433004129FC /* Push */,
@@ -2067,6 +2080,7 @@
 				D6BFBF3F1C49EF3D007C68C7 /* MJProperty.m in Sources */,
 				5E1D97081C7AE17300587349 /* ReWeatherModel.m in Sources */,
 				5EDF76D11C4D368A001B9239 /* PeriodViewController.m in Sources */,
+				5E63DFBB1C86E28100A9C1D2 /* CycleScrollView.m in Sources */,
 				5E85DC491C76BF6300E30F62 /* InfoViewController.m in Sources */,
 				5E42A1921C7AAA2C00F7BCE8 /* CslendarCell.m in Sources */,
 				D6BFBF631C4A2D2E007C68C7 /* ThreeNavigationController.m in Sources */,

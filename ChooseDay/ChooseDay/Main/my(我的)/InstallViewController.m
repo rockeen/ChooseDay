@@ -321,7 +321,7 @@
     }
 
    //返回大小---存放的是字节，转换成M
-    return [NSString stringWithFormat:@"%.1f",totalsize/1024.0/1024.0];
+    return [NSString stringWithFormat:@"%.1f",(totalsize/1024.0/1024.0 - 0.08f)];
 }
 
 //移除通知

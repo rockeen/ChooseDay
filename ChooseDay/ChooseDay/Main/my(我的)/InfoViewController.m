@@ -10,8 +10,14 @@
 #import "GUNMMAFN.h"
 #import <MaxLeap/MaxLeap.h>
 #import "UIImageView+WebCache.h"
+#import "CycleScrollView.h"
 
-@interface InfoViewController ()
+#import <AssetsLibrary/AssetsLibrary.h>
+
+// 照片原图路径
+#define KOriginalPhotoImagePath [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0]stringByAppendingPathComponent:@"OriginalPhotoImages"]
+
+@interface InfoViewController ()<CycleScrollViewDelegate>
 {
 
     UIImageView *imgV;
@@ -21,6 +27,13 @@
     UILabel *sexLabel;
     
     UILabel *addLabel;
+    
+    NSMutableArray *_dataArrary;
+    
+    CycleScrollView *cycleScroll;
+    UIImageView *im;
+    
+    ALAssetsLibrary *assetl;
 }
 
 @property (nonatomic, strong) NSMutableArray *lists;
@@ -41,7 +54,16 @@
     
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
     
+    _dataArrary = [NSMutableArray array];
+    
+    //加载个人信息视图
     [self loadInfoView];
+
+    //创建无限轮播图
+    [self createCyleScrollView];
+    
+    //获取系统相册照片
+//    [self getImgs];
     
 }
 
@@ -50,8 +72,6 @@
 
     //url
     NSString *url = @"https://api.weibo.com/2/users/show.json";
-    
-    //    NSLog(@"token===%@   id = %@",kAccessToken,kUserID);
     
     NSDictionary *parameters = @{@"access_token":kAccessToken,@"uid":kUserID};
     
@@ -251,6 +271,119 @@
     [infoView addSubview:addLabel];
 
 }
+
+//创建无限轮播图展示照片
+-(void)createCyleScrollView{
+    
+    cycleScroll = [[CycleScrollView alloc]initWithFrame:CGRectMake(0, addLabel.bottom + 50, kScreenW, kScreenW*0.8)];
+    
+    cycleScroll.imgArray =  @[@"白羊.jpg",@"金牛.jpg",@"双子.jpg",@"巨蟹.jpg",@"狮子.jpg",@"处女.jpg",@"天秤.jpg",@"天蝎.jpg",@"射手.jpg",@"摩羯.jpg",@"水瓶.jpg",@"双鱼.jpg"];
+    
+//    cycleScroll.imgArray = _dataArrary;
+    cycleScroll.delegate = self;
+    cycleScroll.autoScroll = YES;
+    cycleScroll.autoTime = 2.5f;
+
+    [self.view addSubview:cycleScroll];
+    
+}
+
+//获取系统相册照片
+-(void)getImgs{
+    
+//    dispatch_async(dispatch_get_main_queue(), ^{
+    
+        ALAssetsLibraryAccessFailureBlock failureBlock = ^(NSError *myerror){
+        
+            NSLog(@"相册访问失败 is %@",myerror);
+            
+            if ([myerror.localizedDescription rangeOfString:@"Global denied access"].location != NSNotFound) {
+                
+                NSLog(@"无法访问相册.请在'设置->定位服务'设置为打开状态");
+                
+            }else {
+            
+                NSLog(@"相册访问失败");
+            
+            }
+        
+        };
+    
+        ALAssetsGroupEnumerationResultsBlock groupEnumerAtion = ^(ALAsset *result, NSUInteger index, BOOL *stop){
+        
+            if (result != NULL) {
+                
+                if ([[result valueForProperty:ALAssetPropertyType] isEqualToString:ALAssetTypePhoto]) {
+                    
+                    ALAssetRepresentation *rep = [result defaultRepresentation];
+                    
+                    CGImageRef ref = [rep fullScreenImage];
+                    
+                    NSString *fileName = [[result defaultRepresentation] filename];
+                    
+                    UIImage *img = [UIImage imageWithCGImage:ref];
+                        
+                    im.image = img;
+                    
+                    [_dataArrary addObject:fileName];
+                    
+                }
+            
+                
+
+            }
+            
+
+            
+//            cycleScroll.imgArray = (NSArray *)_dataArrary;
+        
+        };
+    
+    NSLog(@"ghjklfghj%@",_dataArrary);
+
+    
+        ALAssetsLibraryGroupsEnumerationResultsBlock libraryGroup = ^(ALAssetsGroup *group, BOOL *stop) {
+            
+            if (group == nil) {
+                
+                
+            }else {
+            
+                //获取相簿的组
+                NSString *g = [NSString stringWithFormat:@"%@",group];
+                
+                NSString *g1 = [g substringFromIndex:16];
+                
+                NSArray *arr = [NSArray arrayWithArray:[g1 componentsSeparatedByString:@","]];
+                
+                NSString *g2 = [[arr objectAtIndex:0] substringFromIndex:5];
+                
+                if ([g2 isEqualToString:@"Camera Roll"]) {
+                    
+                    g2 = @"相机胶卷";
+                    
+                }
+                
+                //组的名字name
+                NSString *groupName = g2;
+                
+                [group enumerateAssetsUsingBlock:groupEnumerAtion];
+                
+            }
+            
+        };
+        
+        assetl = [[ALAssetsLibrary alloc]init];
+        
+        [assetl enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:libraryGroup failureBlock:failureBlock];
+    
+//    [self.view addSubview:cycleScroll];
+
+    
+//    });
+
+}
+
 
 -(void)viewWillAppear:(BOOL)animated{
 
