@@ -69,8 +69,6 @@
     }
     
     
-    //初始化_locManager
-    [self initLocManager];
 
     
     [self loadNewView];
@@ -106,7 +104,11 @@
 //        
 //    }
 //    else{
-        [self loadViewController];
+    
+    //初始化_locManager
+    [self initLocManager];
+
+    [self loadViewController];
     
     
 //    }
