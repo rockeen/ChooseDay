@@ -19,20 +19,20 @@
 #import "UMSocialQQHandler.h"
 #import "UMSocialWechatHandler.h"
 #import <MaxLeap/MaxLeap.h>
-//#import "StartViewController.h"
+#import "GuideView.h"
 
 @interface AppDelegate ()
 {
 
-    NSInteger _btnIndex;//记录点击的是哪个登录按钮
+    BOOL isFirstLoad;//记录是否是第一次进入App
     
     //定位管理者
     CLLocationManager *_locManager;
     
-    
     WeatherViewController *weatherVc;
+    
+    GuideView *markView;
 
-    BOOL isfirstload;
 }
 @end
 
@@ -46,6 +46,14 @@
     self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
     self.window.backgroundColor=[UIColor whiteColor];
+    
+    NSUserDefaults *userDefault = [[NSUserDefaults alloc]init];
+    
+    //获取bool值
+    isFirstLoad = [userDefault boolForKey:@"first"];
+    
+    //接收通知
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(oauthFunc) name:@"weibologin" object:nil];
     
     //注册本地通知
     //判断当前设备的系统版本是否是大于8.0的
@@ -68,17 +76,38 @@
 
     }
     
+<<<<<<< HEAD
     
+=======
+    //初始化_locManager
+    [self initLocManager];
+>>>>>>> c54d71fed44075a983b0de3c9d4c04973ecda3eb
 
-    
     [self loadNewView];
+    
+    if (isFirstLoad == NO) {
+        
+        markView = [[GuideView alloc]initWithFrame:self.window.bounds];
+        
+        markView.fullShow = YES;
+        
+        markView.model = GuideViewCleanModeRoundRect;
+        
+        markView.showRect = CGRectMake(210, 380, 100, 60);
+        
+        [self.window addSubview:markView];
+        
+        [userDefault setBool:YES forKey:@"first"];
+        
+    }
+
     
     return YES;
 
 }
 
+//初始MainColor
 - (void)loadBeginColor{
-    
     
     NSMutableArray *dic = [NSMutableArray array];
     [dic addObject:@(250/255.0)];
@@ -93,6 +122,7 @@
 
 -(void)loadNewView{
     
+<<<<<<< HEAD
 //    //数据持久化
 //    NSUserDefaults *userDefault = [[NSUserDefaults alloc]init];
 //    isfirstload = [userDefault boolForKey:@"first"];
@@ -116,6 +146,9 @@
     
     //接收通知
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(oauthFunc) name:@"weibologin" object:nil];
+=======
+    [self loadViewController];
+>>>>>>> c54d71fed44075a983b0de3c9d4c04973ecda3eb
     
     //分享功能
     [UMSocialData setAppKey:kUMAppkey];
@@ -213,39 +246,43 @@
     
     self.window.rootViewController=tabBar;
     
-    //接收通知
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(oauthFunc) name:@"weibologin" object:nil];
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+
+    CGPoint point = [[touches anyObject]locationInView:markView.superview];
     
-    //分享功能
-    [UMSocialData setAppKey:kUMAppkey];
+     markView.showRect = CGRectMake(point.x-markView.showRect.size.width/2.0f, point.y-markView.showRect.size.height/2.0f, markView.showRect.size.width, markView.showRect.size.height);
     
-    //打开调试log的开关
-    [UMSocialData openLog:YES];
+    if (point.x>0 && point.x<100 && point.y>0 && point.y<60) {
+        
+        markView.markText = @"添加待办事项(点击底部退出)";
+        
+    }else if (point.x>100 && point.x<250 && point.y>0 && point.y<60) {
+        
+        markView.markText = @"设置年份or月份(点击底部退出)";
+
+    }else if (point.x>100 && point.x<kScreenW && point.y>0 && point.y<60) {
     
-    //    //设置分享到QQ空间的应用Id，和分享url 链接
-    [UMSocialQQHandler setQQWithAppId:kAppID appKey:kAPPKEY url:@"http://www.umeng.com/social"];
-    //    //设置支持没有客户端情况下使用SSO授权
-    [UMSocialQQHandler setSupportWebView:YES];
+        markView.markText = @"返回当前日期(点击底部退出)";
     
-    //设置微信AppId，设置分享url，默认使用友盟的网址
-    [UMSocialWechatHandler setWXAppId:kWXAppID appSecret:kWXAppSecret url:@"http://www.umeng.com/social"];
+    }else if (point.x>0 && point.x<kScreenW &&point.y>60 && point.y<kScreenH*2/3) {
     
-    //初始化_locManager
-//    [self initLocManager];
+        markView.markText = @"日历显示(点击底部退出)";
+        
+    }else if (point.x>0 && point.x<kScreenW && point.y>kScreenH*2/3 && point.y<(kScreenH*2/3+kScreenW/3)) {
     
-    //链接服务器
-    [MaxLeap setApplicationId:@"56ca625760b2b393412e7d29" clientKey:@"YkNIQUVPM3JMTUdLT2wzaUdPVzJ3Zw" site:MLSiteCN];
+        markView.markText = @"黄历显示(点击底部退出)";
     
-    //    [MaxLeap setApplicationId:@"your_application_id" clientKey:@"your_client_key" site:MLSiteCN];
+    }else if (point.x>0 && point.x<kScreenW && point.y>(kScreenH*2/3+kScreenW/3) && point.y<(kScreenH*2/3+kScreenW/3+kScreenW/10)) {
     
-    MLObject *obj = [MLObject objectWithoutDataWithClassName:@"Test" objectId:@"561c83c0226"];
-    [obj fetchIfNeededInBackgroundWithBlock:^(MLObject * _Nullable object, NSError * _Nullable error) {
-        if (error.code == kMLErrorInvalidObjectId) {
-            NSLog(@"已经能够正确连接上您的云端应用");
-        } else {
-            NSLog(@"应用访问凭证不正确，请检查。");
-        }
-    }];
+        markView.markText = @"待办事项显示(点击底部退出)";
+    
+    }else {
+    
+        markView.hidden = YES;
+        
+    }
 
 }
 

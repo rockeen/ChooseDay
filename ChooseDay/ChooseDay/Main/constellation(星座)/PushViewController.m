@@ -7,6 +7,7 @@
 //
 
 #import "PushViewController.h"
+#import "GameViewController.h"
 
 @interface PushViewController ()
 
@@ -29,7 +30,7 @@
     
     imgV.image = self.backgroundImg;
     
-    imgV.contentMode = UIViewContentModeScaleAspectFit;
+    imgV.contentMode = UIViewContentModeScaleAspectFill;
     
     [self.view insertSubview:imgV atIndex:0];
 
@@ -40,6 +41,10 @@
     _data.text = _model.datetime;
     
     _summary.text = _model.summary;
+    
+    _summary.shadowOffset = CGSizeMake(.3, .3);
+    
+    _summary.shadowColor = [UIColor blackColor];
     
     _health.text = _model.health;
     
@@ -57,6 +62,34 @@
     
     _number.text = [NSString stringWithFormat:@"%@",_model.number];
     
+    [self createNavigationItem];
+    
+}
+
+-(void)createNavigationItem{
+
+    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 88, 44)];
+    
+    [btn setTitle:@"小游戏" forState:UIControlStateNormal];
+    
+    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    [btn addTarget:self action:@selector(btnAct:) forControlEvents:UIControlEventTouchUpInside];
+
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:btn];
+    
+    self.navigationItem.rightBarButtonItem = item;
+
+}
+
+-(void)btnAct:(UIButton *)btn{
+
+    GameViewController *game = [[GameViewController alloc]init];
+    
+    game.image = self.backgroundImg;
+    
+    [self.navigationController pushViewController:game animated:YES];
+
 }
 
 - (void)didReceiveMemoryWarning {

@@ -50,12 +50,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _dataList = [NSMutableArray arrayWithObjects:@"0",@"1",@"2", nil];
-
     
-//    _photoArr = @[@"白羊.jpg",@"金牛.jpg",@"双子.jpg",@"巨蟹.jpg",@"狮子.jpg",@"处女.jpg",@"天秤.jpg",@"天蝎.jpg",@"射手.jpg",@"摩羯.jpg",@"水瓶.jpg",@"双鱼.jpg"];
-
-//    _photoArr = @[@"白羊s.jpg",@"金牛s.jpg",@"双子s.jpg",@"巨蟹s.jpg",@"狮子s.jpg",@"处女s.jpg",@"天秤s.jpg",@"天蝎s.jpg",@"射手s.jpg",@"摩羯s.jpg",@"水瓶s.jpg",@"双鱼s.jpg"];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    self.navigationItem.backBarButtonItem = item;
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
+    
+    _dataList = [NSMutableArray arrayWithObjects:@"0",@"1",@"2", nil];
     
     _photoArr = @[@"白羊a",@"金牛a",@"双子a",@"巨蟹a",@"狮子a",@"处女a",@"天秤a",@"天蝎a",@"射手a",@"摩羯a",@"水瓶a",@"双鱼a"];
 
