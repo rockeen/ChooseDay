@@ -154,7 +154,7 @@
 		5EDFDB7E1C4F9D3A00777C0A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EDFDB7D1C4F9D3A00777C0A /* CoreGraphics.framework */; };
 		5EDFDB801C4F9D4500777C0A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EDFDB7F1C4F9D4500777C0A /* libz.tbd */; };
 		5EDFDB821C4F9D5300777C0A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EDFDB811C4F9D5300777C0A /* libsqlite3.tbd */; };
-		CD0085C31C84304E00701152 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CD0085C21C84304E00701152 /* Icon.png */; };
+		5EE0289E1C8939C500A38621 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EE0289D1C8939C500A38621 /* Icon.png */; };
 		CD0085C71C8440AD00701152 /* bg_mtime_star.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD0085C61C8440AD00701152 /* bg_mtime_star.jpg */; };
 		CD2DDC171C814B8800EB28E2 /* ConstellationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DDC161C814B8800EB28E2 /* ConstellationModel.m */; };
 		CD2DDC1A1C8169EE00EB28E2 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DDC191C8169EE00EB28E2 /* iCarousel.m */; };
@@ -538,10 +538,10 @@
 		5EDFDB7D1C4F9D3A00777C0A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5EDFDB7F1C4F9D4500777C0A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		5EDFDB811C4F9D5300777C0A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		5EE0289D1C8939C500A38621 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		7085B8AE0144C0D69FF84E7E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7E4EB7F30D91DDCD5D28BF36 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		869BB69912E21681EFDA50BA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		CD0085C21C84304E00701152 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		CD0085C61C8440AD00701152 /* bg_mtime_star.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bg_mtime_star.jpg; path = ../../bg_mtime_star.jpg; sourceTree = "<group>"; };
 		CD2DDC151C814B8800EB28E2 /* ConstellationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstellationModel.h; sourceTree = "<group>"; };
 		CD2DDC161C814B8800EB28E2 /* ConstellationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstellationModel.m; sourceTree = "<group>"; };
@@ -1527,8 +1527,8 @@
 				D6BFBE9E1C49EDC3007C68C7 /* Base */,
 				D6BFBEA01C49EDC3007C68C7 /* Main */,
 				D6BFBE771C49ECCA007C68C7 /* Assets.xcassets */,
+				5EE0289D1C8939C500A38621 /* Icon.png */,
 				D6BFBE791C49ECCA007C68C7 /* LaunchScreen.storyboard */,
-				CD0085C21C84304E00701152 /* Icon.png */,
 				D6BFBE7C1C49ECCA007C68C7 /* Info.plist */,
 				D6BFBE9F1C49EDC3007C68C7 /* Common */,
 				D6BFBE6B1C49ECCA007C68C7 /* Supporting Files */,
@@ -1977,6 +1977,7 @@
 				D6F10C4F1C7BF6F500CA72A5 /* LICENSE.txt in Resources */,
 				5EDF76DE1C4DC763001B9239 /* AboutViewController.storyboard in Resources */,
 				CD0085C71C8440AD00701152 /* bg_mtime_star.jpg in Resources */,
+				5EE0289E1C8939C500A38621 /* Icon.png in Resources */,
 				D6F10C631C7BFDDD00CA72A5 /* MBProgressHUD.bundle in Resources */,
 				5E1D96C41C7ABDE000587349 /* 空调.png in Resources */,
 				5EC0F5831C756B8600673A59 /* UMSLoginViewController.xib in Resources */,
@@ -1990,7 +1991,6 @@
 				5E7349B61C4C7AD800F810C2 /* MyViewController.storyboard in Resources */,
 				5E1D96CF1C7ABE0F00587349 /* 上海.jpg in Resources */,
 				5EC0F57B1C756B8600673A59 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
-				CD0085C31C84304E00701152 /* Icon.png in Resources */,
 				CD62DF4A1C8596E300661206 /* 巨蟹s.jpg in Resources */,
 				5EC0F5861C756B8600673A59 /* UMSocialSDKResourcesNew.bundle in Resources */,
 				CD62DF3C1C8596E300661206 /* 处女.jpg in Resources */,

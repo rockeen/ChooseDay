@@ -64,6 +64,14 @@
     
     [self createNavigationItem];
     
+    UIView *maskView = [[UIView alloc]initWithFrame:self.view.bounds];
+    
+    maskView.backgroundColor = [UIColor blackColor];
+    
+    maskView.alpha = .2;
+    
+    [self.view insertSubview:maskView aboveSubview:imgV];
+    
 }
 
 -(void)createNavigationItem{

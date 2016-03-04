@@ -26,6 +26,23 @@
     
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil]];
     
+    [self createLabel];
+    
+}
+
+//创建文字说明
+-(void)createLabel{
+
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, kScreenW-20, kScreenH-20)];
+    
+    label.text = @"ChooseDay APP是团队小组项目开发.团队成员包括：张晓阳、岳晓阳、闵哲、马迪，各自负责部分模块进行设计开发。";
+    
+    label.numberOfLines = 0;
+    
+    [label sizeToFit];
+    
+    [self.view addSubview:label];
+
 }
 
 - (void)didReceiveMemoryWarning {
