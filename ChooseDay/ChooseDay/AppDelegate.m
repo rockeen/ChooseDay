@@ -75,13 +75,10 @@
         [self loadBeginColor];
 
     }
-    
-<<<<<<< HEAD
-    
-=======
+
     //初始化_locManager
     [self initLocManager];
->>>>>>> c54d71fed44075a983b0de3c9d4c04973ecda3eb
+
 
     [self loadNewView];
     
@@ -122,22 +119,6 @@
 
 -(void)loadNewView{
     
-<<<<<<< HEAD
-//    //数据持久化
-//    NSUserDefaults *userDefault = [[NSUserDefaults alloc]init];
-//    isfirstload = [userDefault boolForKey:@"first"];
-//    if (isfirstload ==NO) {
-//        StartViewController *startVc = [[StartViewController alloc]init];
-//        self.window.rootViewController = startVc;
-//        //第一次加载后重新赋值
-//         [userDefault setBool:YES forKey:@"first"];
-//        
-//    }
-//    else{
-    
-    //初始化_locManager
-    [self initLocManager];
-
     [self loadViewController];
     
     
@@ -146,9 +127,6 @@
     
     //接收通知
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(oauthFunc) name:@"weibologin" object:nil];
-=======
-    [self loadViewController];
->>>>>>> c54d71fed44075a983b0de3c9d4c04973ecda3eb
     
     //分享功能
     [UMSocialData setAppKey:kUMAppkey];
