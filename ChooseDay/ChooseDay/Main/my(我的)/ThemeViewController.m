@@ -18,7 +18,6 @@
 }
 @end
 
-static int selectCell = 1;
 
 @implementation ThemeViewController
 
