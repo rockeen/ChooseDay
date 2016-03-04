@@ -18,7 +18,7 @@
 #import <MaxLeap/MaxLeap.h>
 #import "GUNMMAFN.h"
 
-@interface MyViewController ()
+@interface MyViewController ()<UIAlertViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *lists;
 
@@ -269,23 +269,44 @@
     //根据cell不同的tag值推出显示不同的页面
     if (cell.tag == 100) {
         
-        //判断是否授权
-        if (kQQOpenID || kAccessToken ||[self isLoggedIn]) {
-            
-            //个人信息页面
-            InfoViewController *infoVC = [[InfoViewController alloc]init];
-            
-            [self.navigationController pushViewController:infoVC animated:YES];
-            
-        }else {
+        AFNetworkReachabilityManager *reManager = [AFNetworkReachabilityManager sharedManager];
         
-            //登录
-            EnterViewController *enterVC = [[EnterViewController alloc]init];
+        // 提示：要监控网络连接状态，必须要先调用单例的startMonitoring方法
+        [reManager startMonitoring];
+        
+        
+        [reManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
             
-            [self.navigationController pushViewController:enterVC animated:YES];
-        
-        }
-        
+            if (status) {
+                
+                //判断是否授权
+                if (kQQOpenID || kAccessToken ||[self isLoggedIn]) {
+                    
+                    //个人信息页面
+                    InfoViewController *infoVC = [[InfoViewController alloc]init];
+                    
+                    [self.navigationController pushViewController:infoVC animated:YES];
+                    
+                }else {
+                    
+                    //登录
+                    EnterViewController *enterVC = [[EnterViewController alloc]init];
+                    
+                    [self.navigationController pushViewController:enterVC animated:YES];
+                    
+                }
+                
+            }
+            else{
+                
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                
+                cell.accessoryType = UITableViewCellAccessoryNone;
+
+            
+            }
+        }];
+
     }else if (cell.tag == 110) {
     
         //主题切换
@@ -375,24 +396,48 @@
 
     [super viewWillAppear:animated];
     
-    //判断登录的账号类型
-    if (kUserName) {
+    AFNetworkReachabilityManager *reManager = [AFNetworkReachabilityManager sharedManager];
+    
+    // 提示：要监控网络连接状态，必须要先调用单例的startMonitoring方法
+    [reManager startMonitoring];
+    
+    
+    [reManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         
-        //如果是ChooseDay账号登录
-        [self loginfor];
-        
-    }else if (kQQOpenID) {
-    
-        //如果是QQ账号登录
-        [self updateQQData];
-    
-    }else {
-    
-        //如果是微博账号登录
-        [self updateData];
-    
-    }
-//    NSLog(@"%@",kUserName);
+        if (status) {
+            
+            //判断登录的账号类型
+            if (kUserName) {
+                
+                //如果是ChooseDay账号登录
+                [self loginfor];
+                
+            }else if (kQQOpenID) {
+                
+                //如果是QQ账号登录
+                [self updateQQData];
+                
+            }else {
+                
+                //如果是微博账号登录
+                [self updateData];
+                
+            }
+            
+        }
+        else{
+            
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"无法连接到互联网" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            
+            alert.alertViewStyle = UIAlertViewStyleDefault;
+            
+            alert.tag = 11;
+            
+            [alert show];
+        }
+    }];
+
+    //    NSLog(@"%@",kUserName);
     
 //    NSLog(@"xxxxx%@",self.userName.text);
 
