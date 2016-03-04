@@ -9,6 +9,7 @@
 #import "AboutViewController.h"
 #import "WebViewController.h"
 #import "UseViewController.h"
+#import "QRCodeGenerator.h"
 
 @interface AboutViewController ()
 
@@ -36,7 +37,7 @@
     
     _qqAddress.text = @"384120230";
     
-    
+    _imgView.image = [QRCodeGenerator qrImageForString:@"ChooseDay测试二维码~" imageSize:_imgView.width];
     
 }
 
@@ -73,7 +74,7 @@
         
         [self.navigationController pushViewController:webVC animated:YES];
     
-    }else {
+    }else{
     
         //设置cell不能被点击
         cell.selectionStyle = UITableViewCellSelectionStyleNone;

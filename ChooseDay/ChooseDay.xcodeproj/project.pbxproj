@@ -42,6 +42,14 @@
 		5E1D97161C7AE1BD00587349 /* LifeInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D97141C7AE1BD00587349 /* LifeInfoModel.m */; };
 		5E1D97191C7AE1F400587349 /* GUNMMAFN.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1D97181C7AE1F400587349 /* GUNMMAFN.m */; };
 		5E255DC71C7AAFA600AC356F /* CalaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E255DC61C7AAFA600AC356F /* CalaViewController.m */; };
+		5E3EB1DC1C896A70002254C6 /* bitstream.c in Sources */ = {isa = PBXBuildFile; fileRef = 5E3EB1CE1C896A70002254C6 /* bitstream.c */; };
+		5E3EB1DD1C896A70002254C6 /* mask.c in Sources */ = {isa = PBXBuildFile; fileRef = 5E3EB1D01C896A70002254C6 /* mask.c */; };
+		5E3EB1DE1C896A70002254C6 /* qrencode.c in Sources */ = {isa = PBXBuildFile; fileRef = 5E3EB1D21C896A70002254C6 /* qrencode.c */; };
+		5E3EB1DF1C896A70002254C6 /* qrinput.c in Sources */ = {isa = PBXBuildFile; fileRef = 5E3EB1D41C896A70002254C6 /* qrinput.c */; };
+		5E3EB1E01C896A70002254C6 /* qrspec.c in Sources */ = {isa = PBXBuildFile; fileRef = 5E3EB1D61C896A70002254C6 /* qrspec.c */; };
+		5E3EB1E11C896A70002254C6 /* rscode.c in Sources */ = {isa = PBXBuildFile; fileRef = 5E3EB1D81C896A70002254C6 /* rscode.c */; };
+		5E3EB1E21C896A70002254C6 /* split.c in Sources */ = {isa = PBXBuildFile; fileRef = 5E3EB1DA1C896A70002254C6 /* split.c */; };
+		5E3EB1E61C896CB6002254C6 /* QRCodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3EB1E51C896CB6002254C6 /* QRCodeGenerator.m */; };
 		5E4063681C785B0300596868 /* ZHPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4063671C785B0300596868 /* ZHPickView.m */; };
 		5E40636A1C7860FF00596868 /* DayPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E4063691C7860FF00596868 /* DayPlist.plist */; };
 		5E40636D1C7873AB00596868 /* MDPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E40636C1C7873AB00596868 /* MDPickerView.m */; };
@@ -327,6 +335,22 @@
 		5E1D97181C7AE1F400587349 /* GUNMMAFN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUNMMAFN.m; sourceTree = "<group>"; };
 		5E255DC51C7AAFA600AC356F /* CalaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalaViewController.h; sourceTree = "<group>"; };
 		5E255DC61C7AAFA600AC356F /* CalaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalaViewController.m; sourceTree = "<group>"; };
+		5E3EB1CE1C896A70002254C6 /* bitstream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bitstream.c; sourceTree = "<group>"; };
+		5E3EB1CF1C896A70002254C6 /* bitstream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bitstream.h; sourceTree = "<group>"; };
+		5E3EB1D01C896A70002254C6 /* mask.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mask.c; sourceTree = "<group>"; };
+		5E3EB1D11C896A70002254C6 /* mask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mask.h; sourceTree = "<group>"; };
+		5E3EB1D21C896A70002254C6 /* qrencode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = qrencode.c; sourceTree = "<group>"; };
+		5E3EB1D31C896A70002254C6 /* qrencode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qrencode.h; sourceTree = "<group>"; };
+		5E3EB1D41C896A70002254C6 /* qrinput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = qrinput.c; sourceTree = "<group>"; };
+		5E3EB1D51C896A70002254C6 /* qrinput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qrinput.h; sourceTree = "<group>"; };
+		5E3EB1D61C896A70002254C6 /* qrspec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = qrspec.c; sourceTree = "<group>"; };
+		5E3EB1D71C896A70002254C6 /* qrspec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qrspec.h; sourceTree = "<group>"; };
+		5E3EB1D81C896A70002254C6 /* rscode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rscode.c; sourceTree = "<group>"; };
+		5E3EB1D91C896A70002254C6 /* rscode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rscode.h; sourceTree = "<group>"; };
+		5E3EB1DA1C896A70002254C6 /* split.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = split.c; sourceTree = "<group>"; };
+		5E3EB1DB1C896A70002254C6 /* split.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = split.h; sourceTree = "<group>"; };
+		5E3EB1E41C896CB6002254C6 /* QRCodeGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeGenerator.h; sourceTree = "<group>"; };
+		5E3EB1E51C896CB6002254C6 /* QRCodeGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeGenerator.m; sourceTree = "<group>"; };
 		5E4063661C785B0300596868 /* ZHPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHPickView.h; sourceTree = "<group>"; };
 		5E4063671C785B0300596868 /* ZHPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHPickView.m; sourceTree = "<group>"; };
 		5E4063691C7860FF00596868 /* DayPlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DayPlist.plist; sourceTree = "<group>"; };
@@ -874,6 +898,36 @@
 			name = LifeModel;
 			sourceTree = "<group>";
 		};
+		5E3EB1CD1C896A70002254C6 /* libqrencode */ = {
+			isa = PBXGroup;
+			children = (
+				5E3EB1CE1C896A70002254C6 /* bitstream.c */,
+				5E3EB1CF1C896A70002254C6 /* bitstream.h */,
+				5E3EB1D01C896A70002254C6 /* mask.c */,
+				5E3EB1D11C896A70002254C6 /* mask.h */,
+				5E3EB1D21C896A70002254C6 /* qrencode.c */,
+				5E3EB1D31C896A70002254C6 /* qrencode.h */,
+				5E3EB1D41C896A70002254C6 /* qrinput.c */,
+				5E3EB1D51C896A70002254C6 /* qrinput.h */,
+				5E3EB1D61C896A70002254C6 /* qrspec.c */,
+				5E3EB1D71C896A70002254C6 /* qrspec.h */,
+				5E3EB1D81C896A70002254C6 /* rscode.c */,
+				5E3EB1D91C896A70002254C6 /* rscode.h */,
+				5E3EB1DA1C896A70002254C6 /* split.c */,
+				5E3EB1DB1C896A70002254C6 /* split.h */,
+			);
+			path = libqrencode;
+			sourceTree = "<group>";
+		};
+		5E3EB1E31C896A7E002254C6 /* 二维码 */ = {
+			isa = PBXGroup;
+			children = (
+				5E3EB1E41C896CB6002254C6 /* QRCodeGenerator.h */,
+				5E3EB1E51C896CB6002254C6 /* QRCodeGenerator.m */,
+			);
+			name = "二维码";
+			sourceTree = "<group>";
+		};
 		5E4063651C785AEF00596868 /* PickerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1338,6 +1392,7 @@
 		5EDF76DC1C4D3974001B9239 /* About(关于) */ = {
 			isa = PBXGroup;
 			children = (
+				5E3EB1E31C896A7E002254C6 /* 二维码 */,
 				5E8A54C21C507AC500EA9C98 /* SubView */,
 				5EDF76D51C4D384E001B9239 /* AboutViewController.h */,
 				5EDF76D61C4D384E001B9239 /* AboutViewController.m */,
@@ -1499,6 +1554,7 @@
 		D6BFBE5F1C49ECCA007C68C7 = {
 			isa = PBXGroup;
 			children = (
+				5E3EB1CD1C896A70002254C6 /* libqrencode */,
 				5E8108BE1C7C8AFF00EAE82A /* MaxLeapSDK */,
 				5EC0F4ED1C7553F200673A59 /* 分享SDK */,
 				5EC0F4EC1C7553A900673A59 /* 登录SDK */,
@@ -2107,15 +2163,18 @@
 				5E85DC801C76C0BA00E30F62 /* SDWebImageDownloader.m in Sources */,
 				5E42A17C1C7AA1DB00F7BCE8 /* AFURLRequestSerialization.m in Sources */,
 				5E42A1B01C7AAAE700F7BCE8 /* WHUCalendarView.m in Sources */,
+				5E3EB1E61C896CB6002254C6 /* QRCodeGenerator.m in Sources */,
 				5E42A1001C7A947000F7BCE8 /* ViewController+MASAdditions.m in Sources */,
 				5E42A0F91C7A947000F7BCE8 /* MASConstraintMaker.m in Sources */,
 				D6BFBF451C49EF3D007C68C7 /* NSObject+MJProperty.m in Sources */,
 				5E42A0FB1C7A947000F7BCE8 /* MASViewAttribute.m in Sources */,
 				5E85DC891C76C0BB00E30F62 /* UIImageView+WebCache.m in Sources */,
+				5E3EB1E01C896A70002254C6 /* qrspec.c in Sources */,
 				5E42A0FF1C7A947000F7BCE8 /* View+MASAdditions.m in Sources */,
 				5E1D96DB1C7ABEAF00587349 /* GUNMMCityMangerVc.m in Sources */,
 				5E53AA8E1C883A04003259D2 /* GuideView.m in Sources */,
 				5EDF76E91C4DE65C001B9239 /* ServiceViewController.m in Sources */,
+				5E3EB1E21C896A70002254C6 /* split.c in Sources */,
 				D6BFBF4C1C49EF9D007C68C7 /* ZXYBtn.m in Sources */,
 				5E85DC7B1C76C0BA00E30F62 /* MKAnnotationView+WebCache.m in Sources */,
 				D6BFBF191C49EF0C007C68C7 /* MJRefreshAutoGifFooter.m in Sources */,
@@ -2167,9 +2226,13 @@
 				D6BFBE701C49ECCA007C68C7 /* AppDelegate.m in Sources */,
 				D6BFBF461C49EF3D007C68C7 /* NSString+MJExtension.m in Sources */,
 				5E1D96DD1C7ABEAF00587349 /* GUNMMCityVC.m in Sources */,
+				5E3EB1DF1C896A70002254C6 /* qrinput.c in Sources */,
 				D6BFBF231C49EF0C007C68C7 /* MJRefreshConst.m in Sources */,
 				D6BFBF1F1C49EF0C007C68C7 /* MJRefreshGifHeader.m in Sources */,
+				5E3EB1DC1C896A70002254C6 /* bitstream.c in Sources */,
 				5E42A1891C7AA9ED00F7BCE8 /* ZXYCalendarHeadView.m in Sources */,
+				5E3EB1E11C896A70002254C6 /* rscode.c in Sources */,
+				5E3EB1DD1C896A70002254C6 /* mask.c in Sources */,
 				5E1D96F71C7ABFD100587349 /* OutModel.m in Sources */,
 				5E40636D1C7873AB00596868 /* MDPickerView.m in Sources */,
 				D6BFBF571C4A1FDF007C68C7 /* ConstellationViewController.m in Sources */,
@@ -2177,6 +2240,7 @@
 				5E1D97061C7AE17300587349 /* RealtimeModel.m in Sources */,
 				CDE4D1681C81B451004129FC /* PushViewController.m in Sources */,
 				5E42A1971C7AAA7000F7BCE8 /* ZXYAlmanacModel.m in Sources */,
+				5E3EB1DE1C896A70002254C6 /* qrencode.c in Sources */,
 				5E85DC7E1C76C0BA00E30F62 /* SDWebImageCompat.m in Sources */,
 				5E85DC821C76C0BB00E30F62 /* SDWebImageManager.m in Sources */,
 				D6BFBF5D1C4A2022007C68C7 /* MyViewController.m in Sources */,
@@ -2365,6 +2429,7 @@
 					"$(PROJECT_DIR)/MaxLeap-ios-sdk",
 					"$(PROJECT_DIR)/MaxLeap-ios-sdk/MLHelpCenter.embeddedframework",
 				);
+				GCC_INPUT_FILETYPE = sourcecode.c.objc;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ChooseDay/ChooseDay.pch";
 				INFOPLIST_FILE = ChooseDay/Info.plist;
@@ -2400,6 +2465,7 @@
 					"$(PROJECT_DIR)/MaxLeap-ios-sdk",
 					"$(PROJECT_DIR)/MaxLeap-ios-sdk/MLHelpCenter.embeddedframework",
 				);
+				GCC_INPUT_FILETYPE = sourcecode.c.objc;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ChooseDay/ChooseDay.pch";
 				INFOPLIST_FILE = ChooseDay/Info.plist;
