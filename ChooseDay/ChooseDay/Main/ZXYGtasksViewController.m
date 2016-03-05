@@ -489,9 +489,7 @@ static const NSInteger rangeTop=20;
     
     //选中按钮
     cell.yesBtn.hidden=YES;
-    //    UIButton *btn=[[UIButton alloc]initWithFrame:CGRectMake(cell.width-10-20, 10, 20, 20)];
-    
-    [tableView setEditing:!tableView.editing animated:NO];
+
     
     
     return cell;
@@ -590,6 +588,10 @@ static const NSInteger rangeTop=20;
         [_gtasksOneDayFinishArray removeObjectAtIndex:indexPath.row];
         //        删除表视图中的单元格
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        
+        GtasksData *gtd=[GtasksData new];
+        
+        [gtd deleteOneDayFinishArray:_dataStr index:indexPath.row];
         
     }];
     
