@@ -9,6 +9,8 @@
 #import "GameViewController.h"
 
 @interface GameViewController ()
+{
+   }
 
 @end
 
@@ -24,7 +26,8 @@
     CGFloat heigh =self.image.size.height/3;
     
     UIImageView *im =[[UIImageView alloc]initWithImage:self.image];
-    im.frame=CGRectMake(kScreenW/2-100, kScreenH-kScreenW/2-20-69, kScreenW/2, kScreenW/2);
+    im.frame=CGRectMake(self.view.center.x - kScreenW/4, kScreenH-kScreenW/2-20-69, kScreenW/2, kScreenW/2);
+    
     
     
     [self.view addSubview:im];
@@ -34,7 +37,7 @@
         int row =i/3;
         int col =i%3;
         UIButton *btn =[UIButton buttonWithType:0];
-        btn.frame=CGRectMake(30+col*(100+5), 50+row*105, 100, 100);
+        btn.frame=CGRectMake(30+col*((kScreenW-60)/3), 50+row*((kScreenW-60)/3), ((kScreenW-60)/3)-5, ((kScreenW-60)/3)-5);
         NSMutableArray *arrww = kMainColor;
         btn.backgroundColor = [UIColor colorWithRed:[arrww[0] floatValue] green:[arrww[1] floatValue] blue:[arrww[2] floatValue] alpha:1];;
         [self.view addSubview:btn];
@@ -50,7 +53,7 @@
             UIImage *little =[UIImage imageWithCGImage:imgref];
             CGImageRelease(imgref);
             
-            UIImageView *imageView1 =[[UIImageView alloc]initWithFrame:CGRectMake(30+col*(100+5), 50+row*105, 100, 100)];
+            UIImageView *imageView1 =[[UIImageView alloc]initWithFrame:CGRectMake(30+col*((kScreenW-60)/3), 50+row*((kScreenW-60)/3), ((kScreenW-60)/3)-5, ((kScreenW-60)/3)-5)];
             
             
             imageView1.image =little;
@@ -58,6 +61,7 @@
             
         }
         [ary addObject: [NSValue valueWithCGRect:btn.frame]];
+        
         
         [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -97,7 +101,7 @@
     }
     
     
-    
+       
 }
 
 -(void)btnClick:(UIButton *)btn1
@@ -111,13 +115,19 @@
     CGFloat y1 =btn1.frame.origin.y;
     
     
-    if ((x==x1&&fabs(y-y1)==105)||((y==y1&&fabs(x-x1)==105))) {
+    if ((x==x1&&((int)fabs(y-y1)==(int)((kScreenW-60)/3)))||((y==y1&&(int)fabs(x-x1)==(int)((kScreenW-60)/3)))) {
         CGRect frame = b.frame;
         b.frame = btn1.frame;
-        btn1.frame = frame;
+        
+        [UIView animateWithDuration:0.5 animations:^{
+            btn1.frame = frame;
+
+        }];
         
     }
     
+    
+        
     
     
 }
