@@ -144,6 +144,23 @@
 
 }
 
+<<<<<<< Updated upstream
+=======
+
+//- (void)viewWillAppear:(BOOL)animated{
+//
+//k
+//
+//    [self loginfor];
+//
+//
+//
+//
+//
+//}
+//
+
+>>>>>>> Stashed changes
 //更新数据
 -(void)updateQQData{
 
