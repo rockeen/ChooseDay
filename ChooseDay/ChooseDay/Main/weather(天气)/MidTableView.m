@@ -96,22 +96,15 @@
     //设置背景图片视图
     UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",_outModel.realtime.city_name]];
     
-    UIImageView *bGimgV;
-
-    
     if (image) {
-        bGimgV = [[UIImageView alloc]initWithImage:image];
+        self.backgroundView = [[UIImageView alloc]initWithImage:image];
         //        cell.backgroundColor = [UIColor colorWithPatternImage:image];
     }
     else{
-       
-        bGimgV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"其他.jpg"]];
+        //        cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"其他.jpg"]];
+        self.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"其他.jpg"]];
         
     }
-    
-    bGimgV.contentMode = UIViewContentModeScaleAspectFit;
-    self.backgroundView = bGimgV;
-
 
 }
 
